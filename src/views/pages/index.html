@@ -1,0 +1,569 @@
+{% extends 'src/views/layouts/main.njk' %}
+
+{% block content %}
+<div class="docs-page bg-primary">
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="row justify-content-center">
+            <div class="col-xxl-10">
+                <div class="docs-hero text-center py-5">
+                    <h1 class="docs-title display-4 fw-bold mb-4">
+                        <span class="text-primary">Frontend</span> Framework Documentation
+                    </h1>
+                    <p class="lead mb-5">A modern Vite-powered frontend framework with Nunjucks templating, SCSS
+                        compilation, and automated asset optimization.</p>
+                    <div class="docs-badges">
+                        <span class="badge bg-primary fs-6 me-2">Vite 7.3</span>
+                        <span class="badge bg-primary fs-6 me-2">Node 22.x</span>
+                        <span class="badge bg-primary fs-6 me-2">Bootstrap 5.3</span>
+                        <span class="badge bg-primary fs-6 me-2">JavaScript (ES6+)</span>
+                        <span class="badge bg-primary fs-6 me-2">Vitest</span>
+                        <span class="badge bg-primary fs-6 me-2">Swiper</span>
+                        <span class="badge bg-primary fs-6 me-2">SCSS</span>
+                        <span class="badge bg-primary fs-6 me-2">PurgeCSS</span>
+                        <span class="badge bg-primary fs-6">Nunjucks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pages Navigation -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-xxl-10">
+                <div class="docs-section">
+                    <h2 class="section-title h3 mb-4">
+                        <i class="fas fa-sitemap text-primary me-2"></i>
+                        Available Pages
+                    </h2>
+                    <div class="pages-navigation">
+                        <div class="row g-3">
+                            {% for page in pages %}
+                            <div class="col-md-6 col-lg-4">
+                                <a href="{{ page.url }}" class="page-card">
+                                    <div class="page-icon">
+                                        {% if page.name == '404' %}
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        {% elif page.name == 'help-center' %}
+                                        <i class="fas fa-question-circle"></i>
+                                        {% elif page.name == 'home' %}
+                                        <i class="fas fa-home"></i>
+                                        {% elif page.name == 'search' %}
+                                        <i class="fas fa-search"></i>
+                                        {% elif 'product' in page.name %}
+                                        <i class="fas fa-shopping-cart"></i>
+                                        {% else %}
+                                        <i class="fas fa-file-alt"></i>
+                                        {% endif %}
+                                    </div>
+                                    <div class="page-info">
+                                        <h5>{{ page.name | title | replace('-', ' ') }}</h5>
+                                        <span class="page-url">{{ page.url }}</span>
+                                    </div>
+                                    <div class="page-arrow">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Start Section -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-xxl-10">
+                <div class="docs-section">
+                    <h2 class="section-title h3 mb-4">
+                        <i class="fas fa-rocket text-primary me-2"></i>
+                        Quick Start
+                    </h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="quick-start-card h-100">
+                                <div class="card-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <h4>1. Install Dependencies</h4>
+                                <div class="code-block">
+                                    <code>npm install</code>
+                                </div>
+                                <p>Install all required dependencies including Vite, SCSS compiler, and build tools.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="quick-start-card h-100">
+                                <div class="card-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <h4>2. Start Development</h4>
+                                <div class="code-block">
+                                    <code>npm run dev</code>
+                                </div>
+                                <p>Start the development server with hot reload and automatic page generation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Commands -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-xxl-10">
+                <div class="docs-section">
+                    <h2 class="section-title h3 mb-4">
+                        <i class="fas fa-terminal text-success me-2"></i>
+                        Available Commands
+                    </h2>
+                    <div class="command-grid">
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run dev</code>
+                                <span class="command-badge development">Development</span>
+                            </div>
+                            <p>Start development server with hot reload</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run build</code>
+                                <span class="command-badge production">Production</span>
+                            </div>
+                            <p>Build optimized production bundle</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run build:public</code>
+                                <span class="command-badge production">Public Assets</span>
+                            </div>
+                            <p>Build and optimize public assets (fonts, images)</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run build:watch</code>
+                                <span class="command-badge development">Watch Mode</span>
+                            </div>
+                            <p>Build in watch mode for development</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run generate:pages</code>
+                                <span class="command-badge utility">Utility</span>
+                            </div>
+                            <p>Generate pages.json from HTML files</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run generate:pages:watch</code>
+                                <span class="command-badge utility">Utility</span>
+                            </div>
+                            <p>Watch and auto-generate pages.json</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run generate:components</code>
+                                <span class="command-badge utility">Components</span>
+                            </div>
+                            <p>Generate clean HTML files for all components</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run generate:docs</code>
+                                <span class="command-badge utility">Documentation</span>
+                            </div>
+                            <p>Generate component documentation (markdown & HTML)</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run figma:sync</code>
+                                <span class="command-badge utility">Figma Sync</span>
+                            </div>
+                            <p>Full sync of design tokens and components from Figma</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run figma:tokens</code>
+                                <span class="command-badge utility">Figma Tokens</span>
+                            </div>
+                            <p>Sync color and typography styles from Figma only</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run figma:scaffold</code>
+                                <span class="command-badge utility">Figma Scaffold</span>
+                            </div>
+                            <p>Scaffold new component folders based on Figma library</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run test</code>
+                                <span class="command-badge development">Testing</span>
+                            </div>
+                            <p>Run JavaScript tests in watch mode</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run test:run</code>
+                                <span class="command-badge utility">Testing</span>
+                            </div>
+                            <p>Run JavaScript tests once</p>
+                        </div>
+                        <div class="command-item">
+                            <div class="command-header">
+                                <code>npm run test:ui</code>
+                                <span class="command-badge development">Testing UI</span>
+                            </div>
+                            <p>Run tests with browser interface</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Framework Architecture -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-xxl-10">
+                <div class="docs-section">
+                    <h2 class="section-title h3 mb-4">
+                        <i class="fas fa-sitemap text-info me-2"></i>
+                        Framework Architecture
+                    </h2>
+                    <div class="architecture-grid">
+                        <div class="arch-item">
+                            <div class="arch-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <h5>Nunjucks Templates</h5>
+                            <p>Powerful templating with layouts, includes, and macros for reusable components.</p>
+                        </div>
+                        <div class="arch-item">
+                            <div class="arch-icon">
+                                <i class="fab fa-sass"></i>
+                            </div>
+                            <h5>SCSS Compilation</h5>
+                            <p>Modern CSS with variables, mixins, and component-based styling architecture.</p>
+                        </div>
+                        <div class="arch-item">
+                            <div class="arch-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h5>Vite Build System</h5>
+                            <p>Lightning-fast development with hot reload and optimized production builds.</p>
+                        </div>
+                        <div class="arch-item">
+                            <div class="arch-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <h5>Asset Optimization</h5>
+                            <p>Automatic WebP conversion, font optimization, and image compression.</p>
+                        </div>
+                        <div class="arch-item">
+                            <div class="arch-icon">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <h5>Testing Framework</h5>
+                            <p>Comprehensive JavaScript testing with Vitest for code quality and validation.</p>
+                        </div>
+                        <div class="arch-item">
+                            <div class="arch-icon">
+                                <i class="fab fa-figma"></i>
+                            </div>
+                            <h5>Figma Integration</h5>
+                            <p>Automated design-to-code workflow with token syncing and component scaffolding.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Structure -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-xxl-10">
+                <div class="docs-section">
+                    <h2 class="section-title h3 mb-4">
+                        <i class="fas fa-folder-tree text-warning me-2"></i>
+                        Project Structure
+                    </h2>
+                    <div class="structure-container">
+                        <pre class="structure-tree"><code>├── public/                    # Static assets & generated files
+│   ├── components/           # <span class="text-success">✨ Generated HTML components</span>
+│   │   ├── ...               # All component HTML files
+│   │   └── manifest.json     # Component metadata
+├── scripts/                  # Build scripts
+│   ├── figma-sync.js         # <span class="text-info">🎨 Figma integration script</span>
+│   ├── generate-pages.js     # Auto page generation
+│   └── generate-components.js # <span class="text-success">✨ Component HTML generation</span>
+├── figma.config.js           # <span class="text-info">⚙️ Figma sync configuration</span>
+├── .env.example              # Environment variables template
+├── tests/                    # <span class="text-info">🧪 JavaScript testing</span>
+│   ├── components.test.js    # <span class="text-success">🚀 Dynamic component discovery</span>
+│   └── js-modules.test.js    # Module validation tests
+├── src/
+│   ├── js/                   # JavaScript modules
+│   │   ├── general.js        # Global JavaScript
+│   │   ├── main.js          # Main entry point
+│   │   └── shared/          # Shared utilities
+│   ├── scss/                 # SCSS stylesheets
+│   └── views/                # Nunjucks templates
+│       ├── components/       # Reusable components
+│       │   ├── Header/       # Component folders
+│       │   │   ├── с_header.njk    # Template file
+│       │   │   ├── _с_header.js    # JavaScript
+│       │   │   └── _c_header.scss  # Styles
+│       │   └── ...           # More components
+│       ├── layouts/          # Page layouts
+│       ├── macros/           # Template macros
+│       ├── pages/            # Individual pages (.html)
+│       ├── data.json         # Global template data
+│       └── pages.json        # Auto-generated page list
+├── package.json              # Dependencies & scripts
+├── vite.config.js            # Vite configuration
+├── vitest.config.js          # <span class="text-info">🧪 Testing configuration</span>
+├── vite-files.js            # Build file configuration
+└── vite-plugins.js          # Custom Vite plugins
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-xxl-10">
+                <div class="docs-section">
+                    <h2 class="section-title h3 mb-4">
+                        <i class="fas fa-star text-warning me-2"></i>
+                        Key Features
+                    </h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h5>Auto Page Generation</h5>
+                            <p>Automatically generates pages.json from HTML files in the pages directory.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h5>Component HTML Export</h5>
+                            <p>Generates clean, formatted HTML files from Nunjucks components for backend integration.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-compress-alt"></i>
+                            </div>
+                            <h5>Asset Optimization</h5>
+                            <p>Automatic WebP conversion, font format generation, and image compression.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h5>Responsive Design</h5>
+                            <p>Bootstrap 5.3 integration with custom responsive utilities and mixins.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-code-branch"></i>
+                            </div>
+                            <h5>Component Architecture</h5>
+                            <p>Modular component system with separate JS/SCSS files for each component.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h5>JavaScript Testing</h5>
+                            <p>Comprehensive testing framework with Vitest featuring automatic component discovery and
+                                code quality validation.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fab fa-figma"></i>
+                            </div>
+                            <h5>Figma Sync System</h5>
+                            <p>Automated syncing of design tokens and component scaffolding to maintain design-dev
+                                consistency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Changelog -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-xxl-10">
+                <div class="docs-section">
+                    <h2 class="section-title h3 mb-4">
+                        <i class="fas fa-history text-info me-2"></i>
+                        Changelog
+                    </h2>
+                    <div class="changelog-container">
+                        <div class="changelog-entry">
+                            <div class="changelog-header">
+                                <div class="changelog-version">
+                                    <span class="version-badge">v1.5.0</span>
+                                    <span class="changelog-date">January 2026</span>
+                                </div>
+                                <div class="changelog-type added">Added</div>
+                            </div>
+                            <div class="changelog-content">
+                                <h5>Figma Design System Integration</h5>
+                                <ul class="changelog-list">
+                                    <li><strong>Design Token Sync:</strong> Automated extraction of color and typography
+                                        styles from Figma via REST API</li>
+                                    <li><strong>SCSS Generation:</strong> Automatically generates
+                                        <code>_settings.colors.figma.scss</code> and
+                                        <code>_settings.fonts.figma.scss</code></li>
+                                    <li><strong>Component Scaffolding:</strong> New <code>figma:scaffold</code> command
+                                        to auto-generate component folders with NJK, SCSS, and JS templates</li>
+                                    <li><strong>Configuration System:</strong> Dedicated <code>figma.config.js</code>
+                                        for mapping tokens and defining scaffolding rules</li>
+                                    <li><strong>Environment Security:</strong> Secure credential management using
+                                        <code>.env</code> files</li>
+                                    <li><strong>Flexible Sync:</strong> Support for partial sync (tokens only or
+                                        scaffold only) and specific component scaffolding</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="changelog-entry">
+                            <div class="changelog-header">
+                                <div class="changelog-version">
+                                    <span class="version-badge">v1.4.0</span>
+                                    <span class="changelog-date">January 2026</span>
+                                </div>
+                                <div class="changelog-type added">Added</div>
+                            </div>
+                            <div class="changelog-content">
+                                <h5>Component Documentation Generator</h5>
+                                <ul class="changelog-list">
+                                    <li><strong>Automated Documentation:</strong> New script
+                                        <code>scripts/generate-component-docs.js</code> automatically generates
+                                        comprehensive component documentation
+                                    </li>
+                                    <li><strong>Dual Output Formats:</strong> Generates both Markdown
+                                        (<code>docs/component-documentation.md</code>) and interactive HTML
+                                        (<code>docs/component-documentation.html</code>) versions</li>
+                                    <li><strong>Entity Extraction:</strong> Automatically identifies inputs, buttons,
+                                        links, images, headings, and data attributes from components</li>
+                                    <li><strong>Layout Detection:</strong> Detects grid columns, flex layouts,
+                                        responsive variants, BEM modifiers, and size variations</li>
+                                    <li><strong>Component Relationships:</strong> Maps nested components and reverse
+                                        "Included in" relationships showing component dependencies</li>
+                                    <li><strong>Interactive HTML:</strong> Sticky sidebar navigation with search, active
+                                        section highlighting, and smooth scrolling</li>
+                                    <li><strong>Pattern Recognition:</strong> Identifies forms, carousels, modals,
+                                        grids, accordions, and table structures</li>
+                                    <li><strong>Page Mapping:</strong> Bidirectional mapping between components and
+                                        pages (72 components, 42 pages)</li>
+                                    <li><strong>Usage Statistics:</strong> Shows most-used components, unused
+                                        components, and complexity metrics</li>
+                                    <li><strong>Build Integration:</strong> Runs automatically during
+                                        <code>npm run generate:all</code>
+                                    </li>
+                                    <li><strong>New Command:</strong> <code>npm run generate:docs</code> for manual
+                                        documentation generation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="changelog-entry">
+                            <div class="changelog-header">
+                                <div class="changelog-version">
+                                    <span class="version-badge">v1.3.0</span>
+                                    <span class="changelog-date">September 2025</span>
+                                </div>
+                                <div class="changelog-type added">Added</div>
+                            </div>
+                            <div class="changelog-content">
+                                <h5>JavaScript Testing Framework with Vitest</h5>
+                                <ul class="changelog-list">
+                                    <li><strong>Testing Framework:</strong> Integrated Vitest for JavaScript validation
+                                        and testing</li>
+                                    <li><strong>Test Commands:</strong> <code>npm test</code>,
+                                        <code>npm run test:run</code>, and <code>npm run test:ui</code>
+                                    </li>
+                                    <li><strong>Consolidated Testing:</strong> Single test files validate multiple
+                                        source files efficiently</li>
+                                    <li><strong>Test Coverage:</strong> All JavaScript files in <code>src/js/</code> and
+                                        <code>src/views/components/</code>
+                                    </li>
+                                    <li><strong>Dynamic Discovery:</strong> Automatically finds and tests new components
+                                        without manual updates</li>
+                                    <li><strong>Validation Features:</strong> File existence, syntax checking,
+                                        import/export validation, and code quality rules</li>
+                                    <li><strong>No Individual Files:</strong> Organized testing approach without
+                                        cluttering source directories</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="changelog-entry">
+                            <div class="changelog-header">
+                                <div class="changelog-version">
+                                    <span class="version-badge">v1.2.0</span>
+                                    <span class="changelog-date">Previous Release</span>
+                                </div>
+                                <div class="changelog-type added">Added</div>
+                            </div>
+                            <div class="changelog-content">
+                                <h5>Component HTML Generation System</h5>
+                                <ul class="changelog-list">
+                                    <li><strong>New Script:</strong> <code>scripts/generate-components.js</code> -
+                                        Converts Nunjucks components to clean HTML</li>
+                                    <li><strong>New Commands:</strong> <code>npm run generate:components</code> and
+                                        <code>npm run generate:all</code>
+                                    </li>
+                                    <li><strong>Output Location:</strong> Components exported to
+                                        <code>public/components/</code> directory
+                                    </li>
+                                    <li><strong>HTML Formatting:</strong> Proper 2-space indentation and structured
+                                        output for backend developers</li>
+                                    <li><strong>Manifest Generation:</strong> Auto-generated metadata file with
+                                        component information</li>
+                                    <li><strong>Build Integration:</strong> Component generation now runs automatically
+                                        during build process</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="changelog-entry">
+                            <div class="changelog-header">
+                                <div class="changelog-version">
+                                    <span class="version-badge">v1.1.0</span>
+                                    <span class="changelog-date">Previous Release</span>
+                                </div>
+                                <div class="changelog-type added">Added</div>
+                            </div>
+                            <div class="changelog-content">
+                                <h5>Dynamic Pages.json Generation</h5>
+                                <ul class="changelog-list">
+                                    <li>Auto-generation of pages.json from HTML files in pages directory</li>
+                                    <li>Watch mode for development with <code>npm run generate:pages:watch</code></li>
+                                    <li>Build process integration for seamless development workflow</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Future Changelog Entries -->
+                        <div class="changelog-placeholder">
+                            <div class="placeholder-content">
+                                <i class="fas fa-plus-circle text-muted me-2"></i>
+                                <span class="text-muted">Future updates will be documented here...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock %}

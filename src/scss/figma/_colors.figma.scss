@@ -1,0 +1,312 @@
+/* Color Tokens - Auto-generated from Figma Node Structure
+ * DO NOT EDIT MANUALLY - Run 'npm run figma:tokens' to update
+ * Last synced: 2026-02-10T17:44:01.881Z
+ ===========================================================================*/
+
+// bright-blue
+$figma-bright-blue-500-base: #005AA2;
+$figma-bright-blue-900: #001220;
+$figma-bright-blue-800: #002441;
+$figma-bright-blue-700: #003661;
+$figma-bright-blue-600: #004882;
+$figma-bright-blue-400: #337BB5;
+$figma-bright-blue-300: #669CC7;
+$figma-bright-blue-200: #99BDDA;
+$figma-bright-blue-100: #CCDEEC;
+
+// dark-blue
+$figma-dark-blue-500-base: #0C295E;
+$figma-dark-blue-900: #020813;
+$figma-dark-blue-800: #051026;
+$figma-dark-blue-700: #071938;
+$figma-dark-blue-600: #0A214B;
+$figma-dark-blue-400: #3D547E;
+$figma-dark-blue-300: #6D7F9E;
+$figma-dark-blue-200: #9EA9BF;
+$figma-dark-blue-100: #CED4DF;
+
+// purple1
+$figma-purple1-500-base: #3C2373;
+$figma-purple1-900: #0C0717;
+$figma-purple1-800: #180E2E;
+$figma-purple1-700: #241545;
+$figma-purple1-600: #301C5C;
+$figma-purple1-400: #634F8F;
+$figma-purple1-300: #8A7BAB;
+$figma-purple1-200: #B1A7C7;
+$figma-purple1-100: #D8D3E3;
+
+// pink1
+$figma-pink1-500-base: #AF195F;
+$figma-pink1-900: #230513;
+$figma-pink1-800: #460A26;
+$figma-pink1-700: #690F39;
+$figma-pink1-600: #8C144C;
+$figma-pink1-400: #BF477F;
+$figma-pink1-300: #CF759F;
+$figma-pink1-200: #DFA3BF;
+$figma-pink1-100: #EFD1DF;
+
+// green
+$figma-green-500-base: #7DB61C;
+$figma-green-900: #192406;
+$figma-green-800: #32490B;
+$figma-green-700: #4B6D11;
+$figma-green-600: #649216;
+$figma-green-400: #97C549;
+$figma-green-300: #B1D377;
+$figma-green-200: #CBE2A4;
+$figma-green-100: #E5F0D2;
+
+// pine-green
+$figma-pine-green-500-base: #008778;
+$figma-pine-green-900: #001B18;
+$figma-pine-green-800: #003630;
+$figma-pine-green-700: #005148;
+$figma-pine-green-600: #006C60;
+$figma-pine-green-400: #339F93;
+$figma-pine-green-300: #66B7AE;
+$figma-pine-green-200: #99CFC9;
+$figma-pine-green-100: #CCE7E4;
+
+// fun-green
+$figma-fun-green-500-base: #008037;
+$figma-fun-green-900: #001A0B;
+$figma-fun-green-800: #003316;
+$figma-fun-green-700: #004D21;
+$figma-fun-green-600: #00662C;
+$figma-fun-green-400: #33995F;
+$figma-fun-green-300: #66B387;
+$figma-fun-green-200: #99CCAF;
+$figma-fun-green-100: #CCE6D7;
+
+// bay-of-many
+$figma-bay-of-many-500-base: #2D3282;
+$figma-bay-of-many-900: #090A1A;
+$figma-bay-of-many-800: #121434;
+$figma-bay-of-many-700: #1B1E4E;
+$figma-bay-of-many-600: #242868;
+$figma-bay-of-many-400: #575B9B;
+$figma-bay-of-many-300: #8184B4;
+$figma-bay-of-many-200: #ABADCD;
+$figma-bay-of-many-100: #D5D6E6;
+
+// cerulean-blue
+$figma-cerulean-blue-500-base: #1E418C;
+$figma-cerulean-blue-900: #060D1C;
+$figma-cerulean-blue-800: #0C1A38;
+$figma-cerulean-blue-700: #122754;
+$figma-cerulean-blue-600: #183470;
+$figma-cerulean-blue-400: #4B67A3;
+$figma-cerulean-blue-300: #788DBA;
+$figma-cerulean-blue-200: #A5B3D1;
+$figma-cerulean-blue-100: #D2D9E8;
+
+// tory-blue
+$figma-tory-blue-500-base: #0F4B96;
+$figma-tory-blue-900: #030F1E;
+$figma-tory-blue-800: #061E3C;
+$figma-tory-blue-700: #092D5A;
+$figma-tory-blue-600: #0C3C78;
+$figma-tory-blue-400: #3F6FAB;
+$figma-tory-blue-300: #6F93C0;
+$figma-tory-blue-200: #9FB7D5;
+$figma-tory-blue-100: #CFDBEA;
+
+// allports
+$figma-allports-500-base: #007396;
+$figma-allports-900: #00171E;
+$figma-allports-800: #002E3C;
+$figma-allports-700: #00455A;
+$figma-allports-600: #005C78;
+$figma-allports-400: #338FAB;
+$figma-allports-300: #66ABC0;
+$figma-allports-200: #99C7D5;
+$figma-allports-100: #CCE3EA;
+
+// la-rioja
+$figma-la-rioja-500-base: #B7BF10;
+$figma-la-rioja-900: #252603;
+$figma-la-rioja-800: #494C06;
+$figma-la-rioja-700: #6E730A;
+$figma-la-rioja-600: #92990D;
+$figma-la-rioja-400: #C5CC40;
+$figma-la-rioja-300: #D4D970;
+$figma-la-rioja-200: #E2E59F;
+$figma-la-rioja-100: #F1F2CF;
+
+// tussock
+$figma-tussock-500-base: #CDA349;
+$figma-tussock-900: #29210F;
+$figma-tussock-800: #52411D;
+$figma-tussock-700: #7B622C;
+$figma-tussock-600: #A4823A;
+$figma-tussock-400: #D7B56D;
+$figma-tussock-300: #E1C892;
+$figma-tussock-200: #EBDAB6;
+$figma-tussock-100: #F5EDDB;
+
+// flush-mahogany
+$figma-flush-mahogany-500-base: #CD545B;
+$figma-flush-mahogany-900: #291112;
+$figma-flush-mahogany-800: #522224;
+$figma-flush-mahogany-700: #7B3237;
+$figma-flush-mahogany-600: #A44349;
+$figma-flush-mahogany-400: #D7767C;
+$figma-flush-mahogany-300: #E1989D;
+$figma-flush-mahogany-200: #EBBBBD;
+$figma-flush-mahogany-100: #F5DDDE;
+
+// disco
+$figma-disco-500-base: #911E64;
+$figma-disco-900: #1D0614;
+$figma-disco-800: #3A0C28;
+$figma-disco-700: #57123C;
+$figma-disco-600: #741850;
+$figma-disco-400: #A74B83;
+$figma-disco-300: #BD78A2;
+$figma-disco-200: #D3A5C1;
+$figma-disco-100: #E9D2E0;
+
+// salered-alert
+$figma-salered-alert-500-base: #EB003B;
+
+// Figma Color Map
+$figma-colors: (
+    "bright-blue-900": #001220,
+    "bright-blue-800": #002441,
+    "bright-blue-700": #003661,
+    "bright-blue-600": #004882,
+    "bright-blue-500-base": #005AA2,
+    "bright-blue-400": #337BB5,
+    "bright-blue-300": #669CC7,
+    "bright-blue-200": #99BDDA,
+    "bright-blue-100": #CCDEEC,
+    "dark-blue-900": #020813,
+    "dark-blue-800": #051026,
+    "dark-blue-700": #071938,
+    "dark-blue-600": #0A214B,
+    "dark-blue-500-base": #0C295E,
+    "dark-blue-400": #3D547E,
+    "dark-blue-300": #6D7F9E,
+    "dark-blue-200": #9EA9BF,
+    "dark-blue-100": #CED4DF,
+    "purple1-900": #0C0717,
+    "purple1-800": #180E2E,
+    "purple1-700": #241545,
+    "purple1-600": #301C5C,
+    "purple1-500-base": #3C2373,
+    "purple1-400": #634F8F,
+    "purple1-300": #8A7BAB,
+    "purple1-200": #B1A7C7,
+    "purple1-100": #D8D3E3,
+    "pink1-900": #230513,
+    "pink1-800": #460A26,
+    "pink1-700": #690F39,
+    "pink1-600": #8C144C,
+    "pink1-500-base": #AF195F,
+    "pink1-400": #BF477F,
+    "pink1-300": #CF759F,
+    "pink1-200": #DFA3BF,
+    "pink1-100": #EFD1DF,
+    "green-900": #192406,
+    "green-800": #32490B,
+    "green-700": #4B6D11,
+    "green-600": #649216,
+    "green-500-base": #7DB61C,
+    "green-400": #97C549,
+    "green-300": #B1D377,
+    "green-200": #CBE2A4,
+    "green-100": #E5F0D2,
+    "pine-green-900": #001B18,
+    "pine-green-800": #003630,
+    "pine-green-700": #005148,
+    "pine-green-600": #006C60,
+    "pine-green-500-base": #008778,
+    "pine-green-400": #339F93,
+    "pine-green-300": #66B7AE,
+    "pine-green-200": #99CFC9,
+    "pine-green-100": #CCE7E4,
+    "fun-green-900": #001A0B,
+    "fun-green-800": #003316,
+    "fun-green-700": #004D21,
+    "fun-green-600": #00662C,
+    "fun-green-500-base": #008037,
+    "fun-green-400": #33995F,
+    "fun-green-300": #66B387,
+    "fun-green-200": #99CCAF,
+    "fun-green-100": #CCE6D7,
+    "bay-of-many-900": #090A1A,
+    "bay-of-many-800": #121434,
+    "bay-of-many-700": #1B1E4E,
+    "bay-of-many-600": #242868,
+    "bay-of-many-500-base": #2D3282,
+    "bay-of-many-400": #575B9B,
+    "bay-of-many-300": #8184B4,
+    "bay-of-many-200": #ABADCD,
+    "bay-of-many-100": #D5D6E6,
+    "cerulean-blue-900": #060D1C,
+    "cerulean-blue-800": #0C1A38,
+    "cerulean-blue-700": #122754,
+    "cerulean-blue-600": #183470,
+    "cerulean-blue-500-base": #1E418C,
+    "cerulean-blue-400": #4B67A3,
+    "cerulean-blue-300": #788DBA,
+    "cerulean-blue-200": #A5B3D1,
+    "cerulean-blue-100": #D2D9E8,
+    "tory-blue-900": #030F1E,
+    "tory-blue-800": #061E3C,
+    "tory-blue-700": #092D5A,
+    "tory-blue-600": #0C3C78,
+    "tory-blue-500-base": #0F4B96,
+    "tory-blue-400": #3F6FAB,
+    "tory-blue-300": #6F93C0,
+    "tory-blue-200": #9FB7D5,
+    "tory-blue-100": #CFDBEA,
+    "allports-900": #00171E,
+    "allports-800": #002E3C,
+    "allports-700": #00455A,
+    "allports-600": #005C78,
+    "allports-500-base": #007396,
+    "allports-400": #338FAB,
+    "allports-300": #66ABC0,
+    "allports-200": #99C7D5,
+    "allports-100": #CCE3EA,
+    "la-rioja-900": #252603,
+    "la-rioja-800": #494C06,
+    "la-rioja-700": #6E730A,
+    "la-rioja-600": #92990D,
+    "la-rioja-500-base": #B7BF10,
+    "la-rioja-400": #C5CC40,
+    "la-rioja-300": #D4D970,
+    "la-rioja-200": #E2E59F,
+    "la-rioja-100": #F1F2CF,
+    "tussock-900": #29210F,
+    "tussock-800": #52411D,
+    "tussock-700": #7B622C,
+    "tussock-600": #A4823A,
+    "tussock-500-base": #CDA349,
+    "tussock-400": #D7B56D,
+    "tussock-300": #E1C892,
+    "tussock-200": #EBDAB6,
+    "tussock-100": #F5EDDB,
+    "flush-mahogany-900": #291112,
+    "flush-mahogany-800": #522224,
+    "flush-mahogany-700": #7B3237,
+    "flush-mahogany-600": #A44349,
+    "flush-mahogany-500-base": #CD545B,
+    "flush-mahogany-400": #D7767C,
+    "flush-mahogany-300": #E1989D,
+    "flush-mahogany-200": #EBBBBD,
+    "flush-mahogany-100": #F5DDDE,
+    "disco-900": #1D0614,
+    "disco-800": #3A0C28,
+    "disco-700": #57123C,
+    "disco-600": #741850,
+    "disco-500-base": #911E64,
+    "disco-400": #A74B83,
+    "disco-300": #BD78A2,
+    "disco-200": #D3A5C1,
+    "disco-100": #E9D2E0,
+    "salered-alert-500-base": #EB003B
+);

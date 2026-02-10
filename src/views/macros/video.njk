@@ -1,0 +1,5 @@
+{% macro video(src) %}
+<video autoplay playsinline muted loop>
+    <source src="{{ src }}" type="video/mp4" />
+</video>
+{% endmacro %}

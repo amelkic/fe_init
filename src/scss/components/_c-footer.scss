@@ -1,0 +1,165 @@
+// ============================================================
+// Component: Footer
+// Requires: settings/settings.colors, settings/settings.fonts
+//
+// .footer
+//   __main-menu         — column nav links with title
+//   __list              — link list inside each column
+//   __social-network-bar — social icons centred on a divider line
+//   __bottom-bar        — secondary nav / legal links
+//   __copywrite         — copyright line + supplementary links
+// ============================================================
+
+.footer {
+    margin: 55px 0 75px;
+    background-color: $white;
+    position: relative;
+    z-index: 1;
+
+    // ----------------------------------------------------------
+    // Main navigation columns
+    // ----------------------------------------------------------
+
+    &__main-menu {
+        border-top: 1px solid $tesco-light-grey4;
+
+        h3,
+        .footer__main-menu-title {
+            font-size: 1rem;    // 16px
+            font-weight: 400;
+            font-family: $boldfont;
+            color: $black;
+
+            @include mqMax($ipad-landscape) {
+                text-align: center;
+            }
+        }
+
+        .footer__main-menu-title {
+            letter-spacing: 0.4px;
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Link lists
+    // ----------------------------------------------------------
+
+    &__list {
+        margin-top: 30px;
+
+        @include mqMin($ipad-landscape) {
+            margin-top: 50px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                padding-bottom: 10px;
+
+                @include mqMax($ipad-landscape) {
+                    text-align: center;
+                }
+
+                a {
+                    font-size: 0.9375rem;    // 15px
+                    letter-spacing: -0.3px;
+                    color: $text;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Social icons bar — icons sit on top of a full-width rule
+    // ----------------------------------------------------------
+
+    &__social-network-bar {
+        position: relative;
+        margin: 35px 0;
+
+        ul {
+            list-style: none;
+            position: relative;
+            background-color: $white;
+            padding: 0 10px;
+
+            li {
+                padding: 0 4px;
+
+                img {
+                    width: 30px;
+                }
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: $tesco-light-grey4;
+            transform: translateY(-50%);
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Bottom bar — legal / secondary links
+    // ----------------------------------------------------------
+
+    &__bottom-bar {
+        ul {
+            list-style: none;
+
+            li {
+                a,
+                button {
+                    font-size: 0.75rem;     // 12px
+                    letter-spacing: -0.24px;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                }
+
+                button {
+                    background: transparent;
+                    padding: 0;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Copyright
+    // ----------------------------------------------------------
+
+    &__copywrite {
+        margin-top: 35px;
+
+        p {
+            font-size: 0.75rem;     // 12px
+            letter-spacing: -0.24px;
+            text-transform: uppercase;
+            color: $black;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                font-size: 0.75rem;     // 12px
+                letter-spacing: -0.24px;
+                text-transform: uppercase;
+                color: $black;
+
+                @include mqMin($ipad-landscape) {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

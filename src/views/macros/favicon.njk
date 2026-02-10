@@ -1,0 +1,25 @@
+{% macro favicon(basePath) %}
+  <!-- Basic favicon -->
+  <link rel="icon" type="image/png" href="{{ basePath }}/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ basePath }}/favicon-16x16.png" sizes="16x16">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ basePath }}/apple-touch-icon.png">
+
+  <!-- Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ basePath }}/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="{{ basePath }}/android-chrome-512x512.png">
+
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{{ basePath }}/mstile-150x150.png">
+
+  <!-- Safari Pinned Tab -->
+  <link rel="mask-icon" href="{{ basePath }}/safari-pinned-tab.svg" color="#5bbad5">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="{{ basePath }}/site.webmanifest">
+
+  <!-- Fallback (if no size or type specified) -->
+  <link rel="shortcut icon" href="{{ basePath }}/favicon.ico">
+{% endmacro %}

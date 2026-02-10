@@ -1,0 +1,809 @@
+{% from 'src/views/macros/picture.njk' import picture %}
+<div id="HeaderTopUp" runat="server" visible="true">
+  <header>
+    <div class="container">
+      <nav class="navbar navbar-expand-xl">
+        <a class="navbar-brand" href="/">
+          <img src="https://www.tescomobile.ie/img/logo-tmi-v2.svg" alt="Tesco Mobile Ireland">
+        </a>
+        <div class="navbar-collapse" id="main_nav">
+          <ul class="navbar-nav d-none d-xl-flex" id="header-nav-main">
+            <li class="nav-item dropdown has-megamenu">
+
+              <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Prepay Phones & Plans</a>
+
+              <div class="dropdown-menu megamenu" role="menu">
+                <div class="row">
+                  <div class="col-8 d-flex justify-content-between megamenu__list">
+                    <div class="col-3">
+                      <ul>
+                        <li class="megamenu__title">Shop</li>
+
+                        <li><a class="custom-btn__link-arrow" href="/prepay-special-offers">Prepay Special Offers</a>
+                        </li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones">Prepay Phones</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-plans">Prepay Plans</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/nearly-new-phones">Nearly New Phones</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/mint-plus-phones">Mint+ Phones</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/sim-only-plans#prepay-sim-only">Prepay Sim Only</a>
+                        </li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-add-ons">Prepay Add-Ons</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/refer-a-friend">Refer A Friend</a></li>
+                      </ul>
+                    </div>
+
+
+
+                    <!-- Default Homepage Banner -->
+
+                    <div class="col-3">
+                      <ul>
+                        <li class="megamenu__title">Prepay Bestsellers</li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/607/TCL-501?prepay=1">TCL 501</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/608/TCL-505?prepay=1">TCL 505</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/617/Xiaomi-Redmi-14C?prepay=1">Xiaomi Redmi
+                            14C</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/618/HMD-Pulse-Pro?prepay=1">HMD Pulse Pro</a>
+                        </li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/591/Samsung-Galaxy-A05s?prepay=1">Samsung
+                            Galaxy A05S</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/628/Samsung-Galaxy-A16?prepay=1">Samsung
+                            Galaxy A16</a></li>
+                      </ul>
+                    </div>
+
+
+
+                    <div class="col-3">
+                      <ul>
+                        <li class="megamenu__title">Shop by Brand</li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/apple">Apple</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/samsung">Samsung</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/Xiaomi">Xiaomi</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/nokia">Nokia</a></li>
+
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/tcl">TCL</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/oppo">Oppo</a></li>
+
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/honor">Honor</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/prepay-phones/hmd">HMD</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+
+
+
+                  <div class="col-4 megamenu__special-offer">
+                    <div class="content">
+                      <p class="tagline">Get the</p>
+                      <p class="h2"><strong>HMD <br> Pulse Pro</strong></p>
+                      <p class="offer-price">
+                        <strong>Clubcard Price €89.99</strong><span>Regular Price €159.99</span>
+                      </p>
+                      <a class="custom-btn blue--white-text"
+                        href="https://www.tescomobile.ie/phone-details/618/HMD-Pulse-Pro?prepay=1">Buy now</a>
+                      <span>Offer ends 23.07.2025</span>
+                    </div>
+
+                    <img src="https://www.tescomobile.ie/uploads/images/PulsePro%20Front%20Web.png" alt="HMD Pulse Pro">
+                  </div>
+
+                  
+                </div>
+
+              </div>
+
+            </li>
+            <li class="nav-item dropdown has-megamenu">
+              <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bill Pay Phones & Plans</a>
+
+              <div class="dropdown-menu megamenu" role="menu">
+                <div class="row">
+                  <div class="col-8 d-flex justify-content-between megamenu__list">
+                    <div class="col-3">
+                      <ul>
+                        <li class="megamenu__title">Shop</li>
+
+                        <li><a class="custom-btn__link-arrow" href="/special-offers">Bill Pay Special Offers</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-phones">Bill Pay Phones</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-plans">Bill Pay Plans</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/mint-plus-phones">Mint+ Phones</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/sim-only-plans">Bill Pay Sim Only</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-add-ons">Bill Pay Add-Ons</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/family-plan">Family Plan</a></li>
+                      </ul>
+                    </div>
+
+
+                    <!-- Default Homepage Banner -->
+
+                    <div class="col-4">
+                      <ul>
+                        <li class="megamenu__title">Bill Pay Bestsellers</li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/620/Apple-iPhone-16">Apple iPhone 16</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/558/Apple-iPhone-14">Apple iPhone 14</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/616/Samsung-Galaxy-S24-FE">Samsung Galaxy S24
+                            FE</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/630/Xiaomi-Redmi-Note-14-Pro-5G">Xiaomi Note
+                            14 Pro+</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/609/Honor-200">Honor 200</a></li>
+                        <li><a class="custom-btn__link-arrow"
+                            href="https://www.tescomobile.ie/phone-details/610/Honor-200-Pro">Honor 200 Pro</a></li>
+
+                      </ul>
+                    </div>
+                  
+
+                    <div class="col-3">
+                      <ul>
+                        <li class="megamenu__title">Shop by Brand</li>
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-phones/apple">Apple</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-phones/samsung">Samsung</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-phones/Xiaomi">Xiaomi</a></li>
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-phones/nokia">Nokia</a></li>
+
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-phones/oppo">Oppo</a></li>
+
+                        <li><a class="custom-btn__link-arrow" href="/bill-pay-phones/honor">Honor</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+
+                  <div class="col-4 megamenu__special-offer">
+                    <div class="content">
+                      <p class="tagline">Get the</p>
+                      <p class="h2"><strong>Apple iPhone 16</strong></p>
+                      <p class="offer-price">Save &euro;400 <span>For &euro;49.99 on &euro;45 Bill Pay Plan</span></p>
+                      <a class="custom-btn blue--white-text"
+                        href="https://www.tescomobile.ie/phone-details/620/Apple-iPhone-16">Buy now</a>
+                      <span>Offer ends 30.07.2025</span>
+                    </div>
+                    <img src="https://www.tescomobile.ie/uploads/images/iPhone%2016%20FrontWeb.png"
+                      alt="Apple iPhone 16">
+                  </div>
+
+                </div>
+              </div>
+
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="/sim-only-plans">Sim Only</a>
+            </li>
+          </ul>
+
+          <div class="navbar__elements">
+            <ul class="navbar-nav d-none d-xl-flex" id="header-nav-help">
+              <li class="nav-item dropdown has-megamenu">
+                <a class="nav-link dropdown-toggle drop-hc" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">Help Center
+                </a>
+                <div class="dropdown-menu megamenu--v2" role="menu">
+                  <div class="megamenu--v2--wrapper">
+                    <div class="row align-items-stretch">
+                      <div class="col-auto megamenu--v2--level1">
+                        <ul>
+                          <li><a href="/help-centre/">Help Centre Hub</a></li>
+                          <li class="active"><a href="#getting-started" class="trigger-level2">
+                              Getting started
+                              <span>Keep your number, set up, unlock your phone</span>
+                            </a>
+                          </li>
+                          <li><a href="#managing-your-account" class="trigger-level2">
+                              Managing your account
+                              <span>Tariffs and using your plan, bills, upgrades</span>
+                            </a></li>
+                          <li><a href="#plans-payments-charges" class="trigger-level2">
+                              Plans, payments & charges
+                              <span>Understanding your bill, call charges</span>
+                            </a></li>
+                          <li><a href="#roaming-and-international" class="trigger-level2">
+                              Roaming & international
+                              <span>Using your phone abroad and calling overseas from Ireland</span>
+                            </a></li>
+                          <li><a href="#everything-else" class="trigger-level2">
+                              Everything else
+                              <span>Your questions answered, contact details, coverage</span>
+                            </a></li>
+                          <li><a href="/supermarketmobile/">Why Tesco Mobile</a></li>
+                          <li><a href="/help-centre/contact-support.aspx">Get In Touch</a></li>
+                        </ul>
+                        <div class="help-centre-nav-banner">
+                          <img src="/images/banners/help-centre-nav-banner.png" alt="" aria-hidden="true">
+                          <a href="#" class="custom-btn blue--white-text">Top up</a>
+                        </div>
+                      </div>
+                      <div class="col-auto megamenu--v2--content1">
+                        <div class="megamenu--v2--level2">
+                          <div data-id="getting-started" class="active">
+                            <ul>
+                              <li><a href="#gs3" class="trigger-submenu">Switching to Tesco Mobile</a></li>
+                              <li><a href="#gs2" class="trigger-submenu">How to unlock your phone</a></li>
+                              <li><a href="#gs1" class="trigger-submenu">Settings & set up</a></li>
+                              <li><a
+                                  href="/help-centre/how-to-receive-clubcard-points/how-to-receive-clubcard-points-">How
+                                  to receive Clubcard points</a></li>
+                              <li><a href="/help-centre/service-information/service-information">Service information</a>
+                              </li>
+                              <li><a
+                                  href="/help-centre/changing-or-cancelling-an-order/changing-or-cancelling-an-order">Changing
+                                  or cancelling an order</a></li>
+                            </ul>
+                          </div>
+                          <div data-id="managing-your-account">
+                            <ul>
+                              <li><a href="#mya2" class="trigger-submenu">Prepay top up</a></li>
+                              <li><a href="#mya1" class="trigger-submenu">Understanding your account</a></li>
+                              <li><a href="#mya3" class="trigger-submenu">Understanding your bill</a></li>
+                              <li><a href="/help-centre/usage/check-your-monthly-usage">Usage</a></li>
+                              <!-- <li><a href="/help-centre/set-up-my-tesco-mobile/set-up-my-tesco-mobile-">Set up My Tesco Mobile</a></li> -->
+                              <li><a href="/help-centre/time-for-an-upgrade-/time-for-an-upgrade-">Time for an
+                                  upgrade?</a></li>
+                              <li><a href="/help-centre/managing-your-account/change-of-ownership">Change of
+                                  ownership</a></li>
+                            </ul>
+                          </div>
+                          <div data-id="plans-payments-charges">
+                            <ul>
+                              <li><a href="/help-centre/plans-payments-charges/other-call-charges">Other call
+                                  charges</a></li>
+                              <li><a href="/bill-pay-plans">Our Bill Pay Plans</a></li>
+                              <li><a href="/bill-pay-add-ons">Bill Pay add-ons</a></li>
+                              <li><a href="/prepay-plans">Our Prepay Plans</a></li>
+                              <li><a
+                                  href="/help-centre/contract-transparency-explained/contract-transparency-explained">Contract
+                                  & transparency explained</a></li>
+                            </ul>
+                          </div>
+                          <div data-id="roaming-and-international">
+                            <ul>
+                              <li><a href="/roaming-and-international.aspx">Roaming explained</a></li>
+                              <li><a
+                                  href="/help-centre/roaming-international/travelling-to-or-live-in-a-border-county-">Travelling
+                                  to or live in a border county?</a></li>
+                              <li><a href="/help-centre/roaming-international/our-data-charges-explained">Roaming
+                                  charges</a></li>
+                              <li><a href="/help-centre/charges/international-call-charges">International call
+                                  charges</a></li>
+                              <li><a href="/prepayroam">Prepay roaming</a></li>
+                              <li><a href="/billpayroam">Billpay roaming</a></li>
+                            </ul>
+                          </div>
+                          <div data-id="everything-else">
+                            <ul>
+                              <li><a href="#ee1" class="trigger-submenu">Your phone</a></li>
+                              <li><a href="#ee2" class="trigger-submenu">Customer accessibility support</a></li>
+                              <li><a href="#ee3" class="trigger-submenu">Clubcard</a></li>
+                              <li><a href="/our-network/">Our network coverage</a></li>
+                              <li><a href="/help-centre/returns-repairs/returns-repairs">Returns & repairs</a></li>
+                              <li><a
+                                  href="/help-centre/what-to-do-if-you-receive-nuisance-calls-or-texts/what-to-do-if-you-receive-nuisance-calls-or-texts">What
+                                  to do if you receive nuisance calls or texts</a></li>
+                              <li><a href="/help-centre/contact-support.aspx">Contact customer care team</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="megamenu--v2--content2">
+                          <div class="megamenu--v2--level3">
+                            <div data-id="gs1">
+                              <ul>
+                                <li><a href="/help-centre/settings-set-up/voicemail-settings-set-up-">Voicemail settings
+                                    & set up</a></li>
+                                <li><a href="/help-centre/settings-set-up/send-settings">Send settings</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="gs2">
+                              <ul>
+                                <li><a href="/help-centre/how-to-unlock-you-phone/guide-to-unlocking-your-phone-">Guide
+                                    to unlocking your phone</a></li>
+                                <li><a
+                                    href="/help-centre/how-to-unlock-you-phone/can-i-unlock-my-tesco-mobile-phone-">Can
+                                    I unlock my Tesco Mobile phone?</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="gs3">
+                              <ul>
+                                <li><a
+                                    href="/help-centre/switching-to-tesco-mobile/keep-your-existing-number-when-switching">Keep
+                                    your existing number when switching</a></li>
+                                <li><a
+                                    href="/help-centre/switching-to-tesco-mobile/set-up-your-account-download-the-app">Set
+                                    up your account, download the app</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="mya1">
+                              <ul>
+                                <li><a href="/help-centre/understanding-your-account/how-to-manage-your-account-">How to
+                                    manage your account</a></li>
+                                <li><a
+                                    href="/help-centre/understanding-your-account/understanding-your-credit-limit">Understanding
+                                    your credit limit</a></li>
+                                <!-- <li><a href="/help-centre/understanding-your-account/how-much-data-do-you-need-">How much data do you need?</a></li> -->
+                                <!-- <li><a href="/help-centre/understanding-your-account/250-free-webtexts-each-calendar-month">250 free Webtexts each calendar month</a></li> -->
+                                <li><a
+                                    href="/help-centre/understanding-your-account/how-to-cancel-your-bill-pay-plan">How
+                                    to cancel your bill pay plan</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="mya2">
+                              <ul>
+                                <li><a href="/help-centre/prepay-top-up/how-to-top-up-with-a-credit-debit-card">How to
+                                    top up with a credit/debit card</a></li>
+                                <li><a href="/help-centre/prepay-top-up/how-to-set-up-a-recurring-top-up">How to set up
+                                    a recurring top up</a></li>
+                                <li><a href="/help-centre/prepay-top-up/how-to-top-up-with-a-voucher">How to top up with
+                                    a voucher</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="mya3">
+                              <ul>
+                                <li><a href="/help-centre/understanding-your-bill/your-bill-explained">Your bill
+                                    explained</a></li>
+                                <li><a
+                                    href="/help-centre/understanding-your-bill/understand-billing-your-questions-">Understand
+                                    billing, your questions answered</a></li>
+                                <li><a href="/help-centre/understanding-your-bill/pro-rata-explained-">Pro rata
+                                    explained</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="ee1">
+                              <ul>
+                                <li><a href="/help-centre/how-to-unlock-you-phone/guide-to-unlocking-your-phone-">How to
+                                    unlock your phone</a></li>
+                                <li><a href="/help-centre/your-phone/where-to-find-pin-puk-codes">Where to find PIN +
+                                    PUK codes</a></li>
+                                <li><a href="/help-centre/settings-set-up/voicemail-settings-set-up-">Voicemail
+                                    settings</a></li>
+                                <li><a href="/help-centre/your-phone/lost-or-stolen-phone-what-to-do-">Lost or stolen
+                                    phone, what to do?</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="ee2">
+                              <ul>
+                                <li><a
+                                    href="/help-centre/customer-accessibility-support/accessible-services-available-to-our-customers">Accessible
+                                    services available to our customers</a></li>
+                                <li><a href="/help-centre/customer-accessibility-support/irish-text-relay-service">Irish
+                                    Text Relay Service</a></li>
+                                <li><a href="/help-centre/service-information/service-information">Service
+                                    information</a></li>
+                              </ul>
+                            </div>
+                            <div data-id="ee3">
+                              <ul>
+                                <li><a
+                                    href="/help-centre/how-to-register-your-clubcard/how-to-register-your-clubcard">How
+                                    to register your Clubcard</a></li>
+                                <li><a
+                                    href="/help-centre/how-to-receive-clubcard-points/how-to-receive-clubcard-points-">How
+                                    to receive Clubcard points</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/store-locator">Store Locator</a>
+              </li>
+            </ul>
+            <div class="navbar__search d-none d-xl-block">
+              <button id="search-button" class="search-button" type="button" aria-label="Search">
+                <img src="https://www.tescomobile.ie/img/cached/icons/search.svg" alt="" aria-hidden="true"></button>
+            </div>
+            
+            <div class="navbar__cta d-xl-flex">
+              <button onclick="location.href='https://my.tescomobile.ie/tmi-selfcare-web/login'"
+                class="custom-btn white--blue-border d-none d-xl-block" type="button">Login</button>
+              <button onclick="location.href='https://my.tescomobile.ie/tmi-selfcare-web/webtopup'"
+                class="custom-btn blue--white-text" type="button">Top Up</button>
+            </div>
+
+
+
+            <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false"
+              aria-label="Toggle navigation menu">
+
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+
+
+
+
+      <div class="menu-nav-mobile" aria-hidden="true" tabindex="-1" role="navigation" aria-label="Mobile navigation">
+        <div class="container">
+          <div class="menu-cta py-3 d-flex justify-content-evenly">
+            <div class="col-6 text-center">
+              <button onclick="location.href='https://my.tescomobile.ie/tmi-selfcare-web/login'"
+                class="custom-btn white--blue-border" type="button">Login</button>
+            </div>
+            <div class="col-6 text-center">
+              <button id="search-button-mobile" class="custom-btn grey-border" type="button" aria-label="Search">
+                <img src="/images/icons/search.svg" alt="" aria-hidden="true">Search</button>
+            </div>
+          </div>
+          <div class="navbar-expand-xl">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">Prepay Phones & Plans
+                </a>
+                <div class="slide-panel dropdown-menu">
+                  <!-- first level -->
+                  <ul class="first-level">
+                    <li><a href="#!" data-level-id="#menu1">Shop Prepay Phones & Plans</a></li>
+                    <li><a href="#!" data-level-id="#menu2">Prepay Bestsellers</a></li>
+                    <li><a href="#!" data-level-id="#menu3">Shop by Brand</a></li>
+
+                  </ul>
+                  <!-- second level -->
+                  <ul class="second-level" id="menu1">
+                    <div class="container">
+                      <li><a href="#!" class="back__menu" data-level-id="#menu1">Back</a></li>
+                      <li class="active_menu">Shop Prepay Phones & Plans</li>
+                      <li><a href="/prepay-special-offers">Prepay Special Offers</a></li>
+                      <li><a href="/prepay-phones">Prepay phones</a></li>
+                      <li><a href="/prepay-plans">Prepay plans</a></li>
+                      <li><a href="/nearly-new-phones">Nearly New Phones</a></li>
+                      <li><a href="/mint-plus-phones">Mint+ Phones</a></li>
+                      <li><a href="/sim-only-plans">Prepay Sim only</a></li>
+                      <li><a href="/prepay-add-ons">Prepay Add-ons</a></li>
+                      <li><a href="/refer-a-friend">Refer A Friend</a></li>
+                    </div>
+                  </ul>
+
+
+                  <!-- Default Homepage Banner -->
+
+                  <ul class="second-level" id="menu2">
+                    <div class="container">
+                      <li><a href="#!" class="back__menu" data-level-id="#menu2">Back</a></li>
+                      <li class="active_menu">Prepay Bestsellers</li>
+                      <li><a href="https://www.tescomobile.ie/phone-details/607/TCL-501?prepay=1">TCL 501</a></li>
+                      <li><a href="https://www.tescomobile.ie/phone-details/608/TCL-505?prepay=1">TCL 505</a></li>
+                      <li><a href="https://www.tescomobile.ie/phone-details/617/Xiaomi-Redmi-14C?prepay=1">Xiaomi Redmi
+                          14C</a></li>
+                      <li><a href="https://www.tescomobile.ie/phone-details/618/HMD-Pulse-Pro?prepay=1">HMD Pulse
+                          Pro</a></li>
+                      <li><a href="https://www.tescomobile.ie/phone-details/591/Samsung-Galaxy-A05s?prepay=1">Samsung
+                          Galaxy A05S</a></li>
+                      <li><a href="https://www.tescomobile.ie/phone-details/628/Samsung-Galaxy-A16?prepay=1">Samsung
+                          Galaxy A16</a></li>
+                    </div>
+                  </ul>
+
+
+          <ul class="second-level" id="menu3">
+            <div class="container">
+              <li><a href="#!" class="back__menu" data-level-id="#menu3">Back</a></li>
+              <li class="active_menu">Shop by Brand</li>
+              <li><a href="/prepay-phones/apple">Apple</a></li>
+              <li><a href="/prepay-phones/samsung">Samsung</a></li>
+              <li><a href="/prepay-phones/Xiaomi">Xiaomi</a></li>
+              <li><a href="/prepay-phones/nokia">Nokia</a></li>
+
+              <li><a href="/prepay-phones/tcl">TCL</a></li>
+              <li><a href="/prepay-phones/oppo">Oppo</a></li>
+
+              <li><a href="/prepay-phones/honor">Honor</a></li>
+              <li><a href="/prepay-phones/hmd">HMD</a></li>
+            </div>
+          </ul>
+
+        </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Bill pay Phones & Plans
+          </a>
+          <div class="slide-panel dropdown-menu">
+            <!-- first level -->
+            <ul class="first-level">
+              <li><a href="#!" data-level-id="#menu2-1">Shop Bill Pay Phones & Plans</a></li>
+              <li><a href="#!" data-level-id="#menu2-2">Bill Pay Bestsellers</a></li>
+              <li><a href="#!" data-level-id="#menu2-3">Shop by Brand</a></li>
+            </ul>
+            <!-- second level -->
+            <!-- second level -->
+            <ul class="second-level" id="menu2-1">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu2-1">Back</a></li>
+                <li class="active_menu">Shop Bill Pay Phones & Plans</li>
+                <li><a href="/special-offers">Bill Pay Special Offers</a></li>
+                <li><a href="/bill-pay-phones">Bill Pay phones</a></li>
+                <li><a href="/bill-pay-plans">Bill Pay plans</a></li>
+                <li><a href="/mint-plus-phones">Mint+ Phones</a></li>
+                <li><a href="/sim-only-plans">Bill Pay Sim only</a></li>
+                <li><a href="/bill-pay-add-ons">Bill Pay Add-ons</a></li>
+                <li><a href="/family-plan">Family Plan</a></li>
+              </div>
+            </ul>
+
+            <!-- Default Homepage Banner -->
+
+            <ul class="second-level" id="menu2-2">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu2-2">Back</a></li>
+                <li class="active_menu">Bill Pay Bestsellers</li>
+                <li><a href="https://www.tescomobile.ie/phone-details/620/Apple-iPhone-16">Apple iPhone 16</a></li>
+                <li><a href="https://www.tescomobile.ie/phone-details/558/Apple-iPhone-14">Apple iPhone 14</a></li>
+                <li><a href="https://www.tescomobile.ie/phone-details/616/Samsung-Galaxy-S24-FE">Samsung Galaxy S24
+                    FE</a></li>
+                <li><a href="https://www.tescomobile.ie/phone-details/630/Xiaomi-Redmi-Note-14-Pro-5G">Xiaomi Note 14
+                    Pro+</a></li>
+                <li><a href="https://www.tescomobile.ie/phone-details/609/Honor-200">Honor 200</a></li>
+                <li><a href="https://www.tescomobile.ie/phone-details/610/Honor-200-Pro">Honor 200 Pro</a></li>
+              </div>
+            </ul>
+           
+
+            <ul class="second-level" id="menu2-3">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu2-3">Back</a></li>
+                <li class="active_menu">Shop by Brand</li>
+                <li><a href="/bill-pay-phones/apple">Apple</a></li>
+                <li><a href="/bill-pay-phones/samsung">Samsung</a></li>
+                <li><a href="/bill-pay-phones/Xiaomi">Xiaomi</a></li>
+
+                <li><a href="/bill-pay-phones/oppo">Oppo</a></li>
+
+                <li><a href="/bill-pay-phones/honor">Honor</a></li>
+              </div>
+            </ul>
+
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a href="/sim-only-plans" class="nav-link">Sim Only</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Help Center</a>
+          <div class="slide-panel dropdown-menu">
+            <!-- first level -->
+            <ul class="first-level">
+              <li><a href="/help-centre/">Help Centre Hub</a></li>
+              <li><a href="#!" data-level-id="#menu3-1">Getting started</a></li>
+              <li><a href="#!" data-level-id="#menu3-2">Managing your account</a></li>
+              <li><a href="#!" data-level-id="#menu3-3">Plans, payments & charges</a></li>
+              <li><a href="#!" data-level-id="#menu3-3-2">Roaming & international</a></li>
+              <li><a href="#!" data-level-id="#menu3-4">Everything else</a></li>
+              <li><a href="/supermarketmobile/">Why Tesco Mobile</a></li>
+              <li><a href="/help-centre/contact-support.aspx">Get In Touch</a></li>
+            </ul>
+            <!-- second level -->
+            <!-- second level -->
+            <ul class="second-level" id="menu3-1">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-1">Back</a></li>
+                <li class="active_menu">Getting started</li>
+                <li><a href="#!" data-level-id="#menu3-1-3">Switching to Tesco Mobile</a></li>
+                <li><a href="#!" data-level-id="#menu3-1-2">How to unlock your phone</a></li>
+                <li><a href="#!" data-level-id="#menu3-1-1">Settings & set up</a></li>
+                <li><a href="/help-centre/how-to-receive-clubcard-points/how-to-receive-clubcard-points-">How to receive
+                    Clubcard points</a></li>
+                <li><a href="/help-centre/service-information/service-information">Service information</a></li>
+                <li><a href="/help-centre/changing-or-cancelling-an-order/changing-or-cancelling-an-order">Changing or
+                    cancelling an order</a></li>
+              </div>
+            </ul>
+
+            <ul class="second-level" id="menu3-2">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-2">Back</a></li>
+                <li class="active_menu">Managing your account</li>
+                <li><a href="#!" data-level-id="#menu3-2-2">Prepay top up</a></li>
+                <li><a href="#!" data-level-id="#menu3-2-1">Understanding your account</a></li>
+                <li><a href="#!" data-level-id="#menu3-2-3">Understanding your bill</a></li>
+                <li><a href="/help-centre/usage/check-your-monthly-usage">Usage</a></li>
+                <li><a href="/help-centre/time-for-an-upgrade-/time-for-an-upgrade-">Time for an upgrade?</a></li>
+                <li><a href="/help-centre/managing-your-account/change-of-ownership">Change of ownership</a></li>
+              </div>
+            </ul>
+
+            <ul class="second-level" id="menu3-3">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-3">Back</a></li>
+                <li class="active_menu">Plans, payments & charges</li>
+                <li><a href="/help-centre/plans-payments-charges/other-call-charges">Other call charges</a></li>
+                <li><a href="/bill-pay-plans">Our Bill Pay Plans</a></li>
+                <li><a href="/bill-pay-add-ons">Bill Pay add-ons</a></li>
+                <li><a href="/prepay-plans">Our Prepay Plans</a></li>
+                <li><a href="/help-centre/contract-transparency-explained/contract-transparency-explained">Contract &
+                    transparency explained</a></li>
+              </div>
+            </ul>
+
+            <ul class="second-level" id="menu3-3-2">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-3-2">Back</a></li>
+                <li class="active_menu">Roaming & international</li>
+                <li><a href="/roaming-and-international.aspx">Roaming explained</a></li>
+                <li><a href="/help-centre/roaming-international/travelling-to-or-live-in-a-border-county-">Travelling to
+                    or live in a border county?</a></li>
+                <li><a href="/help-centre/roaming-international/our-data-charges-explained">Roaming charges</a></li>
+                <li><a href="/help-centre/charges/international-call-charges">International call charges</a></li>
+                <li><a href="/prepayroam">Prepay roaming</a></li>
+                <li><a href="/billpayroam">Billpay roaming</a></li>
+              </div>
+            </ul>
+
+            <ul class="second-level" id="menu3-4">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-4">Back</a></li>
+                <li class="active_menu">Everything else</li>
+                <li><a href="#!" data-level-id="#menu3-4-1">Your phone</a></li>
+                <li><a href="#!" data-level-id="#menu3-4-2">Customer accessibility support</a></li>
+                <li><a href="#!" data-level-id="#menu3-4-3">Clubcard</a></li>
+                <li><a href="/help-centre/our-network-coverage/our-network-coverage">Our network coverage</a></li>
+                <li><a href="/help-centre/returns-repairs/returns-repairs">Returns & repairs</a></li>
+                <li><a
+                    href="/help-centre/what-to-do-if-you-receive-nuisance-calls-or-texts/what-to-do-if-you-receive-nuisance-calls-or-texts">What
+                    to do if you receive nuisance calls or texts</a></li>
+                <li><a href="/help-centre/contact-support.aspx">Contact customer care team</a></li>
+              </div>
+            </ul>
+
+            <!-- third level -->
+            <ul class="second-level" id="menu3-1-1">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-1-1">Back</a></li>
+                <li class="active_menu">Settings & set up</li>
+                <li><a href="/help-centre/settings-set-up/voicemail-settings-set-up-">Voicemail settings & set up</a>
+                </li>
+                <li><a href="/help-centre/settings-set-up/send-settings">Send settings</a></li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-1-2">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-1-2">Back</a></li>
+                <li class="active_menu">How to unlock your phone</li>
+                <li><a href="/help-centre/how-to-unlock-you-phone/guide-to-unlocking-your-phone-">Guide to unlocking
+                    your phone</a></li>
+                <li><a href="/help-centre/how-to-unlock-you-phone/can-i-unlock-my-tesco-mobile-phone-">Can I unlock my
+                    Tesco Mobile phone?</a></li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-1-3">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-1-3">Back</a></li>
+                <li class="active_menu">Switching to Tesco Mobile</li>
+                <li><a href="/help-centre/switching-to-tesco-mobile/keep-your-existing-number-when-switching">Keep your
+                    existing number when switching</a></li>
+                <li><a href="/help-centre/switching-to-tesco-mobile/set-up-your-account-download-the-app">Set up your
+                    account, download the app</a></li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-2-1">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-2-1">Back</a></li>
+                <li class="active_menu">Manage your account</li>
+                <li><a href="/help-centre/understanding-your-account/how-to-manage-your-account-">How to manage your
+                    account</a></li>
+                <li><a href="/help-centre/understanding-your-account/understanding-your-credit-limit">Understanding your
+                    credit limit</a></li>
+                <li><a href="/help-centre/understanding-your-account/how-to-cancel-your-bill-pay-plan">How to cancel
+                    your bill pay plan</a></li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-2-2">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-2-2">Back</a></li>
+                <li class="active_menu">Prepay top up</li>
+                <li><a href="/help-centre/prepay-top-up/how-to-top-up-with-a-credit-debit-card">How to top up with a
+                    credit/debit card</a></li>
+                <li><a href="/help-centre/prepay-top-up/how-to-set-up-a-recurring-top-up">How to set up a recurring top
+                    up</a></li>
+                <li><a href="/help-centre/prepay-top-up/how-to-top-up-with-a-voucher">How to top up with a voucher</a>
+                </li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-2-3">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-2-3">Back</a></li>
+                <li class="active_menu">Understanding your bill</li>
+                <li><a href="/help-centre/understanding-your-bill/your-bill-explained">Your bill explained</a></li>
+                <li><a href="/help-centre/understanding-your-bill/understand-billing-your-questions-">Understand
+                    billing, your questions answered</a></li>
+                <li><a href="/help-centre/understanding-your-bill/pro-rata-explained-">Pro rata explained</a></li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-4-1">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-4-1">Back</a></li>
+                <li class="active_menu">Your phone</li>
+                <li><a href="/help-centre/how-to-unlock-you-phone/guide-to-unlocking-your-phone-">How to unlock your
+                    phone</a></li>
+                <li><a href="/help-centre/your-phone/where-to-find-pin-puk-codes">Where to find PIN + PUK codes</a></li>
+                <li><a href="/help-centre/settings-set-up/voicemail-settings-set-up-">Voicemail settings</a></li>
+                <li><a href="/help-centre/your-phone/lost-or-stolen-phone-what-to-do-">Lost or stolen phone, what to
+                    do?</a></li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-4-2">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-4-2">Back</a></li>
+                <li class="active_menu">Customer accessibility support</li>
+                <li><a
+                    href="/help-centre/customer-accessibility-support/accessible-services-available-to-our-customers">Accessible
+                    services available to our customers</a></li>
+                <li><a href="/help-centre/customer-accessibility-support/irish-text-relay-service">Irish Text Relay
+                    Service</a></li>
+                <li><a href="/help-centre/service-information/service-information">Service information</a></li>
+              </div>
+            </ul>
+            <ul class="second-level" id="menu3-4-3">
+              <div class="container">
+                <li><a href="#!" class="back__menu" data-level-id="#menu3-4-3">Back</a></li>
+                <li class="active_menu">Clubcard</li>
+                <li><a href="/help-centre/how-to-register-your-clubcard/how-to-register-your-clubcard">How to register
+                    your Clubcard</a></li>
+                <li><a href="/help-centre/how-to-receive-clubcard-points/how-to-receive-clubcard-points-">How to receive
+                    Clubcard points</a></li>
+              </div>
+            </ul>
+          </div>
+        </li>
+        </ul>
+        <ul class="second-navbar">
+          <li><a href="/store-locator">Store Locator</a></li>
+          <li><a href="/supermarketmobile/">Why Tesco Mobile</a></li>
+          <li><a href="/help-centre/contact-support.aspx">Get In Touch</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+</div>
+</div>
+
+
+
+<div id="search-panel">
+  <div class="container">
+    <div class="search-block">
+      <span class="close-panel">
+        <img src="/images/icons/close-icon.svg" alt="Close search panel"></span>
+      <form action="/search" method="GET" class="search-form">
+        <div class="position-relative floating-label">
+          <input type="search" class="form-control headersearchInput" id="searchQuery" name="q" placeholder="Search Tesco Mobile" required aria-label="Search Tesco Mobile">
+          <label for="searchQuery" class="form-label">Search...</label>
+          <button type="submit" class="headersearchGo" aria-label="Submit Search"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+</header>

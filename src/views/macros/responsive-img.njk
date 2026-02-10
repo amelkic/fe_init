@@ -1,0 +1,16 @@
+{% macro responsiveImage(
+    src,
+    alt,
+    imgClass="h-100 w-100 object-fit-cover",
+    sourceClassLarge="h-100 w-100 object-fit-cover",
+    sourceClassMedium="h-100 w-100 object-fit-cover",
+    sourceClassSmall="h-100 w-100 object-fit-cover",
+    mediaLarge="(min-width:1200px)",
+    mediaMedium="(min-width:581px)",
+    mediaSmall="(max-width:580px)"
+) %}
+    <source class="{{ sourceClassLarge }}" media="{{ mediaLarge }}" srcset="{{ src }}">
+    <source class="{{ sourceClassMedium }}" media="{{ mediaMedium }}" srcset="{{ src }}">
+    <source class="{{ sourceClassSmall }}" media="{{ mediaSmall }}" srcset="{{ src }}">
+    <img class="{{ imgClass }}" src="{{ src }}" alt="{{ alt }}">
+{% endmacro %}

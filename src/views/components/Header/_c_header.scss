@@ -1,0 +1,960 @@
+@import "@scss/settings.scss";
+
+header {
+    border-bottom: 1px solid $tesco-light-grey;
+}
+
+.navbar {
+    height: 80px;
+    background-color: $white;
+
+
+    >.container-fluid {
+        flex-wrap: initial;
+    }
+
+    .navbar-collapse {
+        justify-content: space-between;
+
+        @include mqMax($tablet-landscape) {
+            flex-basis: 0;
+            justify-content: end;
+            display: flex;
+        }
+
+        ul {
+            li {
+                margin: 0 8px;
+            }
+        }
+    }
+
+    .has-megamenu {
+
+        @include mqMin($ipad) {
+            position: static !important;
+        }
+
+        .megamenu {
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 445px;
+            padding: 35px;
+            margin: 0 auto 0 !important;
+            border: 1px solid $tesco-light-grey;
+            border-radius: 0px 0px 30px 30px;
+
+            @include mqMin($laptop + 5) {
+                width: 1275px;
+                padding: 42px 50px;
+            }
+
+
+            &.show {
+                animation: fadeIn 0.8s ease forwards;
+                overflow: hidden;
+            }
+
+            &__title {
+                @include rfs($medium);
+                font-weight: 700;
+                margin-bottom: 25px !important;
+
+                a {
+                    color: $text;
+                }
+            }
+
+            &__list {
+                ul {
+                    list-style-type: none;
+
+                    li {
+                        margin: 0 0 8px;
+                    }
+                }
+            }
+
+            &__special-offer {
+                position: relative;
+                display: flex;
+                align-items: center;
+                // padding-top: 24px;
+                // padding-bottom: 37px;
+
+                .content {
+                    position: relative;
+                    width: 50%;
+                    color: $tesco-blue;
+
+                    .tagline {
+                        margin: 0;
+                    }
+
+                    h2 {
+                        margin-bottom: 20px;
+                    }
+
+                    .offer-price {
+                        display: flex;
+                        flex-direction: column;
+
+                        span {
+                            text-transform: uppercase;
+                            letter-spacing: -0.2px;
+                            @include rfs($small);
+                        }
+                    }
+
+                    >span {
+                        @include rfs($small + 2);
+                        display: block;
+                        padding: 10px 0 0 0;
+                    }
+                }
+
+                .custom-btn {
+                    // position: absolute;
+                    // bottom: 20px;
+                    z-index: 1;
+                    display: inline-flex;
+                }
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 210px;
+                }
+            }
+        }
+
+        .nav-link {
+            letter-spacing: -0.36px;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+
+            &::after {
+                border: none !important;
+                // background-color: $tesco-red;
+                width: 13px;
+                height: auto;
+                content: url(/images/icons/arrow-down.svg);
+                transform: rotate(0);
+                transition: .5s;
+                margin-left: 8px;
+                filter: $filter-black;
+            }
+
+            &.show {
+                color: $tesco-blue;
+
+                &::after {
+                    transform: rotate(180deg);
+                    filter: brightness(0) saturate(100%) invert(21%) sepia(88%) saturate(1919%) hue-rotate(192deg) brightness(91%) contrast(104%);
+                }
+            }
+        }
+
+        .megamenu--v2 {
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: calc(100vh - 79px);
+            padding: 0;
+            margin: 0 auto 0 !important;
+            background: transparent;
+            border: none;
+            background: rgba(0, 0, 0, 0.60);
+            border-radius: 0;
+            align-items: flex-start;
+            position: fixed;
+            top: 79px;
+
+            &--wrapper {
+                border-radius: 0px 0px 20px 20px;
+                background: #F0EBEB;
+                margin: 0 auto;
+                padding: 35px;
+                max-height: calc(100vh - 79px);
+                overflow: auto;
+
+                @include mqMin($laptop + 5) {
+                    padding: 24px;
+                }
+
+                >.row {
+                    flex-wrap: nowrap;
+                }
+            }
+
+
+            &.show {
+                animation: fadeIn 0.8s ease forwards;
+                overflow: hidden;
+                display: flex;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                li {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                a {
+                    display: flex;
+                    align-items: center;
+
+                    &.trigger-submenu {
+                        &:after {
+                            content: '';
+                            background: url('data:image/svg+xml;charset=UTF-8,<svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 9L5.5 5L1.5 1" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>');
+                            width: 7px;
+                            height: 10px;
+                            display: inline-flex;
+                            margin-left: 17px;
+                        }
+                    }
+                }
+            }
+
+            &--level1 {
+                padding: 10px 8px 0 0;
+
+                ul {
+
+                    li {
+
+                        &.active {
+                            a {
+                                background: #fff;
+
+                                &.trigger-level2 {
+                                    &:after {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    a {
+                        color: #272727;
+                        font-size: 16px;
+                        // @include rem(font-size, 16px);
+                        font-weight: 700;
+                        line-height: 1.4;
+                        padding: 12px 12px 16px;
+                        display: block;
+                        border-radius: 10px;
+
+                        span {
+                            display: block;
+                            color: #828282;
+                            // @include rem(font-size, 14px);
+                            font-size: 14px;
+                            font-weight: 400;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        &.trigger-level2 {
+                            position: relative;
+
+                            &:after {
+                                content: '';
+                                background: url('data:image/svg+xml;charset=UTF-8,<svg width="33" height="55" viewBox="0 0 33 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.5023 26.0588C32.32 26.8456 32.32 28.1544 31.5023 28.9412L11.6368 48.0568C10.3661 49.2794 8.25 48.379 8.25 46.6156L8.25 8.38436C8.25 6.62104 10.3661 5.72056 11.6368 6.9432L31.5023 26.0588Z" fill="%23F0EBEB" /><path d="M23.2512 26.7794C23.66 27.1728 23.66 27.8272 23.2512 28.2206L9.94338 41.026C9.30807 41.6373 8.25 41.1871 8.25 40.3054L8.25 14.6946C8.25 13.8129 9.30807 13.3627 9.94338 13.974L23.2512 26.7794Z" fill="white" /></svg>') no-repeat right center;
+                                width: 22px;
+                                height: 55px;
+                                display: none;
+                                position: absolute;
+                                left: 100%;
+                                top: 50%;
+                                transform: translate(0, -50%);
+                                z-index: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--content1 {
+                padding: 23px 14px;
+                border-radius: 20px;
+                flex: 1;
+                display: flex;
+                align-items: stretch;
+                transition: width 1s ease;
+            }
+
+            &--content2 {
+                overflow: hidden;
+                max-width: 0; // Start fully collapsed
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(20px);
+                transition: max-width 0.4s ease-in-out, opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0s 0.4s;
+
+                &.show {
+                    max-width: 400px; // Expand smoothly
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateX(0);
+                    transition: max-width 0.4s ease-in-out, opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0s;
+                    padding-left: 26px;
+                }
+
+            }
+
+            &--level2 {
+                [data-id] {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.6s ease-in-out;
+
+                    ul {
+                        display: none;
+                    }
+
+                    &.active {
+                        opacity: 1;
+                        visibility: visible;
+
+                        ul {
+                            display: block;
+                        }
+                    }
+                }
+
+                ul {
+                    width: 292px;
+
+                    li {
+                        margin-bottom: 0;
+
+                        &.active a {
+                            background-color: #fff;
+                            border-radius: 10px;
+
+                            &:before {
+                                content: '';
+                                background: url('data:image/svg+xml;charset=UTF-8,<svg width="33" height="55" viewBox="0 0 33 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.5023 26.0588C32.32 26.8456 32.32 28.1544 31.5023 28.9412L11.6368 48.0568C10.3661 49.2794 8.25 48.379 8.25 46.6156L8.25 8.38436C8.25 6.62104 10.3661 5.72056 11.6368 6.9432L31.5023 26.0588Z" fill="%23F0EBEB" /><path d="M23.2512 26.7794C23.66 27.1728 23.66 27.8272 23.2512 28.2206L9.94338 41.026C9.30807 41.6373 8.25 41.1871 8.25 40.3054L8.25 14.6946C8.25 13.8129 9.30807 13.3627 9.94338 13.974L23.2512 26.7794Z" fill="white" /></svg>') no-repeat right center;
+                                width: 22px;
+                                height: 55px;
+                                display: block;
+                                position: absolute;
+                                left: 100%;
+                                top: 50%;
+                                transform: translate(0, -50%);
+                                z-index: 0;
+                            }
+                        }
+
+                        a {
+                            position: relative;
+                            padding: 12px;
+                            color: #272727;
+                            font-size: 16px;
+                            font-weight: 700;
+                            line-height: 1.4;
+                            display: flex;
+                            align-items: center;
+
+                            &:hover {
+                                text-decoration: underline !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--level3 {
+                width: 240px;
+
+                [data-id] {
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.6s ease-in-out;
+
+                    ul {
+                        display: none;
+                    }
+
+                    &.active {
+                        opacity: 1;
+                        visibility: visible;
+
+                        ul {
+                            display: block;
+                        }
+                    }
+                }
+
+                ul {
+                    li {
+                        margin-bottom: 18px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        a {
+                            color: #000;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 1.4;
+
+                            &:hover {
+                                text-decoration: underline !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .help-centre-nav-banner {
+                position: relative;
+                border-radius: 16px;
+                overflow: hidden;
+                max-width: 414px;
+                margin-top: 17px;
+
+                .custom-btn {
+                    position: absolute;
+                    top: 20px;
+                    left: 20px;
+                    width: 171px;
+                    padding: 8px 12px 9px;
+                    text-align: center;
+                }
+            }
+        }
+
+    }
+
+    .nav-link {
+        color: $text;
+
+        @include mqMax($laptop + 15) {
+            @include rfs($small + 4);
+        }
+    }
+
+    .custom-btn {
+        white-space: nowrap;
+
+        @include mqMax($laptop + 15) {
+            @include rfs($small + 4);
+            padding: 13px 20px;
+        }
+    }
+
+    .navbar-brand {
+        @include mqMax($lrg-phone) {
+            max-width: 35%;
+        }
+    }
+
+    .dropdown-menu {
+        margin-top: 18px !important;
+        animation: fadeIn 0.8s ease forwards;
+    }
+
+    .navbar-brand {
+        @media (max-width: 375px) {
+            width: 90px;
+        }
+    }
+
+
+
+
+    &__elements {
+        display: flex;
+        align-items: center;
+
+        .dropdown-menu {
+            border: 1px solid $tesco-light-grey;
+            border-radius: 0px 0px 30px 30px;
+            padding: 25px 5px;
+
+        }
+    }
+
+    &__card {
+        position: relative;
+
+        .cart_number {
+            background-color: $tesco-red;
+            position: absolute;
+            top: 5px;
+            right: 8px;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            color: $white;
+            @include rfs($small);
+            font-weight: 700;
+        }
+    }
+
+    &__cta {
+
+        @include mqMax($ipad) {
+            .custom-btn {
+                padding: 5px 10px;
+            }
+        }
+
+    }
+
+    .shopping-cart {
+
+        &:focus,
+        &:focus-visible {
+            outline: auto;
+        }
+    }
+
+}
+
+
+.sticky-header {
+    position: fixed;
+    height: 80px;
+    z-index: 99;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: $white;
+    animation: fadeIn 0.3s ease forwards;
+    box-shadow: 0px -5px 12px $tesco-dark-grey;
+
+
+}
+
+.overlay {
+    background: rgba(60, 60, 60, 0.70);
+    backdrop-filter: blur(15px);
+}
+
+#search-panel {
+    display: none;
+
+    &.open {
+        display: block;
+        position: absolute;
+        z-index: 99;
+        animation: fadeIn 0.8s ease forwards;
+        left: 0;
+        right: 0;
+        // background-color: $tesco-light-grey;
+        background-color: rgba($color: $tesco-blue, $alpha: 0.8);
+        backdrop-filter: blur(10px);
+
+        @include mqMax($tablet-landscape) {
+            z-index: 9999;
+        }
+
+    }
+
+    .search-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // height: 280px;
+        height: calc(100vh - 80px);
+
+        @include mqMax($tablet-landscape) {
+            height: 100vh;
+        }
+
+        .close-panel {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+
+            img {
+                // filter: brightness(0) saturate(100%)
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        span {
+            @include rfs($xl - 4);
+            font-weight: 700;
+            color: $white;
+        }
+
+        .search-form {
+            width: 460px;
+            position: relative;
+
+            @include mqMax($tablet-landscape) {
+                width: 320px;
+            }
+
+            .floating-label {
+                width: 100%;
+                margin-bottom: 0;
+            }
+
+            .headersearchInput {
+                height: 60px;
+                border: 1px solid $tesco-light-grey;
+                background-color: $white;
+                // border-radius: 30px;
+                padding: 1rem 0.75rem 0.25rem;
+                width: 100%;
+            }
+
+            .headersearchGo {
+                position: absolute;
+                right: 15px;
+                bottom: 15px;
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: transparent;
+                background-image: url(/images/icons/search.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+}
+
+.hamburger {
+    cursor: pointer;
+    margin-left: 16px;
+    border: none;
+
+    @media (max-width: 375px) {
+        margin-left: 0;
+    }
+
+    &:focus,
+    &:focus-visible {
+        box-shadow: none;
+        outline: auto;
+    }
+
+    .bar {
+        display: block;
+        background-color: $black;
+        width: 24px;
+        height: 2px;
+        margin: 6px auto;
+        transition: all 300ms ease-in-out;
+    }
+
+
+    &.active {
+        .bar {
+            &:nth-child(2) {
+                opacity: 0
+            }
+
+            &:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0
+            }
+
+            &:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            &:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    }
+}
+
+
+// Mobile menu
+
+.menu-nav-mobile {
+    position: fixed !important;
+    left: -100%;
+    top: 79px;
+    background-color: $white;
+    width: 100%;
+    height: calc(100vh - 80px);
+    text-align: left;
+    transition: 500ms;
+    z-index: 9999;
+    overflow: auto;
+
+    @media (max-width: 375px) {
+        top: 61px;
+        // height: calc(100% - 61px);
+    }
+
+    @include mqMin($tablet-landscape) {
+        display: none;
+    }
+
+    >.container {
+        display: none;
+    }
+
+    &.active {
+        left: 0;
+
+        >.container {
+            display: block;
+        }
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            a {
+                color: $black;
+                text-decoration: none;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .menu-cta {
+        border-bottom: 1px solid $tesco-light-grey3;
+
+        img {
+            margin-right: 10px;
+            width: 28px;
+            filter: brightness(0) saturate(100%) invert(78%) sepia(11%) saturate(4%) hue-rotate(329deg) brightness(90%) contrast(88%);
+        }
+    }
+
+    .navbar-nav {
+        padding: 20px;
+
+        .nav-item {
+            padding: 5px 0;
+
+            .nav-link {
+                @include rfs($medium + 8);
+                letter-spacing: -0.48px;
+                font-weight: 700;
+            }
+
+            &.dropdown {
+
+
+                >ul {
+                    position: static !important;
+                    transform: initial !important;
+                    border: none;
+                }
+            }
+
+            .dropdown-toggle {
+                display: flex;
+                align-items: center;
+
+                &::after {
+                    border: none !important;
+                    // background-color: $tesco-red;
+                    width: 13px;
+                    height: auto;
+                    content: url(/images/icons/arrow-down.svg);
+                    transform: rotate(0);
+                    transition: .5s;
+                    margin-left: 8px;
+                }
+
+                &.show {
+                    color: $tesco-blue;
+
+                    &::after {
+                        transform: rotate(180deg);
+                        filter: brightness(0) saturate(100%) invert(21%) sepia(88%) saturate(1919%) hue-rotate(192deg) brightness(91%) contrast(104%);
+                    }
+                }
+            }
+        }
+    }
+
+    .second-navbar {
+        padding: 32px 0;
+        padding-left: 10px;
+        border-top: 1px solid $tesco-light-grey3;
+
+        li {
+            padding: 10px;
+
+            a {
+                font-weight: 400;
+            }
+        }
+    }
+
+
+}
+
+// Mobile menu slide levels 3 levels
+
+.slide-panel {
+    position: static !important;
+    transform: initial !important;
+    border: none;
+}
+
+
+ul.first-level {
+    width: 100%;
+    height: 100%;
+    background: $white;
+    list-style: none;
+    padding-left: 10px;
+    animation: fadeIn 0.8s ease forwards;
+
+    li {
+        a {
+            @include rfs($medium);
+            letter-spacing: -0.32px;
+            display: block;
+            padding: 12px 0;
+            pointer-events: none;
+        }
+    }
+}
+
+.show {
+    ul.first-level {
+        a {
+            pointer-events: inherit;
+        }
+    }
+}
+
+
+ul.second-level {
+    width: 100%;
+    height: 100vh;
+    background: $white;
+    position: fixed;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    transition: transform 300ms ease-in;
+    z-index: 3;
+    background-color: $tesco-light-grey2;
+    list-style: none;
+
+    @media (max-width: 375px) {
+        top: 61px;
+    }
+
+    li {
+        padding: 10px;
+
+        a {
+            @include rfs($medium);
+        }
+    }
+
+    .active_menu {
+        @include rfs($medium + 2);
+        font-weight: 700;
+    }
+
+    &.active {
+        transform: translateX(0%);
+
+        a {
+            display: block;
+        }
+    }
+
+    .container {
+        padding: 35px 0;
+    }
+
+    a {
+        display: none;
+    }
+}
+
+
+ul.third-level {
+    width: 100%;
+    height: 100%;
+    background: $white;
+    position: fixed;
+    top: 80px;
+    right: 0;
+    bottom: 0;
+    transform: translateX(100%);
+    transition: transform 300ms ease-in;
+    z-index: 3;
+    background-color: $tesco-light-grey2;
+    list-style: none;
+
+    li {
+        padding: 10px;
+
+        a {
+            @include rfs($medium);
+        }
+    }
+
+    .active_menu {
+        @include rfs($medium + 2);
+        font-weight: 700;
+    }
+
+    &.active {
+        transform: translateX(0%);
+    }
+
+    .container {
+        padding: 35px 0;
+    }
+}
+
+a[data-level-id] {
+    position: relative;
+
+    &::after {
+        content: url(/images/icons/menu-arrow-right.svg);
+        position: absolute;
+        width: 7px;
+        margin: 0 10px;
+    }
+}
+
+a.back__menu {
+    padding-left: 30px;
+    font-size: 10px !important;
+    text-transform: uppercase;
+    display: flex;
+}
+
+a.back__menu[data-level-id] {
+    &::after {
+        content: url(/images/icons/back_menu.svg);
+        left: 0;
+    }
+}

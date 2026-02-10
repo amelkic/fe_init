@@ -1,0 +1,10 @@
+{% macro picture(src, alt) %}
+<picture>
+    <!-- WebP format -->
+    <source srcset="{{ src | replace('.jpg', '.webp') | replace('.jpeg', '.webp') | replace('.png', '.webp') }}" type="image/webp">
+    <!-- Fallback for browsers that don't support WebP -->
+    <source srcset="{{ src }}" type="image/{{ src.split('.').pop() }}">
+    <!-- Fallback img element -->
+    <img data-src="{{ src }}" alt="{{ alt }}">
+</picture>
+{% endmacro %}

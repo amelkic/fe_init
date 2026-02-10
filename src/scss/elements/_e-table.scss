@@ -1,0 +1,116 @@
+// ============================================================
+// Element: Table
+// Requires: settings/settings.colors, settings/settings.breakpoint
+//
+// Responsive table that collapses to a label/value layout
+// on mobile using [data-label] attributes.
+//
+// Usage:
+//   <table class="e-table">
+//     <thead><tr><th>Column</th>...</tr></thead>
+//     <tbody>
+//       <tr>
+//         <td data-label="Column">Value</td>
+//       </tr>
+//     </tbody>
+//   </table>
+// ============================================================
+
+.e-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    color: $text;
+
+    // ----------------------------------------------------------
+    // Header
+    // ----------------------------------------------------------
+
+    thead {
+        background-color: $primary;
+        color: $white;
+
+        th {
+            padding: $figma-spacing-16 $figma-spacing-24;
+            text-align: left;
+            font-weight: $figma-weight-semibold;
+            font-size: 0.875rem;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Body rows
+    // ----------------------------------------------------------
+
+    tbody {
+        tr {
+            border-bottom: 1px solid $tesco-light-grey3;
+            transition: background-color 0.2s ease;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:hover {
+                background-color: $tesco-light-grey2;
+            }
+        }
+
+        td {
+            padding: $figma-spacing-16 $figma-spacing-24;
+            vertical-align: middle;
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Striped variant
+    // ----------------------------------------------------------
+
+    &--striped {
+        tbody tr:nth-child(odd) {
+            background-color: $tesco-light-grey4;
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Responsive — stacks columns below $ipad
+    // ----------------------------------------------------------
+
+    @include mqMax($ipad) {
+        thead {
+            display: none;
+        }
+
+        tbody {
+            tr {
+                display: block;
+                margin-bottom: $figma-spacing-16;
+                border: 1px solid $tesco-light-grey3;
+                border-radius: $border-radius;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: $figma-spacing-8 $figma-spacing-16;
+                border-bottom: 1px solid $tesco-light-grey3;
+                font-size: 0.875rem;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &[data-label]::before {
+                    content: attr(data-label);
+                    font-weight: $figma-weight-semibold;
+                    color: $tesco-dark-grey;
+                    margin-right: $figma-spacing-16;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
+}

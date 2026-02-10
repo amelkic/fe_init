@@ -1,0 +1,48 @@
+// ============================================================
+// Global Bundle
+// Import order matters: Figma tokens → Tools → Settings
+// (Bootstrap override vars must be defined before Bootstrap import)
+// ============================================================
+
+// 1. Figma Design Tokens (auto-generated - run 'npm run figma:tokens' to update)
+@import "figma/colors.figma";
+@import "figma/core.figma";
+@import "figma/typography.figma";
+
+// 2. Tools (mixins & media queries - no CSS output)
+@import "tools/tools.mixins";
+@import "tools/tools.mq";
+
+// 3. Settings / Bootstrap overrides (must come before Bootstrap import)
+@import "settings/settings.breakpoint";
+@import "settings/settings.colors";
+@import "settings/settings.font-import";
+@import "settings/settings.fonts";
+@import "settings/settings.custom";
+@import "settings/settings.animations";
+@import "settings/settings.swiper";
+
+// 4. Bootstrap
+@import "bootstrap/scss/bootstrap";
+
+// 5. Base
+@import "base/typography";
+@import "base/base";
+@import "base/floating-label";
+
+// 6. Layouts
+@import "layouts/layout.main";
+@import "layouts/search-page";
+
+// 7. Pages
+@import "pages/docs";
+
+// 8. Elements
+@import "elements/e-buttons";
+@import "elements/e-table";
+@import "elements/e-pings";
+@import "elements/e-color-selector";
+
+// 9. Components
+@import "components/c-footer";
+@import "components/c-autoaddress";

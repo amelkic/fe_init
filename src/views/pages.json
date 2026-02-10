@@ -1,0 +1,12 @@
+[
+  {
+    "name": "404",
+    "url": "/404.html",
+    "children": []
+  },
+  {
+    "name": "index",
+    "url": "/index.html",
+    "children": []
+  }
+]

@@ -1,0 +1,49 @@
+@use "sass:math";
+
+/* Mixins for Rem Sizing  */
+
+
+@function parseInt($n) {
+    @return math.div($n, ($n * 0 + 1));
+}
+
+@mixin rem($property, $values, $important: false) {
+    $rem: ();
+    @each $value in $values {
+        @if $value == 0 or $value == auto {
+            $rem: append($rem, $value);
+        } @else {
+            $unit: unit($value);
+            $val: parseInt($value);
+            @if $unit == "px" {
+                $remValue: math.div($val, 16); // Correctly dividing by 16 to convert to rem
+                $rem: append($rem, #{$remValue}rem); // Appending the rem unit correctly
+            }
+            @if $unit == "rem" {
+                $rem: append($rem, $value);
+            }
+        }
+    }
+    
+    @if length($rem) > 0 {
+        $values-output: join((), $rem, $separator: space);
+        @if $important {
+            #{$property}: #{$values-output} !important;
+        } @else {
+            #{$property}: #{$values-output};
+        }
+    }
+}
+
+@mixin backgroundCover() {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin center-vertically {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

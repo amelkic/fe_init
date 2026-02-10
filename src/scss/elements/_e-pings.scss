@@ -1,0 +1,55 @@
+// ============================================================
+// Element: Pings (Badges / Status Indicators)
+// Requires: settings/settings.colors, figma/core.figma
+//
+// .e-ping              — base circular badge
+//   --primary          — brand blue
+//   --success          — green
+//   --danger           — red / alert
+//   --warning          — amber
+//   --clubcard         — clubcard yellow
+// ============================================================
+
+.e-ping {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    font-size: 11px;
+    font-weight: $figma-weight-bold;
+    line-height: 1;
+    border-radius: $border-radius-pill;     // 9999px — always circular/pill
+    color: $white;
+    background-color: $primary;
+
+    // ----------------------------------------------------------
+    // Colour modifiers
+    // ----------------------------------------------------------
+
+    &--primary {
+        background-color: $primary;
+        color: $white;
+    }
+
+    &--success {
+        background-color: $success;
+        color: $white;
+    }
+
+    &--danger {
+        background-color: $danger;
+        color: $white;
+    }
+
+    &--warning {
+        background-color: $warning;
+        color: $black;
+    }
+
+    &--clubcard {
+        background-color: $tesco-clubcard-yellow;
+        color: $black;
+    }
+}

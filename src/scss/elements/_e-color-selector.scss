@@ -1,0 +1,75 @@
+// ============================================================
+// Element: Color Selector / Swatch
+// Requires: settings/settings.colors, figma/core.figma
+//
+// .e-color-selector    — container / group of swatches
+// .e-color-swatch      — individual swatch
+//   --selected         — active / chosen state
+//   --disabled         — unavailable state
+// ============================================================
+
+// ------------------------------------------------------------
+// Swatch group
+// ------------------------------------------------------------
+
+.e-color-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $figma-spacing-8;
+    align-items: center;
+}
+
+// ------------------------------------------------------------
+// Individual swatch
+// ------------------------------------------------------------
+
+.e-color-swatch {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: $border-radius-pill;         // 9999px — circle
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+
+    // Inset ring on hover — shows colour contrast against any swatch colour
+    &:hover {
+        border-color: $bordergrey;
+    }
+
+    // ----------------------------------------------------------
+    // Selected state — white ring between swatch colour and outer border
+    // Achieved with box-shadow so the fill colour still shows
+    // ----------------------------------------------------------
+
+    &--selected {
+        border-color: $primary;
+        box-shadow: 0 0 0 2px $white inset, 0 0 0 4px $primary inset;
+        transform: scale(1.1);
+    }
+
+    // ----------------------------------------------------------
+    // Disabled — greyed out, not interactive
+    // ----------------------------------------------------------
+
+    &--disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 3px,
+                rgba($white, 0.5) 3px,
+                rgba($white, 0.5) 4px
+            );
+        }
+    }
+}

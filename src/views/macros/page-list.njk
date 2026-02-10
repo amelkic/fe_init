@@ -1,0 +1,10 @@
+<div class="container">
+    <h3>Pages list</h3>
+    
+    <ul class="pages-list">
+        {% for page in pages %}
+            <li><a href="{{ page.url }}">{{ page.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+</div>

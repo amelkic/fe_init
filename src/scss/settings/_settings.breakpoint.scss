@@ -1,0 +1,108 @@
+// ============================================================
+// Breakpoints & Bootstrap Grid Overrides
+// Requires: figma/core.figma to be imported first
+// mqMin / mqMax / mqMinMax mixins live in tools/tools.mq — not duplicated here
+// ============================================================
+
+// ------------------------------------------------------------
+// Bootstrap Grid — container & breakpoint overrides
+// ------------------------------------------------------------
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1300px,
+    xxl: 1660px
+);
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1199px,
+    xxl: 1448px,
+    xxxl: 1600px,
+);
+
+// ------------------------------------------------------------
+// Device breakpoint variables (for use with mqMin/mqMax mixins)
+// ------------------------------------------------------------
+
+$iphone-sml:        320px;
+$iphone:            375px;
+$iphone-max:        414px;
+
+$galaxy-sml:        360px;
+$galaxy-plus:       412px;
+
+$lrg-phone:         576px;
+
+$lg:                991px;
+
+$ipad:              768px;
+$ipad-landscape:    1024px;
+
+$new-ipad:          834px;
+$new-ipad-landscape: 1194px;
+
+$tablet:            800px;
+$tablet-md:         992px;
+$tablet-landscape:  1200px;
+
+$laptop:            1280px;
+$laptop-md:         1366px;
+$laptop-lg:         1440px;
+
+$desktop:           1680px;
+$desktop-hd:        1920px;
+$desktop-lg:        2560px;
+
+// ------------------------------------------------------------
+// Bootstrap Spacing — driven by Figma spacing scale
+// Changing $figma-spacing-* in figma/core.figma propagates here
+// ------------------------------------------------------------
+
+$spacer: $figma-spacing-16; // 16px
+
+$spacers: (
+    0: 0,
+    1: $figma-spacing-8,    // 8px
+    2: $figma-spacing-16,   // 16px
+    3: $figma-spacing-24,   // 24px
+    4: $figma-spacing-32,   // 32px
+    5: $figma-spacing-48,   // 48px
+    6: $figma-spacing-80,   // 80px
+    7: $figma-spacing-104,  // 104px
+);
+
+// ------------------------------------------------------------
+// Bootstrap Grid Gutter — from Figma
+// ------------------------------------------------------------
+
+$grid-gutter-width: $figma-grid-desktop-gutter; // 24px
+
+// ------------------------------------------------------------
+// Bootstrap Border Radius — from Figma
+// ------------------------------------------------------------
+
+$border-radius-sm:  $figma-radius-sm;              // 4px
+$border-radius:     $figma-radius-md;              // 8px
+$border-radius-lg:  $figma-radius-lg;              // 16px
+$border-radius-xl:  $figma-radius-xl;              // 24px
+$border-radius-pill: #{$figma-radius-full}px;      // 9999px
+
+// ------------------------------------------------------------
+// Bootstrap Button Padding — from Figma
+// ------------------------------------------------------------
+
+$btn-padding-x: $figma-button-padding-x; // 24px
+$btn-padding-y: $figma-button-padding-y; // 16px
+
+// ------------------------------------------------------------
+// Bootstrap Input Padding — from Figma
+// ------------------------------------------------------------
+
+$input-padding-x: $figma-input-padding-x; // 16px
+$input-padding-y: $figma-input-padding-y; // 8px

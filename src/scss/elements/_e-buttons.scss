@@ -1,0 +1,279 @@
+// ============================================================
+// Element: Buttons
+// Requires: figma/core.figma, settings/settings.colors
+//
+// .custom-btn          — pill button, colour-scheme modifiers
+// .remove-cta          — small tag-style button (icon + label)
+// .change-plan         — small tag-style button (icon + label)
+// .search-button       — transparent icon-only button
+// ============================================================
+
+// ------------------------------------------------------------
+// Local tokens (resolved from Figma / settings)
+// ------------------------------------------------------------
+
+$_btn-radius:       $border-radius-pill;                        // 9999px
+$_btn-tag-radius:   $border-radius-xl;                          // 24px
+$_btn-transition:   background-color 0.4s ease,
+                    border-color 0.4s ease,
+                    color 0.4s ease;
+$_tag-bg:           #DDEEFF;                                    // TODO: add to Figma palette
+
+// ------------------------------------------------------------
+// .custom-btn — base
+// Shared properties moved here to avoid repetition in modifiers
+// ------------------------------------------------------------
+
+.custom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $figma-button-padding-y $figma-button-padding-x;   // 16px 24px
+    margin: 0 5px;
+    font-size: 16px;                                            // $figma-button-size
+    font-weight: $figma-weight-semibold;                        // 600
+    line-height: 1.25;
+    border-radius: $_btn-radius;
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $_btn-transition;
+
+    @include mqMin($laptop-md + 2) {
+        padding: $figma-button-padding-y 45px;
+    }
+
+    // ----------------------------------------------------------
+    // Colour schemes
+    // Naming: bg-colour--text-colour
+    // ----------------------------------------------------------
+
+    &.blue--white-text {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white;
+
+        &:hover {
+            background-color: $danger;
+            border-color: $danger;
+        }
+
+        &.disabled {
+            background-color: $tesco-dark-grey2;
+            border-color: $tesco-dark-grey2;
+            pointer-events: none;
+        }
+    }
+
+    &.white--blue-border {
+        background-color: $white;
+        border-color: $primary;
+        color: $primary;
+
+        &:hover {
+            background-color: $danger;
+            border-color: $danger;
+            color: $white;
+        }
+
+        &.disabled {
+            color: $tesco-dark-grey2;
+            border-color: $tesco-dark-grey2;
+            pointer-events: none;
+        }
+    }
+
+    &.grey--white-text {
+        background-color: $heavygrey;
+        border-color: transparent;
+        color: $white;
+
+        &:hover {
+            background-color: $tesco-dark-grey2;
+        }
+    }
+
+    &.white--white-border {
+        background-color: transparent;
+        border-color: $white;
+        color: $white;
+
+        &:hover {
+            background-color: rgba($black, 0.3);
+        }
+    }
+
+    &.white--white-border-hover {
+        background-color: $white;
+        border-color: $white;
+        color: $primary;
+
+        &:hover {
+            background-color: transparent;
+            color: $white;
+        }
+    }
+
+    &.grey-border {
+        background-color: $white;
+        border-color: $tesco-dark-grey2;
+        color: $tesco-dark-grey2;
+
+        &:hover {
+            background-color: $primary;
+            border-color: $primary;
+            color: $white;
+        }
+
+        @include mqMax($ipad) {
+            padding: $figma-button-padding-y 25px;
+            margin: 0;
+        }
+    }
+
+    &.white--black-text {
+        background-color: $white;
+        border-color: $white;
+        color: $black;
+
+        &:hover {
+            background-color: $black;
+            color: $white;
+        }
+    }
+
+    &.black--white-text {
+        background-color: $black;
+        border-color: $black;
+        color: $white;
+
+        &:hover {
+            background-color: $white;
+            color: $black;
+        }
+    }
+
+    &.white--blue-text {
+        background-color: $white;
+        border-color: $white;
+        color: $primary;
+
+        &:hover {
+            background-color: $primary;
+            color: $white;
+        }
+    }
+
+    &.yellow--blue-border--blue-text {
+        background-color: $tesco-yellow;
+        border-color: $primary;
+        color: $primary;
+    }
+
+    // ----------------------------------------------------------
+    // Link with animated right-arrow reveal on hover
+    // ----------------------------------------------------------
+
+    &__link-arrow {
+        display: block;
+        position: relative;
+        font-size: 15px;
+        color: $text;
+        letter-spacing: -0.3px;
+        text-decoration: none;
+
+        &:hover::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            margin-left: 15px;
+            width: 12px;
+            height: 12px;
+            background: url(/images/icons/menu-arrow-right.svg) no-repeat center / cover;
+            animation: fadeInLeft 0.8s ease forwards;
+        }
+    }
+
+    // ----------------------------------------------------------
+    // Animated chevron button — icon slides in on hover
+    // ----------------------------------------------------------
+
+    &.blue-arrow {
+        display: flex;
+        align-items: center;
+        padding-right: 22px;
+        padding-left: 46px;
+
+        &::after {
+            content: '';
+            display: block;
+            flex-shrink: 0;
+            width: 11px;
+            height: 16px;
+            margin-left: 16px;
+            background: url('data:image/svg+xml;charset=UTF-8,<svg width="11" height="16" viewBox="0 0 11 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 14.5L10 8L4 1.5" stroke="%230152A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>') no-repeat center / cover;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+// ------------------------------------------------------------
+// Tag-style action buttons — shared base via placeholder
+// .remove-cta and .change-plan differ only by ::before icon
+// ------------------------------------------------------------
+
+%tag-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: $_btn-tag-radius;
+    background-color: $_tag-bg;
+    color: $text;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+
+    &::before {
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    &:hover {
+        background-color: $white;
+    }
+}
+
+.remove-cta {
+    @extend %tag-btn;
+
+    &::before {
+        content: url(/images/icons/remov-btn.svg);
+    }
+}
+
+.change-plan {
+    @extend %tag-btn;
+
+    &::before {
+        content: url(/images/icons/change-plan.svg);
+    }
+}
+
+// ------------------------------------------------------------
+// Icon-only transparent button (e.g. search)
+// ------------------------------------------------------------
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

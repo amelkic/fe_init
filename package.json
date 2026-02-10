@@ -1,0 +1,54 @@
+{
+  "name": "vite",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run generate:pages && vite",
+    "build:public": "npm run generate:pages && vite build --mode public",
+    "build": "npm run generate:pages && npm run generate:components && vite build --emptyOutDir",
+    "build:watch": "npm run generate:pages && vite build --watch --emptyOutDir",
+    "generate:pages": "node scripts/generate-pages.js",
+    "generate:pages:watch": "node scripts/generate-pages.js --watch",
+    "generate:components": "node scripts/generate-components.js",
+    "generate:docs": "node scripts/generate-component-docs.js",
+    "generate:all": "npm run generate:pages && npm run generate:components && npm run generate:docs",
+    "figma:sync": "node scripts/figma-sync.js",
+    "figma:tokens": "node scripts/figma-sync.js --tokens-only",
+    "figma:scaffold": "node scripts/figma-sync.js --scaffold",
+    "figma:scaffold:component": "node scripts/figma-sync.js --scaffold --component",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui"
+  },
+  "engines": {
+    "node": "^22.15.0"
+  },
+  "dependencies": {
+    "air-datepicker": "^3.6.0",
+    "bootstrap": "5.3",
+    "rfs": "^10.0.0",
+    "swiper": "^11.2.6"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@vitest/ui": "^3.0.0",
+    "ansi-colors": "^4.1.3",
+    "autoprefixer": "^10.4.21",
+    "dotenv": "^16.4.0",
+    "glob": "^11.0.2",
+    "jsdom": "^25.0.0",
+    "nunjucks": "^3.2.4",
+    "purgecss": "^7.0.2",
+    "sass": "^1.87.0",
+    "sharp": "^0.34.2",
+    "ttf2eot": "^3.1.0",
+    "ttf2woff": "^3.0.0",
+    "ttf2woff2": "^8.0.0",
+    "vite": "^7.3.1",
+    "vite-plugin-image-optimizer": "^1.1.8",
+    "vite-plugin-nunjucks": "^0.2.0",
+    "vite-plugin-purgecss": "^0.2.13",
+    "vitest": "^3.2.4"
+  }
+}

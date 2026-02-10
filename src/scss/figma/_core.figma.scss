@@ -1,0 +1,59 @@
+/* Core Design Tokens - Generated from figma.tokens.js
+ * Update figma.tokens.js to match your Figma Variables, then run 'npm run figma:tokens'
+ * Last synced: 2026-02-10T17:44:01.885Z
+ ===========================================================================*/
+
+// Spacing Scale
+$figma-spacing-8: 8px;
+$figma-spacing-16: 16px;
+$figma-spacing-24: 24px;
+$figma-spacing-32: 32px;
+$figma-spacing-48: 48px;
+$figma-spacing-80: 80px;
+$figma-spacing-104: 104px;
+
+$figma-spacing: (
+    '8': 8px,
+    '16': 16px,
+    '24': 24px,
+    '32': 32px,
+    '48': 48px,
+    '80': 80px,
+    '104': 104px
+);
+
+// Semantic Spacing
+$figma-button-padding-x: 24px;
+$figma-button-padding-y: 16px;
+$figma-input-padding-x: 16px;
+$figma-input-padding-y: 8px;
+$figma-section-padding-x: 24px;
+$figma-section-padding-y: 32px;
+$figma-hero-cards-x: 16px;
+$figma-hero-cards-y: 80px;
+
+// Border Radius
+$figma-radius-none: 0px;
+$figma-radius-sm: 4px;
+$figma-radius-md: 8px;
+$figma-radius-lg: 16px;
+$figma-radius-xl: 24px;
+$figma-radius-full: 9999;
+
+$figma-radius: (
+    'none': 0px,
+    'sm': 4px,
+    'md': 8px,
+    'lg': 16px,
+    'xl': 24px,
+    'full': 9999
+);
+
+// Grid Settings
+$figma-grid-desktop-columns: 12;
+$figma-grid-desktop-gutter: 24px;
+$figma-grid-desktop-margin: 80px;
+$figma-grid-mobile-columns: 4;
+$figma-grid-mobile-gutter: 16px;
+$figma-grid-mobile-margin: 16px;
+
