@@ -8,6 +8,7 @@ import pagesData from './src/views/pages.json';
 import data from './src/views/data.json';
 import {ViteImageOptimizer} from 'vite-plugin-image-optimizer';
 import {componentEntries, globalEntries, pageHtmlFiles} from "./vite-files.js";
+import figmaConfig from './figma.config.js';
 import {
     multiPageDevPlugin,
     publicFontConverterPlugin,
@@ -54,12 +55,16 @@ export default defineConfig(({mode}) => {
         };
     }
 
+    // Active brand — set in figma.config.js → activeBrand
+    const brand = figmaConfig.activeBrand || 'powerNI';
+
     return {
         base: isProduction ? '/dist' : "/",
         resolve: {
             alias: {
                 '@js': path.resolve(__dirname, 'src/js'),
-                '@scss': path.resolve(__dirname, 'src/scss')
+                '@scss': path.resolve(__dirname, 'src/scss'),
+                '@brand-tokens': path.resolve(__dirname, `src/scss/tokens/${brand}`)
             }
         },
         build: {

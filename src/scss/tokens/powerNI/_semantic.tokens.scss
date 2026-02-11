@@ -1,0 +1,48 @@
+/* Semantic Brand Tokens — powerNI
+ * Auto-generated from figma.config.js semanticColors + figma.tokens.js typescale
+ * Maps brand-specific Figma tokens to standard names used by settings and components.
+ * Run 'npm run figma:tokens:powerNI' to regenerate.
+ * Last synced: 2026-02-11T15:46:21.267Z
+ ===========================================================================*/
+
+// Brand colour aliases
+$primary: $figma-bright-blue-500-base;
+$primary-dark: $figma-bright-blue-700;
+$primary-light: $figma-bright-blue-100;
+$brand-navy: $figma-dark-blue-500-base;
+$brand-navy-dark: $figma-dark-blue-700;
+$danger: $figma-salered-alert-500-base;
+$success: $figma-fun-green-500-base;
+$warning: $figma-tussock-500-base;
+$info: $figma-allports-500-base;
+$brand-pink: $figma-pink1-500-base;
+$brand-yellow: $figma-tussock-500-base;
+
+// Typography mixin aliases
+@mixin figma-brand-h1-desktop { @include figma-h1-powerni-desktop; }
+@mixin figma-brand-h1-mobile  { @include figma-h1-powerni-mobile; }
+@mixin figma-brand-h2-desktop { @include figma-h2-powerni-desktop; }
+@mixin figma-brand-h2-mobile  { @include figma-h2-powerni-mobile; }
+@mixin figma-brand-h3-desktop { @include figma-h3-powerni-desktop; }
+@mixin figma-brand-h3-mobile  { @include figma-h3-powerni-mobile; }
+@mixin figma-brand-h4-desktop { @include figma-h4-powerni-desktop; }
+@mixin figma-brand-h4-mobile  { @include figma-h4-powerni-mobile; }
+@mixin figma-brand-h5-desktop { @include figma-h5-powerni-desktop; }
+@mixin figma-brand-h5-mobile  { @include figma-h5-powerni-mobile; }
+@mixin figma-brand-h6-desktop { @include figma-h6-powerni-desktop; }
+@mixin figma-brand-h6-mobile  { @include figma-h6-powerni-mobile; }
+@mixin figma-brand-body-desktop { @include figma-body-powerni-desktop; }
+@mixin figma-brand-body-mobile  { @include figma-body-powerni-mobile; }
+@mixin figma-brand-body-large-desktop { @include figma-body-large-powerni-desktop; }
+@mixin figma-brand-body-large-mobile  { @include figma-body-large-powerni-mobile; }
+@mixin figma-brand-body-small-desktop { @include figma-body-small-powerni-desktop; }
+@mixin figma-brand-body-small-mobile  { @include figma-body-small-powerni-mobile; }
+@mixin figma-brand-body-xs-desktop { @include figma-body-xs-powerni-desktop; }
+@mixin figma-brand-body-xs-mobile  { @include figma-body-xs-powerni-mobile; }
+@mixin figma-brand-label-desktop { @include figma-label-powerni-desktop; }
+@mixin figma-brand-label-mobile  { @include figma-label-powerni-mobile; }
+@mixin figma-brand-button-desktop { @include figma-button-powerni-desktop; }
+@mixin figma-brand-button-mobile  { @include figma-button-powerni-mobile; }
+
+// Brand font family
+$figma-brand-font: $figma-font-powerNI;

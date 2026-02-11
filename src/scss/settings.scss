@@ -6,11 +6,18 @@
 // NO vendor (Bootstrap), NO base styles, NO CSS output.
 // ============================================================
 
-// Tokens — auto-generated
-@import "tokens/colors.tokens";
+// Brand tokens — resolved by Vite alias (BRAND env var → tokens/energia/ or tokens/powerNI/)
+@import "@brand-tokens/colors.tokens";
+
+// Shared tokens — spacing, neutrals
 @import "tokens/neutral.tokens";
 @import "tokens/core.tokens";
-@import "tokens/type.tokens";
+
+// Brand typography — weights, font family + desktop/mobile mixins
+@import "@brand-tokens/type.tokens";
+
+// Semantic aliases — maps brand $figma-* to $primary, $danger, mixin aliases, etc.
+@import "@brand-tokens/semantic.tokens";
 
 // Settings — vars only, no CSS output
 @import "settings/s.colors";

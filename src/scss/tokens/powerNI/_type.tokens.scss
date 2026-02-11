@@ -1,0 +1,191 @@
+/* Typography Tokens — powerNI
+ * Auto-generated from figma.tokens.js typescale
+ * Run 'npm run figma:tokens' to regenerate.
+ * Last synced: 2026-02-11T15:46:21.266Z
+ ===========================================================================*/
+
+// Font Weights
+$figma-weight-light: 300;
+$figma-weight-regular: 400;
+$figma-weight-semibold: 600;
+$figma-weight-bold: 700;
+$figma-weight-black: 900;
+
+// Brand font
+$figma-font-powerNI: "Roboto", sans-serif;
+
+// Typography Mixins
+@mixin figma-h1-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 76px;
+    line-height: 69px;
+    letter-spacing: -2px;
+    font-weight: 700;
+}
+
+@mixin figma-h1-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 68px;
+    line-height: 65px;
+    letter-spacing: -2px;
+    font-weight: 700;
+}
+
+@mixin figma-h2-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+@mixin figma-h2-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+@mixin figma-h3-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -1px;
+    font-weight: 700;
+}
+
+@mixin figma-h3-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -1px;
+    font-weight: 700;
+}
+
+@mixin figma-h4-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+@mixin figma-h4-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+@mixin figma-h5-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+@mixin figma-h5-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
+@mixin figma-h6-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+@mixin figma-h6-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+@mixin figma-body-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+@mixin figma-body-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+@mixin figma-body-large-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+@mixin figma-body-large-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+@mixin figma-body-small-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+@mixin figma-body-small-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+@mixin figma-body-xs-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+@mixin figma-body-xs-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+@mixin figma-label-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+@mixin figma-label-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+@mixin figma-button-powerni-desktop {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+@mixin figma-button-powerni-mobile {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+}
+

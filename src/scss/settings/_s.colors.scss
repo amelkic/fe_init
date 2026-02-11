@@ -1,30 +1,12 @@
 // ============================================================
 // Color Settings
-// Figma is the single source of truth for the brand palette.
-// Run 'npm run figma:tokens' to pull latest colors from Figma.
-// Changes to $figma-* variables will automatically propagate
-// through semantic aliases → Bootstrap theme-colors → components.
+// Brand colours ($primary, $danger, etc.) come from the brand
+// semantic token file: tokens/{brand}/_semantic.tokens.scss
+// which is auto-generated from figma.config.js semanticColors.
+//
+// This file provides: neutrals, Bootstrap theme-colors map,
+// SVG filters, and component-specific colour vars.
 // ============================================================
-
-// ------------------------------------------------------------
-// Semantic Brand Colors — mapped from Figma palette
-// Update the right-hand side when brand colors change in Figma
-// ------------------------------------------------------------
-
-$primary:           $figma-bright-blue-500-base;    // #005AA2
-$primary-dark:      $figma-bright-blue-700;         // #003661
-$primary-light:     $figma-bright-blue-100;         // #CCDEEC
-
-$brand-navy:        $figma-dark-blue-500-base;      // #0C295E
-$brand-navy-dark:   $figma-dark-blue-700;           // #071938
-
-$danger:            $figma-salered-alert-500-base;  // #EB003B
-$success:           $figma-fun-green-500-base;      // #008037
-$warning:           $figma-tussock-500-base;        // #CDA349
-$info:              $figma-allports-500-base;       // #007396
-
-$brand-pink:        $figma-pink1-500-base;          // #AF195F
-$brand-yellow:      $figma-tussock-500-base;        // #CDA349
 
 // ------------------------------------------------------------
 // Neutral — from figma.tokens.js (run 'npm run figma:tokens' to update)

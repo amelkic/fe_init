@@ -42,6 +42,8 @@ const scaffoldOnly = args.includes('--scaffold');
 const componentFlag = args.includes('--component');
 const nameArg = args.find(arg => arg.startsWith('--name='));
 const specificComponent = nameArg ? nameArg.split('=')[1].replace(/"/g, '') : null;
+const brandArg = args.find(arg => arg.startsWith('--brand='));
+const targetBrand = brandArg ? brandArg.split('=')[1] : null;
 
 /**
  * Make authenticated request to Figma API
@@ -304,8 +306,8 @@ async function extractColorsFromNodes(fileData) {
     function traverseNode(node) {
         const nodeName = node.name || '';
 
-        // Check if this is a color swatch instance (matches pattern like "colour/xxx/yyy")
-        const swatchMatch = nodeName.match(/^colour\/([^/]+)\/(.+)$/);
+        // Check if this is a color swatch instance (matches "colour/xxx/yyy" or "color/xxx/yyy")
+        const swatchMatch = nodeName.match(/^colou?r\/([^/]+)\/(.+)$/);
         if (swatchMatch && (node.type === 'INSTANCE' || node.type === 'FRAME')) {
             const group = swatchMatch[1];  // e.g., "primary1" or "bright-blue"
             const shade = swatchMatch[2];  // e.g., "900" or "500-base"
@@ -509,6 +511,60 @@ function generateNeutralScss(tokens) {
 
     return scss;
 }
+
+/**
+ * Generate Semantic SCSS for a brand
+ * Maps brand-specific $figma-* color tokens to standard semantic names ($primary, etc.)
+ * and creates typography mixin aliases (@mixin figma-brand-h1-desktop → brand-specific mixin)
+ */
+function generateSemanticScss(brandName, brandConfig, typographyStyles) {
+    const timestamp = new Date().toISOString();
+    const typoKey = brandConfig.typographyKey || brandName.toLowerCase();
+
+    let scss = `/* Semantic Brand Tokens — ${brandName}
+ * Auto-generated from figma.config.js semanticColors + figma.tokens.js typescale
+ * Maps brand-specific Figma tokens to standard names used by settings and components.
+ * Run 'npm run figma:tokens:${brandName}' to regenerate.
+ * Last synced: ${timestamp}
+ ===========================================================================*/
+
+`;
+
+    // --- Colour aliases ---
+    const colors = brandConfig.semanticColors || {};
+    if (Object.keys(colors).length > 0) {
+        scss += `// Brand colour aliases\n`;
+        const nameMap = {
+            primary: 'primary', primaryDark: 'primary-dark', primaryLight: 'primary-light',
+            brandNavy: 'brand-navy', brandNavyDark: 'brand-navy-dark',
+            danger: 'danger', success: 'success', warning: 'warning', info: 'info',
+            brandPink: 'brand-pink', brandYellow: 'brand-yellow',
+        };
+        for (const [key, figmaTokenSuffix] of Object.entries(colors)) {
+            const varName = nameMap[key] || key;
+            scss += `$${varName}: $figma-${figmaTokenSuffix};\n`;
+        }
+        scss += `\n`;
+    }
+
+    // --- Typography mixin aliases ---
+    if (typographyStyles && Object.keys(typographyStyles).length > 0) {
+        scss += `// Typography mixin aliases\n`;
+        for (const styleName of Object.keys(typographyStyles)) {
+            const scssName = styleName.replace(/[A-Z]/g, m => `-${m.toLowerCase()}`);
+            scss += `@mixin figma-brand-${scssName}-desktop { @include figma-${scssName}-${typoKey}-desktop; }\n`;
+            scss += `@mixin figma-brand-${scssName}-mobile  { @include figma-${scssName}-${typoKey}-mobile; }\n`;
+        }
+        scss += `\n`;
+    }
+
+    // --- Brand font variable ---
+    scss += `// Brand font family\n`;
+    scss += `$figma-brand-font: $figma-font-${brandName};\n`;
+
+    return scss;
+}
+
 /**
  * Generate Typography SCSS from manual tokens config
  */
@@ -516,23 +572,46 @@ function generateTypographyFromTokens(tokens) {
     if (!tokens?.typescale) return null;
 
     const timestamp = new Date().toISOString();
-    let scss = `/* Typography Tokens - Generated from figma.tokens.js
+    let scss = `/* Typography Tokens (shared) - Generated from figma.tokens.js
  * Update figma.tokens.js to match your Figma Variables, then run 'npm run figma:tokens'
  * Last synced: ${timestamp}
  ===========================================================================*/
 
 `;
 
-    const { fonts, weights, styles } = tokens.typescale;
+    const { weights } = tokens.typescale;
 
-    // Font families
-    if (fonts) {
-        scss += `// Brand Fonts\n`;
-        for (const [brand, font] of Object.entries(fonts)) {
-            scss += `$figma-font-${brand}: "${font}", sans-serif;\n`;
+    // Font weights (shared across all brands)
+    if (weights) {
+        scss += `// Font Weights\n`;
+        for (const [name, value] of Object.entries(weights)) {
+            scss += `$figma-weight-${name}: ${value};\n`;
         }
         scss += '\n';
     }
+
+    return scss;
+}
+
+/**
+ * Generate brand-specific Typography SCSS
+ * Outputs font family + desktop/mobile mixins for one brand only
+ */
+function generateBrandTypographyScss(brandName, brandConfig, tokens) {
+    if (!tokens?.typescale) return null;
+
+    const timestamp = new Date().toISOString();
+    const typoKey = brandConfig.typographyKey || brandName.toLowerCase();
+    const { fonts, weights, styles } = tokens.typescale;
+    const font = fonts?.[brandName] || 'sans-serif';
+
+    let scss = `/* Typography Tokens — ${brandName}
+ * Auto-generated from figma.tokens.js typescale
+ * Run 'npm run figma:tokens' to regenerate.
+ * Last synced: ${timestamp}
+ ===========================================================================*/
+
+`;
 
     // Font weights
     if (weights) {
@@ -543,69 +622,42 @@ function generateTypographyFromTokens(tokens) {
         scss += '\n';
     }
 
-    // Typography styles - generate mixins for each mode
+    // Brand font family
+    scss += `// Brand font\n`;
+    scss += `$figma-font-${brandName}: "${font}", sans-serif;\n\n`;
+
+    // Brand-specific mixins (desktop + mobile)
     if (styles) {
-        const modes = ['energiaDesktop', 'energiaMobile', 'powerNIDesktop', 'powerNIMobile'];
-        const modeMap = {
-            energiaDesktop: { suffix: 'energia', responsive: 'desktop', font: fonts?.energia || 'Archivo' },
-            energiaMobile: { suffix: 'energia', responsive: 'mobile', font: fonts?.energia || 'Archivo' },
-            powerNIDesktop: { suffix: 'powerni', responsive: 'desktop', font: fonts?.powerNI || 'Roboto' },
-            powerNIMobile: { suffix: 'powerni', responsive: 'mobile', font: fonts?.powerNI || 'Roboto' },
-        };
+        const desktopMode = `${brandName}Desktop`;
+        const mobileMode = `${brandName}Mobile`;
 
-        // Generate CSS custom properties per brand
-        scss += `// Typography CSS Variables (use with brand class)\n`;
-        scss += `@mixin figma-typography-vars-energia {\n`;
-        for (const [style, modeValues] of Object.entries(styles)) {
-            const desktop = modeValues.energiaDesktop;
-            if (desktop) {
-                scss += `    --figma-${style}-size: ${desktop.size}px;\n`;
-                scss += `    --figma-${style}-line-height: ${desktop.lineHeight}px;\n`;
-                scss += `    --figma-${style}-tracking: ${desktop.tracking}px;\n`;
-                scss += `    --figma-${style}-weight: ${weights[desktop.weight] || 400};\n`;
-            }
-        }
-        scss += `}\n\n`;
-
-        scss += `@mixin figma-typography-vars-powerni {\n`;
-        for (const [style, modeValues] of Object.entries(styles)) {
-            const desktop = modeValues.powerNIDesktop;
-            if (desktop) {
-                scss += `    --figma-${style}-size: ${desktop.size}px;\n`;
-                scss += `    --figma-${style}-line-height: ${desktop.lineHeight}px;\n`;
-                scss += `    --figma-${style}-tracking: ${desktop.tracking}px;\n`;
-                scss += `    --figma-${style}-weight: ${weights[desktop.weight] || 400};\n`;
-            }
-        }
-        scss += `}\n\n`;
-
-        // Generate mixins for each style
         scss += `// Typography Mixins\n`;
         for (const [style, modeValues] of Object.entries(styles)) {
-            // Generic mixin using CSS variables
-            scss += `@mixin figma-${style} {\n`;
-            scss += `    font-size: var(--figma-${style}-size);\n`;
-            scss += `    line-height: var(--figma-${style}-line-height);\n`;
-            scss += `    letter-spacing: var(--figma-${style}-tracking);\n`;
-            scss += `    font-weight: var(--figma-${style}-weight);\n`;
-            scss += `}\n\n`;
+            const desktop = modeValues[desktopMode];
+            const mobile = modeValues[mobileMode];
 
-            // Brand-specific mixins
-            for (const mode of modes) {
-                const values = modeValues[mode];
-                if (values) {
-                    const info = modeMap[mode];
-                    const mixinName = `figma-${style}-${info.suffix}-${info.responsive}`;
-                    scss += `@mixin ${mixinName} {\n`;
-                    scss += `    font-family: "${info.font}", sans-serif;\n`;
-                    scss += `    font-size: ${values.size}px;\n`;
-                    scss += `    line-height: ${values.lineHeight}px;\n`;
-                    if (values.tracking) {
-                        scss += `    letter-spacing: ${values.tracking}px;\n`;
-                    }
-                    scss += `    font-weight: ${weights[values.weight] || 400};\n`;
-                    scss += `}\n\n`;
+            if (desktop) {
+                scss += `@mixin figma-${style}-${typoKey}-desktop {\n`;
+                scss += `    font-family: "${font}", sans-serif;\n`;
+                scss += `    font-size: ${desktop.size}px;\n`;
+                scss += `    line-height: ${desktop.lineHeight}px;\n`;
+                if (desktop.tracking) {
+                    scss += `    letter-spacing: ${desktop.tracking}px;\n`;
                 }
+                scss += `    font-weight: ${weights[desktop.weight] || 400};\n`;
+                scss += `}\n\n`;
+            }
+
+            if (mobile) {
+                scss += `@mixin figma-${style}-${typoKey}-mobile {\n`;
+                scss += `    font-family: "${font}", sans-serif;\n`;
+                scss += `    font-size: ${mobile.size}px;\n`;
+                scss += `    line-height: ${mobile.lineHeight}px;\n`;
+                if (mobile.tracking) {
+                    scss += `    letter-spacing: ${mobile.tracking}px;\n`;
+                }
+                scss += `    font-weight: ${weights[mobile.weight] || 400};\n`;
+                scss += `}\n\n`;
             }
         }
     }
@@ -1130,103 +1182,101 @@ async function sync() {
     }
 
     try {
-        console.log('📡 Fetching Figma file data...');
-
-        let fileData;
-        let targetNode = null;
-
-        if (config.nodeId) {
-            // Fetch specific node/section for the design system
-            console.log(`   Targeting node: ${config.nodeId}`);
-            const nodesResponse = await figmaRequest(`/files/${config.fileId}/nodes?ids=${config.nodeId}`);
-
-            // Get the full file data for styles metadata
-            fileData = await figmaRequest(`/files/${config.fileId}`);
-
-            // Get the target node document structure
-            if (nodesResponse.nodes && nodesResponse.nodes[config.nodeId]) {
-                targetNode = nodesResponse.nodes[config.nodeId].document;
-                // Replace the document with the target node for extraction
-                fileData.document = targetNode;
+        // Determine which brands to sync
+        const brandsToSync = [];
+        if (targetBrand) {
+            if (!config.brands?.[targetBrand]) {
+                console.error(`❌ Unknown brand: "${targetBrand}". Available: ${Object.keys(config.brands || {}).join(', ')}`);
+                process.exit(1);
             }
+            brandsToSync.push(targetBrand);
+        } else if (config.activeBrand && config.brands?.[config.activeBrand]) {
+            brandsToSync.push(config.activeBrand);
         } else {
-            // Fetch entire file
-            fileData = await figmaRequest(`/files/${config.fileId}`);
+            console.error(`❌ No activeBrand set in figma.config.js`);
+            console.error(`   Set activeBrand to one of: ${Object.keys(config.brands || {}).join(', ')}`);
+            process.exit(1);
         }
 
-        console.log(`   File: ${fileData.name}${targetNode ? ` (Node: ${targetNode.name})` : ''}\n`);
+        // Ensure shared output directory exists
+        const outputDir = path.join(ROOT_DIR, config.tokensOutput);
+        if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+        }
 
-        // Token sync
-        if (!scaffoldOnly) {
-            console.log('🎨 Extracting design tokens...');
+        // ── Brand-specific colour tokens ─────────────────────────
+        if (!scaffoldOnly && brandsToSync.length > 0) {
+            console.log('📡 Fetching Figma file data...\n');
 
-            // Ensure output directory exists
-            const outputDir = path.join(ROOT_DIR, config.tokensOutput);
-            if (!fs.existsSync(outputDir)) {
-                fs.mkdirSync(outputDir, { recursive: true });
+            // Fetch full file data once (needed for styles metadata)
+            const fileData = await figmaRequest(`/files/${config.fileId}`);
+            console.log(`   File: ${fileData.name}\n`);
+
+            // Collect all brand node IDs for a single API call
+            const nodeIds = brandsToSync
+                .map(b => config.brands[b].nodeId)
+                .filter(Boolean)
+                .join(',');
+
+            let nodesResponse = null;
+            if (nodeIds) {
+                nodesResponse = await figmaRequest(`/files/${config.fileId}/nodes?ids=${nodeIds}`);
             }
 
-            // Colors - Try Variables API first (newer), fall back to Styles API (legacy)
-            const { colors: variableColors, collections } = await extractVariables();
+            for (const brandName of brandsToSync) {
+                const brandConfig = config.brands[brandName];
+                const brandDir = path.join(outputDir, brandName);
+                if (!fs.existsSync(brandDir)) {
+                    fs.mkdirSync(brandDir, { recursive: true });
+                }
 
-            if (variableColors.length > 0) {
-                // Use Variables API data
-                const colorScss = generateVariableColorScss(variableColors, collections);
-                const colorPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.colors);
-                fs.writeFileSync(colorPath, colorScss);
-                console.log(`   ✅ ${variableColors.length} color variables → ${config.tokenFiles.colors}`);
-            } else {
-                // Try legacy Styles API
-                const colors = await extractColorStyles(fileData);
-                if (colors.length > 0) {
-                    const colorScss = generateColorScss(colors);
-                    const colorPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.colors);
+                console.log(`🎨 Syncing ${brandName} colours (node ${brandConfig.nodeId})...`);
+
+                // Build a fileData view scoped to this brand's node
+                const brandFileData = { ...fileData };
+                if (brandConfig.nodeId && nodesResponse?.nodes?.[brandConfig.nodeId]) {
+                    brandFileData.document = nodesResponse.nodes[brandConfig.nodeId].document;
+                }
+
+                // Extract colours from node structure
+                const nodeColors = await extractColorsFromNodes(brandFileData);
+                if (nodeColors.length > 0) {
+                    const colorScss = generateNodeColorScss(nodeColors);
+                    const colorPath = path.join(brandDir, config.brandTokenFiles.colors);
                     fs.writeFileSync(colorPath, colorScss);
-                    console.log(`   ✅ ${colors.length} color tokens → ${config.tokenFiles.colors}`);
+                    console.log(`   ✅ ${nodeColors.length} colours → ${brandName}/${config.brandTokenFiles.colors}`);
                 } else {
-                    // Extract from node structure (works on all Figma plans)
-                    const nodeColors = await extractColorsFromNodes(fileData);
-                    if (nodeColors.length > 0) {
-                        const colorScss = generateNodeColorScss(nodeColors);
-                        const colorPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.colors);
-                        fs.writeFileSync(colorPath, colorScss);
-                        console.log(`   ✅ ${nodeColors.length} colors → ${config.tokenFiles.colors}`);
-                    } else {
-                        console.log('   ⚠️  No colors found');
+                    console.log(`   ⚠️  No colours found for ${brandName}`);
+                }
+
+                // Generate brand typography file
+                if (manualTokens?.typescale) {
+                    const brandTypoScss = generateBrandTypographyScss(brandName, brandConfig, manualTokens);
+                    if (brandTypoScss) {
+                        const brandTypoPath = path.join(brandDir, config.brandTokenFiles.typography);
+                        fs.writeFileSync(brandTypoPath, brandTypoScss);
+                        const styleCount = Object.keys(manualTokens.typescale.styles || {}).length;
+                        console.log(`   ✅ ${styleCount * 2} typography mixins → ${brandName}/${config.brandTokenFiles.typography}`);
                     }
                 }
-            }
 
-            // Fonts (basic font variables)
-            const textStyles = await extractTextStyles(fileData);
-            if (textStyles.length > 0) {
-                const fontScss = generateFontScss(textStyles);
-                const fontPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.fonts);
-                fs.writeFileSync(fontPath, fontScss);
-                console.log(`   ✅ ${textStyles.length} font tokens → ${config.tokenFiles.fonts}`);
-
-                // Typography (mixins and comprehensive styles)
-                const typographyScss = generateTypographyScss(textStyles);
-                const typographyPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.typography);
-                fs.writeFileSync(typographyPath, typographyScss);
-                console.log(`   ✅ ${textStyles.length} typography mixins → ${config.tokenFiles.typography}`);
-            } else if (manualTokens?.typescale) {
-                // Use manual tokens from figma.tokens.js
-                console.log('   Using figma.tokens.js for typography...');
-                const typographyScss = generateTypographyFromTokens(manualTokens);
-                if (typographyScss) {
-                    const typographyPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.typography);
-                    fs.writeFileSync(typographyPath, typographyScss);
-                    const styleCount = Object.keys(manualTokens.typescale.styles || {}).length;
-                    console.log(`   ✅ ${styleCount} typography styles → ${config.tokenFiles.typography}`);
-                }
-            } else {
-                console.log('   ⚠️  No text styles found (add to figma.tokens.js)');
+                // Generate semantic token file
+                const typographyStyles = manualTokens?.typescale?.styles || {};
+                const semanticScss = generateSemanticScss(brandName, brandConfig, typographyStyles);
+                const semanticPath = path.join(brandDir, config.brandTokenFiles.semantic);
+                fs.writeFileSync(semanticPath, semanticScss);
+                const colorCount = Object.keys(brandConfig.semanticColors || {}).length;
+                const mixinCount = Object.keys(typographyStyles).length * 2;
+                console.log(`   ✅ ${colorCount} colour + ${mixinCount} typography aliases → ${brandName}/${config.brandTokenFiles.semantic}`);
             }
+        }
+
+        // ── Shared tokens (core, neutral) ────────────
+        if (!scaffoldOnly) {
+            console.log('\n🔧 Shared tokens...');
 
             // Core tokens (spacing, radius, grid) from manual config
             if (manualTokens?.core) {
-                console.log('   Using figma.tokens.js for core tokens...');
                 const coreScss = generateCoreScss(manualTokens);
                 if (coreScss) {
                     const corePath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.core);
@@ -1246,33 +1296,6 @@ async function sync() {
                     const greyCount = Object.keys(manualTokens.neutral.grey || {}).length;
                     console.log(`   ✅ 3 base + ${greyCount} grey → ${config.tokenFiles.neutral}`);
                 }
-            }
-
-            // Borders (stroke styles and corner radii)
-            // Skipped when config.tokenFiles.borders is not set (e.g. border-radius lives in core tokens)
-            if (config.tokenFiles.borders) {
-                const borders = await extractBorderStyles(fileData);
-                if (borders.length > 0) {
-                    const borderScss = generateBorderScss(borders);
-                    const borderPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.borders);
-                    fs.writeFileSync(borderPath, borderScss);
-                    console.log(`   ✅ ${borders.length} border tokens → ${config.tokenFiles.borders}`);
-                } else {
-                    // Create empty placeholder file with helpful comment
-                    const emptyBorderScss = `/* Border Tokens - Auto-generated from Figma
- * No border/stroke styles found in Figma file
- * Add stroke styles or corner radius tokens in Figma to populate this file
- * Last synced: ${new Date().toISOString()}
- ===========================================================================*/
-
-// No border tokens found - define stroke styles in Figma
-`;
-                    const borderPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.borders);
-                    fs.writeFileSync(borderPath, emptyBorderScss);
-                    console.log('   ⚠️  No border styles found (created placeholder file)');
-                }
-            } else {
-                console.log('   ⏭️  Borders skipped (not configured — border-radius lives in core tokens)');
             }
         }
 

@@ -37,17 +37,8 @@
     --radius-lg:   #{$border-radius-lg};
     --radius-xl:   #{$border-radius-xl};
     --radius-pill: #{$border-radius-pill};
-}
 
-// Brand typography CSS vars — set at body/root level via brand class
-// Usage: <body class="energia"> or <body class="power-ni">
 
-.energia {
-    @include figma-typography-vars-energia;
-    --font-brand: #{$figma-font-energia};
-}
-
-.power-ni {
-    @include figma-typography-vars-powerni;
-    --font-brand: #{$figma-font-powerNI};
+    // Brand font (resolved at build time via BRAND env var)
+    --font-brand: #{$figma-brand-font};
 }
