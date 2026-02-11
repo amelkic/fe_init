@@ -1,7 +1,5 @@
 // ============================================================
 // Color Settings
-// Requires: figma/colors.figma to be imported first.
-//
 // Figma is the single source of truth for the brand palette.
 // Run 'npm run figma:tokens' to pull latest colors from Figma.
 // Changes to $figma-* variables will automatically propagate
@@ -13,73 +11,37 @@
 // Update the right-hand side when brand colors change in Figma
 // ------------------------------------------------------------
 
-$primary:               $figma-bright-blue-500-base;    // #005AA2
-$primary-dark:          $figma-bright-blue-700;         // #003661
-$primary-light:         $figma-bright-blue-100;         // #CCDEEC
+$primary:           $figma-bright-blue-500-base;    // #005AA2
+$primary-dark:      $figma-bright-blue-700;         // #003661
+$primary-light:     $figma-bright-blue-100;         // #CCDEEC
 
-$brand-navy:            $figma-dark-blue-500-base;      // #0C295E
-$brand-navy-dark:       $figma-dark-blue-700;           // #071938
+$brand-navy:        $figma-dark-blue-500-base;      // #0C295E
+$brand-navy-dark:   $figma-dark-blue-700;           // #071938
 
-$danger:                $figma-salered-alert-500-base;  // #EB003B
-$success:               $figma-fun-green-500-base;      // #008037
-$warning:               $figma-tussock-500-base;        // #CDA349
-$info:                  $figma-allports-500-base;       // #007396
+$danger:            $figma-salered-alert-500-base;  // #EB003B
+$success:           $figma-fun-green-500-base;      // #008037
+$warning:           $figma-tussock-500-base;        // #CDA349
+$info:              $figma-allports-500-base;       // #007396
 
-// ------------------------------------------------------------
-// Legacy project aliases — kept for backwards compatibility
-// Point to Figma tokens so changes propagate automatically
-// ------------------------------------------------------------
-
-$tesco-blue:            $figma-bright-blue-500-base;
-$tesco-blue-new:        $figma-bright-blue-500-base;
-$tesco-red:             $figma-salered-alert-500-base;
-$tesco-pink:            $figma-pink1-500-base;          // #AF195F
-$tesco-yellow:          $figma-tussock-500-base;        // #CDA349
-$tesco-clubcard-yellow: $figma-tussock-500-base;
-
-$navy:                  $figma-dark-blue-500-base;
-$darknavy:              $figma-dark-blue-700;
-
-$purple:                $figma-purple1-500-base;        // #3C2373
-$lightblue:             $figma-allports-400;            // #338FAB
-
-$tesco-blue-light:      $figma-bright-blue-100;
+$brand-pink:        $figma-pink1-500-base;          // #AF195F
+$brand-yellow:      $figma-tussock-500-base;        // #CDA349
 
 // ------------------------------------------------------------
-// Neutral / Greyscale — not yet in Figma palette, kept as-is
+// Neutral — from figma.tokens.js (run 'npm run figma:tokens' to update)
 // ------------------------------------------------------------
 
-$white:                 #FFF;
-$black:                 #000;
-$bannerblack:           #120C0E;
-$text:                  #272727;
+$white:     $figma-neutral-white;
+$black:     $figma-neutral-black;
+$text:      $figma-neutral-text;
 
-$tesco-light-grey:      #F0EBEB;
-$tesco-light-grey2:     #F9F9F9;
-$tesco-light-grey3:     #E2E2E2;
-$tesco-light-grey4:     #F8F8F8;
-$tesco-light-grey5:     #F2F2F2;
-$tesco-light-grey6:     #E0E0E0;
-$tesco-light-grey7:     #EDEDED;
-$tesco-light-grey8:     #9e9e9e;
-
-$tesco-dark:            #212529;
-$tesco-dark-grey:       #6E6767;
-$tesco-dark-grey2:      #B1B1B1;
-$tesco-dark-grey3:      #717171;
-
-$heavygrey:             #666666;
-$darkgrey:              #6D6E72;
-$lightgrey:             #E6E6E6;
-$lightgrey2:            #F7F5F5;
-$midgrey:               #CDCDCD;
-$bordergrey:            #CCCCCC;
-$grey:                  #F6F6F6;
-$brand-grey:            $tesco-light-grey;
-
-$yellow:                #FAD600;
-$yellow2:               #FDDF2A;
-$darkyellow:            #CAAC00;
+// Grey scale — generic naming, reusable across projects
+$grey-50:   $figma-neutral-grey-50;
+$grey-100:  $figma-neutral-grey-100;
+$grey-200:  $figma-neutral-grey-200;
+$grey-300:  $figma-neutral-grey-300;
+$grey-400:  $figma-neutral-grey-400;
+$grey-500:  $figma-neutral-grey-500;
+$grey-600:  $figma-neutral-grey-600;
 
 // ------------------------------------------------------------
 // Bootstrap Theme Colors
@@ -88,20 +50,16 @@ $darkyellow:            #CAAC00;
 // ------------------------------------------------------------
 
 $theme-colors: (
-    "primary":              $primary,
-    "secondary":            $brand-navy,
-    "success":              $success,
-    "danger":               $danger,
-    "warning":              $warning,
-    "info":                 $info,
-    // Custom project colours
-    "red":                  $danger,
-    "tesco-blue":           $primary,
-    "tesco-light-grey":     $tesco-light-grey,
-    "tesco-light-grey2":    $tesco-light-grey2,
-    "tesco-light-grey4":    $tesco-light-grey4,
-    "yellow":               $yellow2,
-    "grey":                 $grey,
+    "primary":      $primary,
+    "secondary":    $brand-navy,
+    "success":      $success,
+    "danger":       $danger,
+    "warning":      $warning,
+    "info":         $info,
+    "red":          $danger,
+    "brand-blue":   $primary,
+    "yellow":       #FDDF2A,
+    "grey":         #F6F6F6,
 );
 
 // ------------------------------------------------------------

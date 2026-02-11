@@ -46,7 +46,7 @@
 
     tbody {
         tr {
-            border-bottom: 1px solid $tesco-light-grey3;
+            border-bottom: 1px solid $grey-200;
             transition: background-color 0.2s ease;
 
             &:last-child {
@@ -54,7 +54,7 @@
             }
 
             &:hover {
-                background-color: $tesco-light-grey2;
+                background-color: $grey-50;
             }
         }
 
@@ -70,7 +70,7 @@
 
     &--striped {
         tbody tr:nth-child(odd) {
-            background-color: $tesco-light-grey4;
+            background-color: $grey-50;
         }
     }
 
@@ -87,7 +87,7 @@
             tr {
                 display: block;
                 margin-bottom: $figma-spacing-16;
-                border: 1px solid $tesco-light-grey3;
+                border: 1px solid $grey-200;
                 border-radius: $border-radius;
             }
 
@@ -96,7 +96,7 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: $figma-spacing-8 $figma-spacing-16;
-                border-bottom: 1px solid $tesco-light-grey3;
+                border-bottom: 1px solid $grey-200;
                 font-size: 0.875rem;
 
                 &:last-child {
@@ -106,7 +106,7 @@
                 &[data-label]::before {
                     content: attr(data-label);
                     font-weight: $figma-weight-semibold;
-                    color: $tesco-dark-grey;
+                    color: $grey-600;
                     margin-right: $figma-spacing-16;
                     flex-shrink: 0;
                 }

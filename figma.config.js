@@ -19,7 +19,8 @@ export default {
         fonts: '_fonts.tokens.scss',
         typography: '_type.tokens.scss',
         spacing: '_spacing.tokens.scss',
-        core: '_core.tokens.scss'
+        core: '_core.tokens.scss',
+        neutral: '_neutral.tokens.scss'
     },
     
     // Component scaffolding settings

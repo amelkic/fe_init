@@ -8,19 +8,12 @@
 $base-font: "TescoModern-Regular", sans-serif;
 
 // Legacy size scale — used with @include rem(font-size, $value)
-$xxxl: 128px;
-$xxl:80px;
-$xl: 40px;
-$large: 28px;
+$xxxl:  128px;
+$xxl:    80px;
+$xl:     40px;
+$large:  28px;
 $medium: 16px;
-$small: 10px;
+$small:  10px;
 
-$regularfont: 'TescoModern-Regular', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$boldfont: 'TescoModern-Bold', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$lightfont: 'TescoModern-Light', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$mediumfont: 'TescoModern-Medium', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$italicfont: 'TescoModern-Italic', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$bolditalicfont: 'TescoModern-BoldItalic', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$lightitalicfont: 'TescoModern-LightItalic', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$mediumitalicfont: 'TescoModern-MediumItalic', "myriad-pro", "Myriad Pro", "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
-$fa: 'Font Awesome 5 Free';
+$regularfont: 'TescoModern-Regular', Arial, sans-serif;
+$boldfont:    'TescoModern-Bold',    Arial, sans-serif;

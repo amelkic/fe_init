@@ -30,7 +30,7 @@
             flex: 1;
             padding: $figma-input-padding-y $figma-input-padding-x;     // 8px 16px
             font-size: 1rem;
-            border: 1px solid $bordergrey;
+            border: 1px solid $grey-300;
             border-radius: $border-radius;                              // 8px
             color: $text;
             background-color: $white;
@@ -43,7 +43,7 @@
             }
 
             &::placeholder {
-                color: $tesco-dark-grey2;
+                color: $grey-400;
             }
         }
 
@@ -76,7 +76,7 @@
         right: 0;
         z-index: 100;
         background-color: $white;
-        border: 1px solid $bordergrey;
+        border: 1px solid $grey-300;
         border-radius: $border-radius;
         box-shadow: 0 4px 12px rgba($black, 0.1);
         max-height: 260px;
@@ -88,17 +88,17 @@
         }
 
         &::-webkit-scrollbar-track {
-            background: $tesco-light-grey2;
+            background: $grey-50;
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: $bordergrey;
+            background-color: $grey-300;
             border-radius: $border-radius-pill;
         }
 
         // Firefox
         scrollbar-width: thin;
-        scrollbar-color: $bordergrey $tesco-light-grey2;
+        scrollbar-color: $grey-300 $grey-50;
     }
 
     // ----------------------------------------------------------
@@ -112,7 +112,7 @@
         color: $text;
         cursor: pointer;
         transition: background-color 0.15s ease;
-        border-bottom: 1px solid $tesco-light-grey3;
+        border-bottom: 1px solid $grey-200;
 
         &:last-child {
             border-bottom: none;
@@ -120,7 +120,7 @@
 
         &:hover,
         &--highlighted {
-            background-color: $tesco-light-grey;
+            background-color: $grey-100;
             color: $primary;
         }
     }

@@ -59,8 +59,8 @@ $_tag-bg:           #DDEEFF;                                    // TODO: add to 
         }
 
         &.disabled {
-            background-color: $tesco-dark-grey2;
-            border-color: $tesco-dark-grey2;
+            background-color: $grey-400;
+            border-color: $grey-400;
             pointer-events: none;
         }
     }
@@ -77,19 +77,19 @@ $_tag-bg:           #DDEEFF;                                    // TODO: add to 
         }
 
         &.disabled {
-            color: $tesco-dark-grey2;
-            border-color: $tesco-dark-grey2;
+            color: $grey-400;
+            border-color: $grey-400;
             pointer-events: none;
         }
     }
 
     &.grey--white-text {
-        background-color: $heavygrey;
+        background-color: $grey-500;
         border-color: transparent;
         color: $white;
 
         &:hover {
-            background-color: $tesco-dark-grey2;
+            background-color: $grey-400;
         }
     }
 
@@ -116,8 +116,8 @@ $_tag-bg:           #DDEEFF;                                    // TODO: add to 
 
     &.grey-border {
         background-color: $white;
-        border-color: $tesco-dark-grey2;
-        color: $tesco-dark-grey2;
+        border-color: $grey-400;
+        color: $grey-400;
 
         &:hover {
             background-color: $primary;
@@ -165,7 +165,7 @@ $_tag-bg:           #DDEEFF;                                    // TODO: add to 
     }
 
     &.yellow--blue-border--blue-text {
-        background-color: $tesco-yellow;
+        background-color: $warning;
         border-color: $primary;
         color: $primary;
     }

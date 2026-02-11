@@ -476,6 +476,39 @@ function generateCoreScss(tokens) {
     return scss;
 }
 
+
+/**
+ * Generate Neutral SCSS (white, black, text, grey scale) from manual tokens config
+ */
+function generateNeutralScss(tokens) {
+    if (!tokens?.neutral) return null;
+
+    const timestamp = new Date().toISOString();
+    let scss = `/* Neutral Design Tokens - Generated from figma.tokens.js
+ * Update figma.tokens.js to adjust neutral colours, then run 'npm run figma:tokens'
+ * Last synced: ${timestamp}
+ ===========================================================================*/
+
+`;
+
+    const { white, black, text, grey } = tokens.neutral;
+
+    scss += `// Base neutrals\n`;
+    if (white) scss += `$figma-neutral-white: ${white};\n`;
+    if (black) scss += `$figma-neutral-black: ${black};\n`;
+    if (text)  scss += `$figma-neutral-text: ${text};\n`;
+    scss += `\n`;
+
+    if (grey) {
+        scss += `// Grey scale\n`;
+        for (const [key, value] of Object.entries(grey)) {
+            scss += `$figma-neutral-grey-${key}: ${value};\n`;
+        }
+        scss += `\n`;
+    }
+
+    return scss;
+}
 /**
  * Generate Typography SCSS from manual tokens config
  */
@@ -1201,6 +1234,17 @@ async function sync() {
                     const spacingCount = Object.keys(manualTokens.core.spacing || {}).length;
                     const radiusCount = Object.keys(manualTokens.core.radius || {}).length;
                     console.log(`   ✅ ${spacingCount} spacing + ${radiusCount} radius → ${config.tokenFiles.core}`);
+                }
+            }
+
+            // Neutral tokens (white, black, text, grey scale) from manual config
+            if (manualTokens?.neutral && config.tokenFiles.neutral) {
+                const neutralScss = generateNeutralScss(manualTokens);
+                if (neutralScss) {
+                    const neutralPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.neutral);
+                    fs.writeFileSync(neutralPath, neutralScss);
+                    const greyCount = Object.keys(manualTokens.neutral.grey || {}).length;
+                    console.log(`   ✅ 3 base + ${greyCount} grey → ${config.tokenFiles.neutral}`);
                 }
             }
 

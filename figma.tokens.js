@@ -61,6 +61,28 @@ export default {
         },
     },
 
+
+    // ===========================================
+    // NEUTRAL COLLECTION
+    // Universal non-brand colours (white, black, text, grey scale).
+    // Not pulled from the Figma API — maintained here as design tokens.
+    // ===========================================
+    neutral: {
+        white:  '#FFFFFF',
+        black:  '#000000',
+        text:   '#272727',
+        grey: {
+            '50':  '#F9F9F9',
+            '100': '#F0EBEB',
+            '200': '#E2E2E2',
+            '300': '#CCCCCC',
+            '400': '#B1B1B1',
+            '500': '#666666',
+            '600': '#6E6767',
+            '900': '#212529',
+        },
+    },
+
     // ===========================================
     // TYPESCALE COLLECTION
     // ===========================================

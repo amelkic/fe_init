@@ -1,7 +1,7 @@
 ﻿@import "@scss/settings.scss";
 
 header {
-    border-bottom: 1px solid $tesco-light-grey;
+    border-bottom: 1px solid $grey-100;
 }
 
 .navbar {
@@ -42,7 +42,7 @@ header {
             height: 445px;
             padding: 35px;
             margin: 0 auto 0 !important;
-            border: 1px solid $tesco-light-grey;
+            border: 1px solid $grey-100;
             border-radius: 0px 0px 30px 30px;
 
             @include mqMin($laptop + 5) {
@@ -86,7 +86,7 @@ header {
                 .content {
                     position: relative;
                     width: 50%;
-                    color: $tesco-blue;
+                    color: $primary;
 
                     .tagline {
                         margin: 0;
@@ -140,7 +140,7 @@ header {
 
             &::after {
                 border: none !important;
-                // background-color: $tesco-red;
+                // background-color: $danger;
                 width: 13px;
                 height: auto;
                 content: url(/images/icons/arrow-down.svg);
@@ -151,7 +151,7 @@ header {
             }
 
             &.show {
-                color: $tesco-blue;
+                color: $primary;
 
                 &::after {
                     transform: rotate(180deg);
@@ -483,7 +483,7 @@ header {
         align-items: center;
 
         .dropdown-menu {
-            border: 1px solid $tesco-light-grey;
+            border: 1px solid $grey-100;
             border-radius: 0px 0px 30px 30px;
             padding: 25px 5px;
 
@@ -494,7 +494,7 @@ header {
         position: relative;
 
         .cart_number {
-            background-color: $tesco-red;
+            background-color: $danger;
             position: absolute;
             top: 5px;
             right: 8px;
@@ -538,7 +538,7 @@ header {
     right: 0;
     background: $white;
     animation: fadeIn 0.3s ease forwards;
-    box-shadow: 0px -5px 12px $tesco-dark-grey;
+    box-shadow: 0px -5px 12px $grey-600;
 
 
 }
@@ -558,8 +558,8 @@ header {
         animation: fadeIn 0.8s ease forwards;
         left: 0;
         right: 0;
-        // background-color: $tesco-light-grey;
-        background-color: rgba($color: $tesco-blue, $alpha: 0.8);
+        // background-color: $grey-100;
+        background-color: rgba($color: $primary, $alpha: 0.8);
         backdrop-filter: blur(10px);
 
         @include mqMax($tablet-landscape) {
@@ -614,7 +614,7 @@ header {
 
             .headersearchInput {
                 height: 60px;
-                border: 1px solid $tesco-light-grey;
+                border: 1px solid $grey-100;
                 background-color: $white;
                 // border-radius: 30px;
                 padding: 1rem 0.75rem 0.25rem;
@@ -737,7 +737,7 @@ header {
     }
 
     .menu-cta {
-        border-bottom: 1px solid $tesco-light-grey3;
+        border-bottom: 1px solid $grey-200;
 
         img {
             margin-right: 10px;
@@ -774,7 +774,7 @@ header {
 
                 &::after {
                     border: none !important;
-                    // background-color: $tesco-red;
+                    // background-color: $danger;
                     width: 13px;
                     height: auto;
                     content: url(/images/icons/arrow-down.svg);
@@ -784,7 +784,7 @@ header {
                 }
 
                 &.show {
-                    color: $tesco-blue;
+                    color: $primary;
 
                     &::after {
                         transform: rotate(180deg);
@@ -798,7 +798,7 @@ header {
     .second-navbar {
         padding: 32px 0;
         padding-left: 10px;
-        border-top: 1px solid $tesco-light-grey3;
+        border-top: 1px solid $grey-200;
 
         li {
             padding: 10px;
@@ -860,7 +860,7 @@ ul.second-level {
     transform: translateX(100%);
     transition: transform 300ms ease-in;
     z-index: 3;
-    background-color: $tesco-light-grey2;
+    background-color: $grey-50;
     list-style: none;
 
     @media (max-width: 375px) {
@@ -909,7 +909,7 @@ ul.third-level {
     transform: translateX(100%);
     transition: transform 300ms ease-in;
     z-index: 3;
-    background-color: $tesco-light-grey2;
+    background-color: $grey-50;
     list-style: none;
 
     li {

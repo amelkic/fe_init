@@ -1,8 +1,8 @@
 ﻿// Base global styles (only in global bundle, not components)
 
 .sr-only-focusable {
-  background-color: $tesco-light-grey;
-  color: $tesco-blue;
+  background-color: $grey-100;
+  color: $primary;
   text-decoration: none;
   padding: 5px 10px;
   position: fixed;
@@ -46,7 +46,7 @@ strong {
 
   &:after {
     content: url(/img/cached/icons/close-icon.svg);
-    font-family: $fa;
+    font-family: 'Font Awesome 5 Free';
     @include rem(font-size, $medium);
     font-weight: bold;
     color: $primary;
@@ -161,7 +161,7 @@ strong {
 
 #ot-sdk-btn.ot-sdk-show-settings,
 #ot-sdk-btn.optanon-show-settings {
-  color: $tesco-blue !important;
+  color: $primary !important;
   border: none !important;
   background: transparent !important;
   padding: 0 !important;
@@ -207,7 +207,7 @@ strong {
     left: 10px;
     z-index: 9999;
     padding: 10px 15px;
-    background-color: $tesco-blue;
+    background-color: $primary;
     color: $white !important;
     text-decoration: none;
     border-radius: 4px;
@@ -217,28 +217,28 @@ strong {
 
     &:focus {
         top: 10px;
-        outline: 3px solid $tesco-clubcard-yellow;
+        outline: 3px solid $warning;
         outline-offset: 2px;
     }
 }
 
 // Enhanced focus indicators for WCAG 2.1 AA compliance
 *:focus-visible {
-    outline: 2px solid $tesco-blue;
+    outline: 2px solid $primary;
     outline-offset: 2px;
 }
 
 // Specific focus styles for buttons and links
 a:focus-visible,
 button:focus-visible {
-    outline: 2px solid $tesco-blue;
+    outline: 2px solid $primary;
     outline-offset: 2px;
 }
 
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 2px solid $tesco-blue;
+    outline: 2px solid $primary;
     outline-offset: 0;
 }
 
@@ -265,7 +265,7 @@ textarea:focus-visible {
 
             .phone-offers__box-content,
             .phone-list__box-content {
-                background-color: $tesco-light-grey;
+                background-color: $grey-100;
             }
 
             .phone-offers__image,
@@ -288,12 +288,12 @@ textarea:focus-visible {
     }
 
     &__special-offer {
-        background-color: $tesco-blue-light;
+        background-color: $primary-light;
         border-radius: 13px 13px 0px 0px;
         padding: 5px;
 
         p {
-            color: $tesco-blue;
+            color: $primary;
             text-align: center;
             @include rem(font-size, 14px);
         }
@@ -338,7 +338,7 @@ textarea:focus-visible {
         p {
             padding: 2px 4px 4px 4px;
             border-radius: 4px;
-            background-color: $tesco-blue;
+            background-color: $primary;
             color: $white;
             width: fit-content;
             @include rem(font-size, $small + 2);
@@ -359,8 +359,8 @@ textarea:focus-visible {
             cursor: pointer;
 
             &:checked + .form-check-label::before {
-                background-color: $tesco-blue;
-                border-color: $tesco-blue;
+                background-color: $primary;
+                border-color: $primary;
             }
 
             &:checked + .form-check-label::after {
@@ -372,7 +372,7 @@ textarea:focus-visible {
             }
 
             &:checked + .phone-list__box-content {
-                border: 1px solid $tesco-blue;
+                border: 1px solid $primary;
             }
         }
 
@@ -412,13 +412,13 @@ textarea:focus-visible {
             }
 
             &:hover::before {
-                border-color: $tesco-blue;
+                border-color: $primary;
             }
         }
     }
 
     &__phone-title {
-        color: $tesco-blue;
+        color: $primary;
 
         h3 {
             margin-bottom: 15px;
@@ -436,17 +436,17 @@ textarea:focus-visible {
     }
 
     &__clubcard {
-        background-color: $tesco-clubcard-yellow;
+        background-color: $warning;
         border-radius: 0px 0px 13px 13px;
         min-height: 50px;
         margin-top: auto;
 
         &.grey-bg {
-            background-color: $tesco-light-grey;
+            background-color: $grey-100;
 
             .phone-list__clubcard-text p {
                 font-size: 21px;
-                color: $tesco-blue;
+                color: $primary;
 
             }
         }
@@ -457,13 +457,13 @@ textarea:focus-visible {
         width: 50px;
         min-width: 50px;
         height: 50px;
-        background-color: $tesco-blue;
+        background-color: $primary;
         border-radius: 0px 0px 0px 13px;
 
         &::before {
             content: '';
             @include center-vertically;
-            background-color: $tesco-clubcard-yellow;
+            background-color: $warning;
             border-radius: 12px;
             width: 45px;
             height: 45px;
@@ -506,7 +506,7 @@ textarea:focus-visible {
                 background: #0152A1;
 
                 p {
-                    background: $tesco-clubcard-yellow;
+                    background: $warning;
                     border-radius: 9px;
                     width: 80px;
                     height: 70px;
@@ -576,7 +576,7 @@ textarea:focus-visible {
             &-save {
                 font-size: 28px;
                 text-align: center;
-                background: $tesco-clubcard-yellow;
+                background: $warning;
                 font-family: $boldfont;
                 padding: 15px 5px;
                 line-height: .9;
@@ -656,7 +656,7 @@ textarea:focus-visible {
                         background: #0152A1;
 
                         p {
-                            background: $tesco-clubcard-yellow;
+                            background: $warning;
                             border-radius: 9px;
                             width: 80px;
                             height: 70px;
@@ -726,7 +726,7 @@ textarea:focus-visible {
                     &-save {
                         font-size: 28px;
                         text-align: center;
-                        background: $tesco-clubcard-yellow;
+                        background: $warning;
                         font-family: $boldfont;
                         padding: 15px 5px;
                         line-height: .9;
@@ -756,7 +756,7 @@ textarea:focus-visible {
         }
 
         &__info {
-            color: $tesco-blue;
+            color: $primary;
             position: relative;
             z-index: 1;
             padding-top: 20px;

@@ -18,7 +18,7 @@
         padding: $figma-input-padding-y $figma-input-padding-x;
         height: 56px;
         border-radius: $border-radius;
-        border: 1px solid $bordergrey;
+        border: 1px solid $grey-300;
         color: $text;
         background-color: $white;
         transition: border-color 0.2s ease;
@@ -42,7 +42,7 @@
         display: flex;
         align-items: center;
         font-size: 1rem;
-        color: $tesco-dark-grey;
+        color: $grey-600;
         pointer-events: none;
         transform-origin: left top;
         transition: opacity 0.1s ease, transform 0.1s ease;
