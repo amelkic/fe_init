@@ -1,0 +1,13 @@
+// ============================================================
+// Settings: Border Radius
+// Requires: tokens/_core.tokens to be imported first
+//
+// Bootstrap border-radius overrides driven by Figma tokens.
+// Run 'npm run figma:tokens' — changes propagate automatically.
+// ============================================================
+
+$border-radius-sm:   $figma-radius-sm;          // 4px
+$border-radius:      $figma-radius-md;          // 8px
+$border-radius-lg:   $figma-radius-lg;          // 16px
+$border-radius-xl:   $figma-radius-xl;          // 24px
+$border-radius-pill: #{$figma-radius-full}px;   // 9999px

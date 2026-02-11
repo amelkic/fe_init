@@ -1,0 +1,99 @@
+// ============================================================
+// Base: Typography
+// Requires: tokens/_type.tokens, settings/_s.typography,
+//           tools/_t.functions
+//
+// Fluid heading scale using fluid() from tools/_t.functions.
+// Values sourced from figma.tokens.js — run 'npm run figma:tokens'
+// to update. Brand class vars (.energia / .power-ni) are set in
+// settings/_s.variables.scss so they output after Bootstrap.
+//
+// Figma scale (Energia mobile → desktop):
+//   h1: 30px → 36px    h2: 36px (fixed)
+//   h3: 24px → 28px    h4: 20px → 24px
+//   h5: 18px → 20px    h6: 16px → 18px
+//   p:  16px (fixed)
+// ============================================================
+
+// ------------------------------------------------------------
+// Fluid heading scale
+// ------------------------------------------------------------
+
+h1 {
+    font-size: fluid(30px, 36px);
+    line-height: fluid(33px, 39px);
+    font-weight: $figma-weight-black;
+    letter-spacing: 0;
+    font-family: var(--font-brand, $regularfont);
+}
+
+h2, .h2 {
+    font-size: 36px;
+    line-height: 39px;
+    font-weight: $figma-weight-black;
+    font-family: var(--font-brand, $regularfont);
+}
+
+h3, .h3 {
+    font-size: fluid(24px, 28px);
+    line-height: fluid(28px, 32px);
+    font-weight: $figma-weight-bold;
+    font-family: var(--font-brand, $boldfont);
+}
+
+h4, .h4 {
+    font-size: fluid(20px, 24px);
+    line-height: fluid(24px, 28px);
+    font-weight: $figma-weight-bold;
+    font-family: var(--font-brand, $boldfont);
+}
+
+h5, .h5 {
+    font-size: fluid(18px, 20px);
+    line-height: fluid(22px, 24px);
+    font-weight: $figma-weight-semibold;
+    font-family: var(--font-brand, $boldfont);
+}
+
+h6, .h6 {
+    font-size: fluid(16px, 18px);
+    line-height: fluid(20px, 22px);
+    font-weight: $figma-weight-semibold;
+    font-family: var(--font-brand, $boldfont);
+}
+
+p {
+    font-size: 16px; // body size fixed per Figma
+    line-height: 24px;
+    font-weight: $figma-weight-regular;
+    font-family: var(--font-brand, $regularfont);
+}
+
+// ------------------------------------------------------------
+// Utility classes matching Figma text styles
+// ------------------------------------------------------------
+
+.text-body-large {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: $figma-weight-regular;
+}
+
+.text-body-small {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: $figma-weight-regular;
+}
+
+.text-body-xs {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: $figma-weight-regular;
+}
+
+.text-label {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    font-weight: $figma-weight-semibold;
+}

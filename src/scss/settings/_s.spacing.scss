@@ -1,0 +1,28 @@
+// ============================================================
+// Settings: Spacing
+// Requires: tokens/_core.tokens to be imported first
+//
+// Bootstrap spacing overrides driven by the Figma spacing scale.
+// Run 'npm run figma:tokens' — changes propagate automatically.
+// ============================================================
+
+$spacer: $figma-spacing-16; // 16px base
+
+$spacers: (
+    0: 0,
+    1: $figma-spacing-8,    // 8px
+    2: $figma-spacing-16,   // 16px
+    3: $figma-spacing-24,   // 24px
+    4: $figma-spacing-32,   // 32px
+    5: $figma-spacing-48,   // 48px
+    6: $figma-spacing-80,   // 80px
+    7: $figma-spacing-104,  // 104px
+);
+
+$grid-gutter-width: $figma-grid-desktop-gutter; // 24px
+
+$btn-padding-x: $figma-button-padding-x; // 24px
+$btn-padding-y: $figma-button-padding-y; // 16px
+
+$input-padding-x: $figma-input-padding-x; // 16px
+$input-padding-y: $figma-input-padding-y; // 8px

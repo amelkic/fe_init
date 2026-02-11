@@ -10,17 +10,16 @@ export default {
     nodeId: process.env.FIGMA_NODE_ID,  // Target specific design system section
     
     // Output paths for generated files
-    tokensOutput: 'src/scss/figma',
+    tokensOutput: 'src/scss/tokens',
     componentsOutput: 'src/views/components',
 
     // Token file naming
     tokenFiles: {
-        colors: '_colors.figma.scss',
-        fonts: '_fonts.figma.scss',
-        borders: '_borders.figma.scss',
-        typography: '_typography.figma.scss',
-        spacing: '_spacing.figma.scss',
-        core: '_core.figma.scss'
+        colors: '_colors.tokens.scss',
+        fonts: '_fonts.tokens.scss',
+        typography: '_type.tokens.scss',
+        spacing: '_spacing.tokens.scss',
+        core: '_core.tokens.scss'
     },
     
     // Component scaffolding settings

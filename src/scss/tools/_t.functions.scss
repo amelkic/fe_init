@@ -1,0 +1,27 @@
+// ============================================================
+// Tools: Functions
+// No CSS output — variables and functions only
+//
+// fluid($min-px, $max-px, $min-vw, $max-vw)
+//   Returns a CSS clamp() value that scales linearly between
+//   $min-px at $min-vw viewport and $max-px at $max-vw viewport.
+//
+//   Default range: 375px (iPhone) → 1440px (laptop-lg)
+//
+//   Usage:
+//     font-size: fluid(30px, 36px);
+//     font-size: fluid(24px, 28px, 375px, 1440px);
+// ============================================================
+
+@function fluid($min-px, $max-px, $min-vw: 375px, $max-vw: 1440px) {
+    // px ÷ px → unitless (unit cancellation, not deprecated /operator)
+    $slope:     ($max-px - $min-px) / ($max-vw - $min-vw);
+    $intercept: $min-px - ($slope * $min-vw);
+    @return clamp(#{$min-px}, calc(#{$intercept} + #{$slope * 100}vw), #{$max-px});
+}
+
+// parseInt — strip unit, return dimensionless number
+// $n * 0 produces 0 with same unit (e.g. 0px), +1 gives 1px → px÷px = unitless
+@function parseInt($n) {
+    @return $n / ($n * 0 + 1);
+}

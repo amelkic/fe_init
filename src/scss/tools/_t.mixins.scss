@@ -1,11 +1,6 @@
-@use "sass:math";
+// parseInt() is defined in tools/_t.functions.scss — no duplicate needed here
 
 /* Mixins for Rem Sizing  */
-
-
-@function parseInt($n) {
-    @return math.div($n, ($n * 0 + 1));
-}
 
 @mixin rem($property, $values, $important: false) {
     $rem: ();
@@ -16,15 +11,15 @@
             $unit: unit($value);
             $val: parseInt($value);
             @if $unit == "px" {
-                $remValue: math.div($val, 16); // Correctly dividing by 16 to convert to rem
-                $rem: append($rem, #{$remValue}rem); // Appending the rem unit correctly
+                $remValue: $val / 16; // unitless ÷ unitless
+                $rem: append($rem, #{$remValue}rem);
             }
             @if $unit == "rem" {
                 $rem: append($rem, $value);
             }
         }
     }
-    
+
     @if length($rem) > 0 {
         $values-output: join((), $rem, $separator: space);
         @if $important {

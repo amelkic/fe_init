@@ -1,0 +1,66 @@
+// ============================================================
+// Settings: Breakpoints
+// Requires: tokens/_core.tokens
+//
+// Bootstrap grid overrides + project device breakpoint variables.
+// Spacing, radius and padding live in _s.spacing and _s.radius.
+// ============================================================
+
+// ------------------------------------------------------------
+// Bootstrap Grid
+// ------------------------------------------------------------
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1300px,
+    xxl: 1660px
+);
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1199px,
+    xxl: 1448px,
+    xxxl: 1600px,
+);
+
+// ------------------------------------------------------------
+// Device breakpoint variables (for use with mqMin/mqMax mixins)
+// ------------------------------------------------------------
+
+$iphone-sml:        320px;
+$iphone:            375px;
+$iphone-max:        414px;
+
+$galaxy-sml:        360px;
+$galaxy-plus:       412px;
+
+$lrg-phone:         576px;
+
+$lg:                991px;
+
+$ipad:              768px;
+$ipad-landscape:    1024px;
+
+$new-ipad:          834px;
+$new-ipad-landscape: 1194px;
+
+$tablet:            800px;
+$tablet-md:         992px;
+$tablet-landscape:  1200px;
+
+$laptop:            1280px;
+$laptop-md:         1366px;
+$laptop-lg:         1440px;
+
+$desktop:           1680px;
+$desktop-hd:        1920px;
+$desktop-lg:        2560px;
+
+// Spacing, radius and component padding moved to:
+// → settings/_s.spacing.scss
+// → settings/_s.radius.scss

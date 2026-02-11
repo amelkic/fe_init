@@ -7682,3 +7682,4 @@ node_modules/yerror/src/index.ts
 
 # Local environment — never commit
 .env
+.claude/settings.local.json

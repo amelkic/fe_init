@@ -1,4 +1,4 @@
-import '@scss/general.scss';
+import '@scss/main.scss';
 
 import 'swiper/css/bundle';
 import 'air-datepicker';

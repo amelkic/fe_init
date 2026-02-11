@@ -1,0 +1,47 @@
+{
+  "generated": "2026-02-11T09:54:56.039Z",
+  "components": [
+    {
+      "name": "Quick_Link_Card",
+      "source": "src\\views\\components\\Quick_Link_Card\\quick-link-card.njk",
+      "output": "public\\components\\Quick_Link_Card\\Quick_Link_Card.html",
+      "hasJs": false,
+      "hasScss": false
+    },
+    {
+      "name": "Media_&_Text_Block",
+      "source": "src\\views\\components\\Media_&_Text_Block\\media-&-text-block.njk",
+      "output": "public\\components\\Media_&_Text_Block\\Media_&_Text_Block.html",
+      "hasJs": false,
+      "hasScss": false
+    },
+    {
+      "name": "Hero_Banner",
+      "source": "src\\views\\components\\Hero_Banner\\hero-banner.njk",
+      "output": "public\\components\\Hero_Banner\\Hero_Banner.html",
+      "hasJs": false,
+      "hasScss": false
+    },
+    {
+      "name": "Hero",
+      "source": "src\\views\\components\\Hero\\hero.njk",
+      "output": "public\\components\\Hero\\Hero.html",
+      "hasJs": true,
+      "hasScss": false
+    },
+    {
+      "name": "footer",
+      "source": "src\\views\\components\\footer\\c_footer.njk",
+      "output": "public\\components\\footer\\footer.html",
+      "hasJs": false,
+      "hasScss": false
+    },
+    {
+      "name": "Divider",
+      "source": "src\\views\\components\\Divider\\divider.njk",
+      "output": "public\\components\\Divider\\Divider.html",
+      "hasJs": true,
+      "hasScss": false
+    }
+  ]
+}

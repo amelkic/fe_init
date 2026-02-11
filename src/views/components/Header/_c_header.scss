@@ -1,4 +1,4 @@
-@import "@scss/settings.scss";
+﻿@import "@scss/settings.scss";
 
 header {
     border-bottom: 1px solid $tesco-light-grey;
@@ -57,7 +57,7 @@ header {
             }
 
             &__title {
-                @include rfs($medium);
+                @include rem(font-size, $medium);
                 font-weight: 700;
                 margin-bottom: 25px !important;
 
@@ -103,12 +103,12 @@ header {
                         span {
                             text-transform: uppercase;
                             letter-spacing: -0.2px;
-                            @include rfs($small);
+                            @include rem(font-size, $small);
                         }
                     }
 
                     >span {
-                        @include rfs($small + 2);
+                        @include rem(font-size, $small + 2px);
                         display: block;
                         padding: 10px 0 0 0;
                     }
@@ -445,7 +445,7 @@ header {
         color: $text;
 
         @include mqMax($laptop + 15) {
-            @include rfs($small + 4);
+            @include rem(font-size, $small + 4px);
         }
     }
 
@@ -453,7 +453,7 @@ header {
         white-space: nowrap;
 
         @include mqMax($laptop + 15) {
-            @include rfs($small + 4);
+            @include rem(font-size, $small + 4px);
             padding: 13px 20px;
         }
     }
@@ -502,7 +502,7 @@ header {
             width: 15px;
             height: 15px;
             color: $white;
-            @include rfs($small);
+            @include rem(font-size, $small);
             font-weight: 700;
         }
     }
@@ -594,7 +594,7 @@ header {
         }
 
         span {
-            @include rfs($xl - 4);
+            @include rem(font-size, $xl - 4px);
             font-weight: 700;
             color: $white;
         }
@@ -753,7 +753,7 @@ header {
             padding: 5px 0;
 
             .nav-link {
-                @include rfs($medium + 8);
+                @include rem(font-size, $medium + 8px);
                 letter-spacing: -0.48px;
                 font-weight: 700;
             }
@@ -831,7 +831,7 @@ ul.first-level {
 
     li {
         a {
-            @include rfs($medium);
+            @include rem(font-size, $medium);
             letter-spacing: -0.32px;
             display: block;
             padding: 12px 0;
@@ -871,12 +871,12 @@ ul.second-level {
         padding: 10px;
 
         a {
-            @include rfs($medium);
+            @include rem(font-size, $medium);
         }
     }
 
     .active_menu {
-        @include rfs($medium + 2);
+        @include rem(font-size, $medium + 2px);
         font-weight: 700;
     }
 
@@ -916,12 +916,12 @@ ul.third-level {
         padding: 10px;
 
         a {
-            @include rfs($medium);
+            @include rem(font-size, $medium);
         }
     }
 
     .active_menu {
-        @include rfs($medium + 2);
+        @include rem(font-size, $medium + 2px);
         font-weight: 700;
     }
 

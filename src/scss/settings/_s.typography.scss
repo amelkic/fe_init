@@ -1,8 +1,13 @@
+// ============================================================
+// Settings: Typography
+// Font family stacks, legacy size scale variables.
+// @font-face declarations live in base/_b.fonts.scss.
+// Fluid type sizing uses fluid() from tools/_t.functions.scss.
+// ============================================================
+
 $base-font: "TescoModern-Regular", sans-serif;
 
-//Include Responsive Font Sizes (RFS)
-@import '../../../node_modules/rfs/scss';
-
+// Legacy size scale — used with @include rem(font-size, $value)
 $xxxl: 128px;
 $xxl:80px;
 $xl: 40px;

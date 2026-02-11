@@ -1,0 +1,53 @@
+// ============================================================
+// Settings: CSS Custom Properties
+// Requires: settings/_s.colors, settings/_s.spacing,
+//           settings/_s.radius, tokens/_core.tokens
+//
+// Publishes design tokens as native CSS custom properties.
+// Imported AFTER Bootstrap in main.scss.
+// NOT imported in settings.scss — no CSS output in component entry.
+// ============================================================
+
+:root {
+    // Colours
+    --color-primary:        #{$primary};
+    --color-primary-dark:   #{$primary-dark};
+    --color-primary-light:  #{$primary-light};
+    --color-secondary:      #{$brand-navy};
+    --color-danger:         #{$danger};
+    --color-success:        #{$success};
+    --color-warning:        #{$warning};
+    --color-info:           #{$info};
+    --color-text:           #{$text};
+    --color-white:          #{$white};
+    --color-black:          #{$black};
+
+    // Spacing
+    --space-1: #{$figma-spacing-8};
+    --space-2: #{$figma-spacing-16};
+    --space-3: #{$figma-spacing-24};
+    --space-4: #{$figma-spacing-32};
+    --space-5: #{$figma-spacing-48};
+    --space-6: #{$figma-spacing-80};
+    --space-7: #{$figma-spacing-104};
+
+    // Border radius
+    --radius-sm:   #{$border-radius-sm};
+    --radius-md:   #{$border-radius};
+    --radius-lg:   #{$border-radius-lg};
+    --radius-xl:   #{$border-radius-xl};
+    --radius-pill: #{$border-radius-pill};
+}
+
+// Brand typography CSS vars — set at body/root level via brand class
+// Usage: <body class="energia"> or <body class="power-ni">
+
+.energia {
+    @include figma-typography-vars-energia;
+    --font-brand: #{$figma-font-energia};
+}
+
+.power-ni {
+    @include figma-typography-vars-powerni;
+    --font-brand: #{$figma-font-powerNI};
+}

@@ -1,19 +1,24 @@
 // ============================================================
-// Component Settings Bundle (no CSS output)
-// Imported by individual component SCSS files via @import "@scss/settings.scss"
+// settings.scss — Component Entry (no CSS output)
+// Imported by all component SCSS files: @import "@scss/settings.scss"
+//
+// Provides tokens, settings vars, and tools.
+// NO vendor (Bootstrap), NO base styles, NO CSS output.
 // ============================================================
 
-// 1. Figma Design Tokens (auto-generated - run 'npm run figma:tokens' to update)
-@import "figma/colors.figma";
-@import "figma/core.figma";
-@import "figma/typography.figma";
+// Tokens — auto-generated
+@import "tokens/colors.tokens";
+@import "tokens/core.tokens";
+@import "tokens/type.tokens";
 
-// 2. Tools (no CSS output)
-@import "tools/tools.mixins";
-@import "tools/tools.mq";
+// Settings — vars only, no CSS output
+@import "settings/s.colors";
+@import "settings/s.spacing";
+@import "settings/s.breakpoints";
+@import "settings/s.radius";
+@import "settings/s.typography";
 
-// 3. Settings (variables only - no CSS output)
-@import "settings/settings.breakpoint";
-@import "settings/settings.colors";
-@import "settings/settings.fonts";
-@import "settings/settings.custom";
+// Tools — no CSS output
+@import "tools/t.functions";
+@import "tools/t.mixins";
+@import "tools/t.mq";

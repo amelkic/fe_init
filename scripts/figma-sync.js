@@ -1205,15 +1205,17 @@ async function sync() {
             }
 
             // Borders (stroke styles and corner radii)
-            const borders = await extractBorderStyles(fileData);
-            if (borders.length > 0) {
-                const borderScss = generateBorderScss(borders);
-                const borderPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.borders);
-                fs.writeFileSync(borderPath, borderScss);
-                console.log(`   ✅ ${borders.length} border tokens → ${config.tokenFiles.borders}`);
-            } else {
-                // Create empty placeholder file with helpful comment
-                const emptyBorderScss = `/* Border Tokens - Auto-generated from Figma
+            // Skipped when config.tokenFiles.borders is not set (e.g. border-radius lives in core tokens)
+            if (config.tokenFiles.borders) {
+                const borders = await extractBorderStyles(fileData);
+                if (borders.length > 0) {
+                    const borderScss = generateBorderScss(borders);
+                    const borderPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.borders);
+                    fs.writeFileSync(borderPath, borderScss);
+                    console.log(`   ✅ ${borders.length} border tokens → ${config.tokenFiles.borders}`);
+                } else {
+                    // Create empty placeholder file with helpful comment
+                    const emptyBorderScss = `/* Border Tokens - Auto-generated from Figma
  * No border/stroke styles found in Figma file
  * Add stroke styles or corner radius tokens in Figma to populate this file
  * Last synced: ${new Date().toISOString()}
@@ -1221,9 +1223,12 @@ async function sync() {
 
 // No border tokens found - define stroke styles in Figma
 `;
-                const borderPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.borders);
-                fs.writeFileSync(borderPath, emptyBorderScss);
-                console.log('   ⚠️  No border styles found (created placeholder file)');
+                    const borderPath = path.join(ROOT_DIR, config.tokensOutput, config.tokenFiles.borders);
+                    fs.writeFileSync(borderPath, emptyBorderScss);
+                    console.log('   ⚠️  No border styles found (created placeholder file)');
+                }
+            } else {
+                console.log('   ⏭️  Borders skipped (not configured — border-radius lives in core tokens)');
             }
         }
 
