@@ -2,7 +2,7 @@
  * Auto-generated from figma.config.js semanticColors + figma.tokens.js typescale
  * Maps brand-specific Figma tokens to standard names used by settings and components.
  * Run 'npm run figma:tokens:powerNI' to regenerate.
- * Last synced: 2026-02-11T15:46:21.267Z
+ * Last synced: 2026-02-11T17:06:38.361Z
  ===========================================================================*/
 
 // Brand colour aliases
@@ -45,4 +45,4 @@ $brand-yellow: $figma-tussock-500-base;
 @mixin figma-brand-button-mobile  { @include figma-button-powerni-mobile; }
 
 // Brand font family
-$figma-brand-font: $figma-font-powerNI;
+$brand-font: $figma-font;

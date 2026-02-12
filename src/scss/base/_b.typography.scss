@@ -13,37 +13,42 @@
 
 h1 {
     @include figma-brand-h1-desktop;
-    font-family: $figma-brand-font;
+    font-family: $brand-font;
 }
 
-h2, .h2 {
+h2,
+.h2 {
     @include figma-brand-h2-desktop;
-    font-family: $figma-brand-font;
+    font-family: $brand-font;
 }
 
-h3, .h3 {
+h3,
+.h3 {
     @include figma-brand-h3-desktop;
-    font-family: $figma-brand-font;
+    font-family: $brand-font;
 }
 
-h4, .h4 {
+h4,
+.h4 {
     @include figma-brand-h4-desktop;
-    font-family: $figma-brand-font;
+    font-family: $brand-font;
 }
 
-h5, .h5 {
+h5,
+.h5 {
     @include figma-brand-h5-desktop;
-    font-family: $figma-brand-font;
+    font-family: $brand-font;
 }
 
-h6, .h6 {
+h6,
+.h6 {
     @include figma-brand-h6-desktop;
-    font-family: $figma-brand-font;
+    font-family: $brand-font;
 }
 
 p {
     @include figma-brand-body-desktop;
-    font-family: $figma-brand-font;
+    font-family: $brand-font;
 }
 
 // ------------------------------------------------------------

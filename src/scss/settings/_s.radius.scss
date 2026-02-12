@@ -6,8 +6,34 @@
 // Run 'npm run figma:tokens' — changes propagate automatically.
 // ============================================================
 
-$border-radius-sm:   $figma-radius-sm;          // 4px
-$border-radius:      $figma-radius-md;          // 8px
-$border-radius-lg:   $figma-radius-lg;          // 16px
-$border-radius-xl:   $figma-radius-xl;          // 24px
-$border-radius-pill: #{$figma-radius-full}px;   // 9999px
+$border-radius-sm: $figma-radius-sm; // 4px
+$border-radius: $figma-radius-md; // 8px
+$border-radius-lg: $figma-radius-lg; // 16px
+$border-radius-xl: $figma-radius-xl; // 24px
+$border-radius-pill: #{$figma-radius-full}px; // 9999px
+
+// ------------------------------------------------------------
+// Component-Specific Radius
+// ------------------------------------------------------------
+
+// Buttons
+$btn-border-radius: $figma-radius-md !default;
+$btn-border-radius-sm: $figma-radius-sm !default;
+$btn-border-radius-lg: $figma-radius-lg !default;
+
+// Inputs
+$input-border-radius: $figma-radius-sm !default;
+$input-border-radius-sm: $figma-radius-sm !default;
+$input-border-radius-lg: $figma-radius-md !default;
+
+// Cards
+$card-border-radius: $figma-radius-lg !default;
+
+// Modals
+$modal-content-border-radius: $figma-radius-lg !default;
+
+// Dropdowns
+$dropdown-border-radius: $figma-radius-md !default;
+
+// Badges
+$badge-border-radius: $figma-radius-sm !default;

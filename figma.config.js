@@ -57,7 +57,7 @@ export default {
     },
 
     // Active brand for this project ('powerNI' or 'energia')
-    activeBrand: 'powerNI',
+    activeBrand: 'energia',
 
     // Output paths for generated files
     tokensOutput: 'src/scss/tokens',

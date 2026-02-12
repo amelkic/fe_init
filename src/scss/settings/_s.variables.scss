@@ -10,17 +10,17 @@
 
 :root {
     // Colours
-    --color-primary:        #{$primary};
-    --color-primary-dark:   #{$primary-dark};
-    --color-primary-light:  #{$primary-light};
-    --color-secondary:      #{$brand-navy};
-    --color-danger:         #{$danger};
-    --color-success:        #{$success};
-    --color-warning:        #{$warning};
-    --color-info:           #{$info};
-    --color-text:           #{$text};
-    --color-white:          #{$white};
-    --color-black:          #{$black};
+    --color-primary: #{$primary};
+    --color-primary-dark: #{$primary-dark};
+    --color-primary-light: #{$primary-light};
+    --color-secondary: #{$brand-navy};
+    --color-danger: #{$danger};
+    --color-success: #{$success};
+    --color-warning: #{$warning};
+    --color-info: #{$info};
+    --color-text: #{$text};
+    --color-white: #{$white};
+    --color-black: #{$black};
 
     // Spacing
     --space-1: #{$figma-spacing-8};
@@ -32,13 +32,13 @@
     --space-7: #{$figma-spacing-104};
 
     // Border radius
-    --radius-sm:   #{$border-radius-sm};
-    --radius-md:   #{$border-radius};
-    --radius-lg:   #{$border-radius-lg};
-    --radius-xl:   #{$border-radius-xl};
+    --radius-sm: #{$border-radius-sm};
+    --radius-md: #{$border-radius};
+    --radius-lg: #{$border-radius-lg};
+    --radius-xl: #{$border-radius-xl};
     --radius-pill: #{$border-radius-pill};
 
 
     // Brand font (resolved at build time via BRAND env var)
-    --font-brand: #{$figma-brand-font};
+    --font-brand: #{$brand-font};
 }

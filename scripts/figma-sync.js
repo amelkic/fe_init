@@ -498,7 +498,7 @@ function generateNeutralScss(tokens) {
     scss += `// Base neutrals\n`;
     if (white) scss += `$figma-neutral-white: ${white};\n`;
     if (black) scss += `$figma-neutral-black: ${black};\n`;
-    if (text)  scss += `$figma-neutral-text: ${text};\n`;
+    if (text) scss += `$figma-neutral-text: ${text};\n`;
     scss += `\n`;
 
     if (grey) {
@@ -560,7 +560,7 @@ function generateSemanticScss(brandName, brandConfig, typographyStyles) {
 
     // --- Brand font variable ---
     scss += `// Brand font family\n`;
-    scss += `$figma-brand-font: $figma-font-${brandName};\n`;
+    scss += `$brand-font: $figma-font;\n`;
 
     return scss;
 }
@@ -624,7 +624,7 @@ function generateBrandTypographyScss(brandName, brandConfig, tokens) {
 
     // Brand font family
     scss += `// Brand font\n`;
-    scss += `$figma-font-${brandName}: "${font}", sans-serif;\n\n`;
+    scss += `$figma-font: "${font}", sans-serif;\n\n`;
 
     // Brand-specific mixins (desktop + mobile)
     if (styles) {

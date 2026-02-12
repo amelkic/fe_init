@@ -1,111 +1,131 @@
-@font-face {
-  font-family: "TescoModern-Regular";
-  src: url("/public/fonts/TescoModern-Regular.woff") format("woff"),
-    url("/public/fonts/TescoModern-Regular.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-Regular.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-Regular.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-Regular.eot?#iefix")
-      format("embedded-opentype");
-  font-display: swap;
-  font-weight: 400;
-  font-style: normal;
-}
+// ============================================================
+// Base: Font Face Declarations
+// ============================================================
+//
+// AUTO-CONFIGURED from Figma tokens!
+// Font family is determined by $brand-font from tokens.
+// 
+// For PowerNI: Uses Roboto
+// For Energia: Uses Archivo
+// ============================================================
 
-@font-face {
-  font-family: "TescoModern-Italic";
-  src: url("/public/fonts/TescoModern-Italic.woff") format("woff"),
-    url("/public/fonts/TescoModern-Italic.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-Italic.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-Italic.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-Italic.eot?#iefix")
-      format("embedded-opentype");
-  font-display: swap;
-  font-weight: 400;
-  font-style: italic;
-}
+// ------------------------------------------------------------
+// Configuration - AUTO-RESOLVED from Figma tokens
+// ------------------------------------------------------------
 
-@font-face {
-  font-family: "TescoModern-Bold";
-  src: url("/public/fonts/TescoModern-Bold.woff") format("woff"),
-    url("/public/fonts/TescoModern-Bold.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-Bold.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-Bold.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-Bold.eot?#iefix")
-      format("embedded-opentype");
-  font-display: swap;
-  font-weight: 700;
-  font-style: normal;
-}
+// Font path (both brands use same directory)
+$font-base-path: "/public/fonts" !default;
 
-@font-face {
-  font-family: "TescoModern-BoldItalic";
-  src: url("/public/fonts/TescoModern-BoldItalic.woff") format("woff"),
-    url("/public/fonts/TescoModern-BoldItalic.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-BoldItalic.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-BoldItalic.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-BoldItalic.eot?#iefix")
-      format("embedded-opentype");
-  font-display: swap;
-  font-weight: 700;
-  font-style: italic;
-}
+// Font family comes from Figma tokens ($brand-font)
+// This is "Roboto" for PowerNI or "Archivo" for Energia
+// Strip the ", sans-serif" part to get just the font name
+$brand-font-name: str-slice($brand-font, 2, str-index($brand-font, '",') - 1);
 
+// ------------------------------------------------------------
+// Font Face Declarations - Automatic per brand
+// ------------------------------------------------------------
+
+/* Light - 300 */
 @font-face {
-  font-family: "TescoModern-Medium";
-  src: url("/public/fonts/TescoModern-Medium.woff") format("woff"),
-    url("/public/fonts/TescoModern-Medium.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-Medium.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-Medium.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-Medium.eot?#iefix")
-      format("embedded-opentype");
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-Light.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-Light.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-Light.eot") format("embedded-opentype");
   font-display: swap;
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "TescoModern-MediumItalic";
-  src: url("/public/fonts/TescoModern-MediumItalic.woff") format("woff"),
-    url("/public/fonts/TescoModern-MediumItalic.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-MediumItalic.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-MediumItalic.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-MediumItalic.eot?#iefix")
-      format("embedded-opentype");
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-LightItalic.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-LightItalic.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-LightItalic.eot") format("embedded-opentype");
   font-display: swap;
   font-weight: 300;
   font-style: italic;
 }
 
+/* Regular - 400 */
 @font-face {
-  font-family: "TescoModern-Light";
-  src: url("/public/fonts/TescoModern-Light.woff") format("woff"),
-    url("/public/fonts/TescoModern-Light.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-Light.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-Light.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-Light.eot?#iefix")
-      format("embedded-opentype");
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-Regular.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-Regular.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-Regular.eot") format("embedded-opentype");
   font-display: swap;
-  font-weight: 100;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "TescoModern-LightItalic";
-  src: url("/public/fonts/TescoModern-LightItalic.woff") format("woff"),
-    url("/public/fonts/TescoModern-LightItalic.woff2") format("woff2"),
-    url("/public/fonts/TescoModern-LightItalic.ttf") format("truetype"),
-    url("/public/fonts/TescoModern-LightItalic.eot")
-      format("embedded-opentype"),
-    url("/public/fonts/TescoModern-LightItalic.eot?#iefix")
-      format("embedded-opentype");
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-Italic.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-Italic.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-Italic.eot") format("embedded-opentype");
   font-display: swap;
-  font-weight: 100;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* SemiBold - 600 */
+@font-face {
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-SemiBold.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-SemiBold.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-SemiBold.eot") format("embedded-opentype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-SemiBoldItalic.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-SemiBoldItalic.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-SemiBoldItalic.eot") format("embedded-opentype");
+  font-display: swap;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Bold - 700 */
+@font-face {
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-Bold.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-Bold.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-Bold.eot") format("embedded-opentype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-BoldItalic.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-BoldItalic.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-BoldItalic.eot") format("embedded-opentype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Black - 900 */
+@font-face {
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-Black.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-Black.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-Black.eot") format("embedded-opentype");
+  font-display: swap;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $brand-font-name;
+  src: url("#{$font-base-path}/#{$brand-font-name}-BlackItalic.woff2") format("woff2"),
+  url("#{$font-base-path}/#{$brand-font-name}-BlackItalic.woff") format("woff"),
+  url("#{$font-base-path}/#{$brand-font-name}-BlackItalic.eot") format("embedded-opentype");
+  font-display: swap;
+  font-weight: 900;
   font-style: italic;
 }

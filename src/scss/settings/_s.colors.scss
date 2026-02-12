@@ -12,18 +12,18 @@
 // Neutral — from figma.tokens.js (run 'npm run figma:tokens' to update)
 // ------------------------------------------------------------
 
-$white:     $figma-neutral-white;
-$black:     $figma-neutral-black;
-$text:      $figma-neutral-text;
+$white: $figma-neutral-white;
+$black: $figma-neutral-black;
+$text: $figma-neutral-text;
 
 // Grey scale — generic naming, reusable across projects
-$grey-50:   $figma-neutral-grey-50;
-$grey-100:  $figma-neutral-grey-100;
-$grey-200:  $figma-neutral-grey-200;
-$grey-300:  $figma-neutral-grey-300;
-$grey-400:  $figma-neutral-grey-400;
-$grey-500:  $figma-neutral-grey-500;
-$grey-600:  $figma-neutral-grey-600;
+$grey-50: $figma-neutral-grey-50;
+$grey-100: $figma-neutral-grey-100;
+$grey-200: $figma-neutral-grey-200;
+$grey-300: $figma-neutral-grey-300;
+$grey-400: $figma-neutral-grey-400;
+$grey-500: $figma-neutral-grey-500;
+$grey-600: $figma-neutral-grey-600;
 
 // ------------------------------------------------------------
 // Bootstrap Theme Colors
@@ -32,34 +32,63 @@ $grey-600:  $figma-neutral-grey-600;
 // ------------------------------------------------------------
 
 $theme-colors: (
-    "primary":      $primary,
-    "secondary":    $brand-navy,
-    "success":      $success,
-    "danger":       $danger,
-    "warning":      $warning,
-    "info":         $info,
-    "red":          $danger,
-    "brand-blue":   $primary,
-    "yellow":       #FDDF2A,
-    "grey":         #F6F6F6,
+    "primary": $primary,
+    "secondary": $brand-navy,
+    "success": $success,
+    "danger": $danger,
+    "warning": $warning,
+    "info": $info,
+    "red": $danger,
+    "brand-blue": $primary,
+    "yellow": #FDDF2A,
+    "grey": #F6F6F6,
 );
+
+// ------------------------------------------------------------
+// Bootstrap Color Variables
+// Body, background, border, and component-specific colors
+// ------------------------------------------------------------
+
+// Body colors
+$body-color: $figma-neutral-text !default;
+$body-bg: $figma-neutral-white !default;
+
+// Background colors
+$secondary-bg: $figma-neutral-grey-100 !default;
+$tertiary-bg: $figma-neutral-grey-50 !default;
+
+// Border colors
+$border-color: $figma-neutral-grey-300 !default;
+
+// Component-specific colors
+$input-border-color: $figma-neutral-grey-300 !default;
+$input-focus-border-color: $primary !default;
+
+$card-border-color: $figma-neutral-grey-200 !default;
+$card-bg: $figma-neutral-white !default;
+
+$modal-content-bg: $figma-neutral-white !default;
+$modal-content-border-color: $figma-neutral-grey-300 !default;
+
+$table-border-color: $figma-neutral-grey-200 !default;
+$table-bg: $figma-neutral-white !default;
 
 // ------------------------------------------------------------
 // SVG filter helpers
 // ------------------------------------------------------------
 
-$filter-white:   brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(356deg) brightness(103%) contrast(102%);
+$filter-white: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(356deg) brightness(103%) contrast(102%);
 $filter-primary: brightness(0) saturate(100%) invert(18%) sepia(92%) saturate(2381%) hue-rotate(195deg) brightness(91%) contrast(101%);
-$filter-black:   brightness(0) saturate(100%);
+$filter-black: brightness(0) saturate(100%);
 
 // ------------------------------------------------------------
 // Dual range slider component
 // ------------------------------------------------------------
 
-$dual-range-thumb-size:   1.1rem !default;
-$dual-range-track-h:      0.5rem !default;
-$dual-range-gap-y:        0.375rem !default;
+$dual-range-thumb-size: 1.1rem !default;
+$dual-range-track-h: 0.5rem !default;
+$dual-range-gap-y: 0.375rem !default;
 
-$dual-range-track-bg:     var(--bs-secondary-bg) !default;
-$dual-range-active-bg:    var(--bs-primary) !default;
+$dual-range-track-bg: var(--bs-secondary-bg) !default;
+$dual-range-active-bg: var(--bs-primary) !default;
 $dual-range-thumb-shadow: 0 0 0 4px var(--bs-body-bg), 0 0 0 1px rgba(0, 0, 0, 0.15) !default;

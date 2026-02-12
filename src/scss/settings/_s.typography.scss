@@ -1,19 +1,45 @@
 // ============================================================
 // Settings: Typography
-// Font family stacks, legacy size scale variables.
-// @font-face declarations live in base/_b.fonts.scss.
-// Fluid type sizing uses fluid() from tools/_t.functions.scss.
+// All typography uses Figma tokens for automatic brand switching.
+// Font families, weights, and component-specific typography.
 // ============================================================
 
-$base-font: "TescoModern-Regular", sans-serif;
+// ============================================================
+// Font Families (from Figma tokens)
+// ============================================================
 
-// Legacy size scale — used with @include rem(font-size, $value)
-$xxxl:  128px;
-$xxl:    80px;
-$xl:     40px;
-$large:  28px;
+// Base fonts - auto-resolves via @brand-tokens alias
+// PowerNI: "Roboto", Energia: "Archivo"
+$base-font: $brand-font;
+$regularfont: $brand-font;
+$boldfont: $brand-font;
+
+// Bootstrap font family overrides
+$font-family-sans-serif: $brand-font !default;
+$font-family-base: $brand-font !default;
+$headings-font-family: $brand-font !default;
+
+// Component font families
+$btn-font-family: $brand-font !default;
+$input-font-family: $brand-font !default;
+
+// ============================================================
+// Font Weights (from Figma tokens)
+// ============================================================
+
+$font-weight-lighter: $figma-weight-light !default; // 300
+$font-weight-light: $figma-weight-light !default; // 300
+$font-weight-normal: $figma-weight-regular !default; // 400
+$font-weight-bold: $figma-weight-bold !default; // 700
+$font-weight-bolder: $figma-weight-black !default; // 900
+
+// ============================================================
+// Legacy size scale (kept for backwards compatibility)
+// ============================================================
+
+$xxxl: 128px;
+$xxl: 80px;
+$xl: 40px;
+$large: 28px;
 $medium: 16px;
-$small:  10px;
-
-$regularfont: 'TescoModern-Regular', Arial, sans-serif;
-$boldfont:    'TescoModern-Bold',    Arial, sans-serif;
+$small: 10px;

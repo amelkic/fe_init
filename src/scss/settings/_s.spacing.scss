@@ -10,13 +10,20 @@ $spacer: $figma-spacing-16; // 16px base
 
 $spacers: (
     0: 0,
-    1: $figma-spacing-8,    // 8px
-    2: $figma-spacing-16,   // 16px
-    3: $figma-spacing-24,   // 24px
-    4: $figma-spacing-32,   // 32px
-    5: $figma-spacing-48,   // 48px
-    6: $figma-spacing-80,   // 80px
-    7: $figma-spacing-104,  // 104px
+    1: $figma-spacing-8,
+    // 8px
+    2: $figma-spacing-16,
+    // 16px
+    3: $figma-spacing-24,
+    // 24px
+    4: $figma-spacing-32,
+    // 32px
+    5: $figma-spacing-48,
+    // 48px
+    6: $figma-spacing-80,
+    // 80px
+    7: $figma-spacing-104,
+    // 104px
 );
 
 $grid-gutter-width: $figma-grid-desktop-gutter; // 24px
@@ -26,3 +33,26 @@ $btn-padding-y: $figma-button-padding-y; // 16px
 
 $input-padding-x: $figma-input-padding-x; // 16px
 $input-padding-y: $figma-input-padding-y; // 8px
+
+// ------------------------------------------------------------
+// Component Spacing
+// ------------------------------------------------------------
+
+// Cards
+$card-spacer-y: $figma-spacing-16 !default;
+$card-spacer-x: $figma-spacing-24 !default;
+
+// Modals
+$modal-inner-padding: $figma-spacing-24 !default;
+
+// Alerts
+$alert-padding-y: $figma-spacing-16 !default;
+$alert-padding-x: $figma-spacing-24 !default;
+
+// Pagination
+$pagination-padding-y: $figma-spacing-8 !default;
+$pagination-padding-x: $figma-spacing-16 !default;
+
+// Navbar
+$navbar-padding-y: $figma-spacing-16 !default;
+$navbar-padding-x: $figma-spacing-24 !default;
